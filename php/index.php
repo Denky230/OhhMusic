@@ -8,11 +8,9 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <link rel="stylesheet" href="../css/base.css"/>
     </head>
     <body>
-        <?php
-        echo "this is a test yo! x2";
-        echo "test from danielo x2";
-        ?>
+        <h1>HOME PAGE</h1>
     </body>
 </html>
