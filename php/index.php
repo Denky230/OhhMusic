@@ -11,6 +11,8 @@ and open the template in the editor.
         <link rel="stylesheet" href="../css/base.css"/>
     </head>
     <body>
-        <h1>HOME PAGE</h1>
+        <header>header</header>
+        <div id="frame_left"></div>
+        <div id="frame_right"></div>
     </body>
 </html>

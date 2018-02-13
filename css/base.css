@@ -1,4 +1,20 @@
+body {    
+    background-color: blue;
+}
 
-h1 {
-    color: pink;
+header {
+    position: fixed;
+    
+    height: 10%;
+    width: 100%;
+    
+    background-color: red;
+}
+
+#frame_left {
+    
+}
+
+#frame_right {
+    
 }
