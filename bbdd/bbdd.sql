@@ -3,6 +3,7 @@ use ohhmusic;
 
 create table local(
 username varchar(25) primary key not null,
+name varchar(25) not null,
 location varchar(30) not null,
 email varchar(35) not null,
 phone int not null,
@@ -15,6 +16,7 @@ username varchar(35) primary key not null,
 name varchar(20) not null,
 surname varchar(30) not null,
 artist_name varchar(35) not null,
+genre varchar(20) not null,
 phone int not null,
 email varchar(35) not null,
 web varchar(40),
@@ -27,7 +29,7 @@ name varchar(20) not null,
 surname varchar(30) not null,
 email varchar(35) not null,
 phone int,
-adress varchar(50),
+address varchar(50),
 image longblob
 );
 
