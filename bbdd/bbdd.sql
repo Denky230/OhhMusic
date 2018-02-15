@@ -8,7 +8,7 @@ location varchar(30) not null,
 email varchar(35) not null,
 phone int not null,
 capacity int not null,
-image longblob
+image varchar(50)
 );
 
 create table musician(
@@ -30,7 +30,7 @@ surname varchar(30) not null,
 email varchar(35) not null,
 phone int,
 address varchar(50),
-image longblob
+image varchar(50)
 );
 
 create table concert(
@@ -50,6 +50,9 @@ constraint fk_us foreign key(un_musician) references musician(username) on delet
 constraint fk_con foreign key(id_concert) references concert(id_concert) on delete cascade on update cascade,
 constraint pk_play primary key(un_musician, id_concert)
 );
+create table applyConcert(
+
+)
 create table voteCon(
 un_fan varchar(30) not null,
 id_concert int not null,

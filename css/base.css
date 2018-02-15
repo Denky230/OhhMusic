@@ -1,20 +1,61 @@
-body {    
+
+body {
+    margin: 0%;
+    
     background-color: blue;
 }
 
 header {
-    position: fixed;
+    z-index: 0;
+    position: absolute;
     
     height: 10%;
     width: 100%;
     
+    font-size: 20px;
+    
     background-color: red;
 }
 
+#langs {
+    position: relative;    
+    float: left;
+
+    top: 35%;
+    left: 3%;
+}
+
 #frame_left {
+    z-index: -1;
+    position: absolute;
     
+    height: 100%;
+    width: 16%;
+    
+    
+    background-color: yellow;
+}
+
+#adBanner_left {
+    position: relative;
+        
+    height: 50%;
+    width: 80%;
+    
+    top: 20%;
+    left: 10%;
+    
+    background-color: red;
 }
 
 #frame_right {
+    z-index: -1;  
+    position: absolute;  
     
+    height: 100%;
+    width: 16%;
+    
+    left: 84%;
+        
+    background-color: yellow;
 }

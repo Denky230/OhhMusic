@@ -1,0 +1,29 @@
+
+#login {
+    position: relative;
+    float: right;
+
+    top: 35%;
+    right: 3%;
+}
+
+#search {
+    position: relative;
+    
+    top: 15%;
+    left: 15%;
+}
+
+#generos {
+    position: relative;
+    
+    top: 20%;
+    left: 10%;
+}
+
+#generos input[type=submit] {    
+    height: 45px;
+    width: 80%;
+    
+    font-size: 15px;
+}
