@@ -7,9 +7,9 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
         <link rel="stylesheet" href="../css/base.css"/>
         <link rel="stylesheet" href="../css/home.css"/>
+        <title></title>
     </head>
     <body>
         <header>
@@ -27,12 +27,15 @@ and open the template in the editor.
                     <input type="submit" value="Search">
                 </form>                
             </div>
-            <div id="generos">
+            <div id="genres">
                 <form>
                     GÉNEROS:<p>
                     <input type="submit" value="GENERO"><br>
                     <input type="submit" value="GENERO"><br>
                 </form>
+            </div>
+            <div id="topArtist">
+                TOP ARTISTS:<br>
             </div>
         </aside>
     </body>
