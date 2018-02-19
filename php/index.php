@@ -9,7 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/base.css"/>
         <link rel="stylesheet" href="../css/home.css"/>
-        <title></title>
+        <title>Home</title>
     </head>
     <body>
         <header id="header">
@@ -40,8 +40,9 @@ and open the template in the editor.
                 </div>                
             </div>
             <div id="topArtists">
-                <p>TOP ARTISTS:</p>
+                <p>TOP ARTISTAS:</p>
             </div>
         </aside>
+        <iframe id="main" src="fr_home.php"></iframe>
     </body>
 </html>

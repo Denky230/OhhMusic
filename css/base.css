@@ -76,3 +76,14 @@ body {
 #frame_right {
     left: 84%;
 }
+
+#main {
+    position: absolute;
+         
+    width: 68%;
+    
+    top: 80px;
+    left: 16%;
+    
+    border: none;
+}

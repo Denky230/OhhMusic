@@ -7,11 +7,9 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Fan</title>
     </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
+    <body style="background-color: white">
+        <h1>im a fan</h1>
     </body>
 </html>
