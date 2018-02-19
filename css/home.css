@@ -1,38 +1,57 @@
 
-#login {
-    position: absolute;
-    float: right;
-
-    top: 35%;
-    right: 3%;
-}
+/* ------------------------------ Search ------------------------------ */
 
 #search {
-    position: absolute;
+    position: relative;
     
-    top: 15%;
-    left: 15%;
-}
-
-#genres {
-    position: absolute;
-    
+    height: 26px;
     width: 80%;
     
-    top: 25%;
-    left: 10%;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#search input[type=text] {
+    position: absolute;
+    
+    height: 85%;        
+    width: 68%;
+}
+#search input[type=submit] {
+    position: absolute;
+    
+    height: 100%;   
+    width: 25%;
+    
+    right: 0;
 }
 
-#genres input[type=submit] {    
+/* ---------------------------- Right Frame ---------------------------- */
+
+#genres, #topArtists {
+    position: relative;
+    
+    height: 320px;
+    width: 80%;
+    
+    margin-top: 10%;
+    left: 50%;    
+    transform: translateX(-50%);
+}
+
+/* ------------------------------ Genres ------------------------------- */
+
+#genres {
+    margin-top: 28%;
+}
+#genres_btns {
+    height: 270px;
+    overflow-y: auto;
+}
+#genres input[type=submit] {
     height: 45px;
     width: 100%;
     
     font-size: 15px;
 }
 
-#topArtist {
-    position: absolute;
-    
-    top: 60%;
-    left: 10%;
-}

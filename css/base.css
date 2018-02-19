@@ -1,61 +1,78 @@
 
-body {
+* {
     margin: 0;
     padding: 0;
-    
-    background-color: blue;
 }
 
-header {
-    z-index: 0;
+p {
+    line-height: 50px;
+}
+
+body {
+    background-color: gray;
+}
+
+/* ------------------------------ Header ------------------------------ */
+
+#header {
     position: fixed;
     
-    height: 10%;
+    height: 80px;
     width: 100%;
-    
+
     font-size: 20px;
     
     background-color: red;
 }
-
+#title, #langs, #login {
+    position: absolute;
+    
+    top: 50%;
+    transform: translateY(-50%);
+}
+#title {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 #langs {
-    position: absolute;    
-    float: left;
-
-    top: 35%;
     left: 3%;
 }
+#login {
+    right: 3%;
+}
 
-#frame_left {
+/* ------------------------------- Sides ------------------------------- */
+
+#frame_left, #frame_right {
     z-index: -1;
     position: fixed;
     
     height: 100%;
-    width: 16%;    
+    width: 16%;
+    
+    padding-top: 80px;
     
     background-color: yellow;
 }
 
-#adBanner_left {
-    position: absolute;
-        
-    height: 50%;
+#groupBanner_left, #adBanner_left {
+    position: relative;
+    
     width: 80%;
     
-    top: 20%;
-    left: 10%;
-    
+    margin-top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
     background-color: red;
+}
+#groupBanner_left {
+    height: 30%;
+}
+#adBanner_left {
+    height: 50%;
 }
 
 #frame_right {
-    z-index: -1;  
-    position: fixed;  
-    
-    height: 100%;
-    width: 16%;
-    
     left: 84%;
-    
-    background-color: yellow;
 }

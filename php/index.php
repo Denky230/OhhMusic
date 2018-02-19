@@ -12,12 +12,13 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <header>
+        <header id="header">
             <div id="langs">ESPAÑOL</div>
+            <div id="title"><h1>OHH MUSIC</h1></div>
             <div id="login">LOG IN / SIGN UP</div>
-            <h1><center>OHH MUSIC</center></h1>
         </header>
         <aside id="frame_left">
+            <div id="groupBanner_left">group banner here</div>
             <div id="adBanner_left">ad here</div>
         </aside>
         <aside id="frame_right">
@@ -28,14 +29,18 @@ and open the template in the editor.
                 </form>                
             </div>
             <div id="genres">
-                <form>
-                    GÉNEROS:<p>
-                    <input type="submit" value="GENERO"><br>
-                    <input type="submit" value="GENERO"><br>
-                </form>
+                <p>GÉNEROS:</p>                
+                <div id="genres_btns">
+                    <form>
+                        <input type="submit" value="GENERO"><br>
+                        <input type="submit" value="GENERO"><br>
+                        <input type="submit" value="GENERO"><br>
+                        <input type="submit" value="GENERO"><br>
+                    </form>
+                </div>                
             </div>
-            <div id="topArtist">
-                TOP ARTISTS:<br>
+            <div id="topArtists">
+                <p>TOP ARTISTS:</p>
             </div>
         </aside>
     </body>
