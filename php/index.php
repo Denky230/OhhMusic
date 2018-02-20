@@ -16,7 +16,7 @@ and open the template in the editor.
             <div id="langs">ESPAÑOL</div>
             <div id="title"><h1>OHH MUSIC</h1></div>
             <div id="login">LOG IN / SIGN UP</div>
-            <img id="search_icon" src="../media/search_02.png">
+            <img id="search_icon" src="../media/search.png">
             <form method="POST">
                 <input id="search_bar" type="text" name="search" placeholder="Busca grupos, conciertos, locales..." required>
             </form>
