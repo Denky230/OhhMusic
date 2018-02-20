@@ -8,7 +8,7 @@ p {
     line-height: 50px;
 }
 
-body {
+html {
     background-color: gray;
 }
 
@@ -38,12 +38,59 @@ body {
     left: 3%;
 }
 #login {
-    right: 3%;
+    right: 6%;
+}
+
+/* ------------------------------ Search ------------------------------ */
+
+#search_bar {
+    position: absolute;
+    
+    height: 56px;
+    width: 400px;
+    
+    right: -450px;
+    
+    padding: 10px;
+    
+    font-size: 20px;
+    transition: all .5s;
+}
+#search_icon {
+    position: absolute;
+    
+    height: 30px;
+    width: 30px;
+    
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2%;
+}
+#search_icon:hover {
+    cursor: pointer;
+}
+.search_bar_show {
+    transform: translateX(-130%);
+}
+
+/* ------------------------------- Main ------------------------------- */
+
+#main {
+    z-index: -1;
+    position: absolute;
+         
+    height: 91.5%;
+    width: 84%;
+    
+    top: 80px;
+    left: 16%;
+    
+    border: none;
 }
 
 /* ------------------------------- Sides ------------------------------- */
 
-#frame_left, #frame_right {
+#frame_left {
     z-index: -1;
     position: fixed;
     
@@ -73,17 +120,3 @@ body {
     height: 50%;
 }
 
-#frame_right {
-    left: 84%;
-}
-
-#main {
-    position: absolute;
-         
-    width: 68%;
-    
-    top: 80px;
-    left: 16%;
-    
-    border: none;
-}
