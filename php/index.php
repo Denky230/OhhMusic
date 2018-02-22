@@ -15,7 +15,9 @@ and open the template in the editor.
         <header id="header">
             <div id="langs">ESPAÑOL</div>
             <div id="title"><h1>OHH MUSIC</h1></div>
-            <div id="login">LOG IN / SIGN UP</div>
+            <div id="account">
+                <div id="login">LOG IN</div> / <div id="signup">SIGN UP</div>
+            </div>
             <img id="search_icon" src="../media/search.png">
             <form method="POST">
                 <input id="search_bar" type="text" name="search" placeholder="Busca grupos, conciertos, locales..." required>
@@ -26,7 +28,21 @@ and open the template in the editor.
             <div id="adBanner_left">ad here</div>
         </aside>
         <iframe id="main" src="fr_home.php"></iframe>
-        
+        <div id="modal">
+            <div id="modal_login">
+                <form method="POST">
+                    <input type="text" name="username" id="login_username" placeholder="Username" required><br>
+                    <input type="password" name="pass" placeholder="Password" required><br>
+                    <input type="submit" value="Log in">
+                </form>
+            </div>
+            <div id="modal_signup">
+                <form method="POST">
+                    
+                </form>
+            </div>
+        </div>        
         <script src="../js/search.js"></script>
+        <script src="../js/account.js"></script>
     </body>
 </html>
