@@ -9,20 +9,70 @@ p {
 }
 
 body {
-    margin-top: 80px;
+    margin-left: 16%;
     background-color: white;
+}
+
+/* ------------------------------ Main ------------------------------ */
+
+#main {
+    position: absolute;
+    
+    width: 68%;
+    
+    padding-top: 80px;
+
+    box-sizing: border-box;
+    background-color: gray;
+}
+
+#concerts {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    width: 100%;
+    
+    padding: 20px 30px;
+    
+    box-sizing: border-box;
+    background-color: aqua;
+}
+#concert_box {
+    height: 450px;
+    width: 49%;
+    
+    margin: 10px 0px;
+    padding: 20px;
+    
+    box-sizing: border-box;
+    background-color: deeppink;
+}
+#concert_img {
+    width: 100%;
+    height: 60%;    
+}
+#concert_info {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    width: 100%;
 }
 
 /* --------------------------- Right Frame --------------------------- */
 
 #frame_right {
-    position: absolute;
+    position: fixed;
     
     height: 100%;
     width: 16%;
     
     left: 84%;
     
+    padding-top: 80px;
+
+    box-sizing: border-box;    
     background-color: orange;
 }
 
@@ -52,4 +102,3 @@ body {
     
     font-size: 15px;
 }
-

@@ -11,12 +11,6 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <header>
-            <div id="langs">ESPAÑOL</div>
-            <h1><center>OHH MUSIC</center></h1>
-        </header>
-        <aside id="frame_left">
-            <div id="adBanner_left">ad here</div>
-        </aside>
+        
     </body>
 </html>
