@@ -30,6 +30,7 @@ and open the template in the editor.
         <iframe id="main" src="fr_home.php"></iframe>
         <div id="modal">
             <div id="modal_login">
+                <h2>LOGIN</h2>
                 <form method="POST">
                     <input type="text" name="username" id="login_username" placeholder="Username" required><br>
                     <input type="password" name="pass" placeholder="Password" required><br>

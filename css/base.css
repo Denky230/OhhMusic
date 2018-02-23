@@ -12,9 +12,10 @@ html {
     background-color: gray;
 }
 
-/* ------------------------------ Header ------------------------------ */
+/* ----------------------------- Header ----------------------------- */
 
 #header {
+    z-index: 0;
     position: fixed;
     
     height: 80px;
@@ -51,10 +52,11 @@ html {
     cursor: pointer;
 }
 
-/* ------------------------------- Modal ------------------------------- */
+/* ------------------------------ Modal ------------------------------ */
 
 #modal {
     z-index: 1;
+    display: none;
     position: absolute;
     
     height: 100%;
@@ -65,33 +67,36 @@ html {
 #modal_login {
     z-index: 2;
     
-    width: 20%;
-    height: 17%;
+    width: 300px;
+    height: 260px;
     
-    margin: 20% auto;
-    padding-top: 7px;
+    margin: 15% auto;
+    padding: 40px 15px 0 15px;
+    
+    font-size: 20px;
+    font-family: monospace;
+    
+    box-sizing: border-box;
     
     background-color: white;
 }
 #modal input {
-    height: 40px;
-    width: 80%;
+    height: 48px;
+    width: 270px;
 
-    margin: 5px 30px;
-    padding: 5px 10px;
-
-    font-size: 20px;
-}
-#modal input[type=submit] {
-    width: 85%;
+    margin: 8px 0 0 0;
+    padding: 12px 12px;
+    
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
-/* ------------------------------ Search ------------------------------ */
+/* ----------------------------- Search ----------------------------- */
 
 #search_bar {
     position: absolute;
     
-    height: 56px;
+    height: 80px;
     width: 400px;
     
     right: -450px;
@@ -100,6 +105,8 @@ html {
     
     font-size: 20px;
     transition: all .5s;
+    
+    box-sizing: border-box;
 }
 #search_icon {
     position: absolute;
@@ -115,25 +122,22 @@ html {
     cursor: pointer;
 }
 .search_bar_show {
-    transform: translateX(-130%);
+    transform: translateX(-137.5%);
 }
 
-/* ------------------------------- Main ------------------------------- */
+/* ------------------------------ Main ------------------------------ */
 
 #main {
-    z-index: -1;
+    z-index: -2;
     position: absolute;
          
-    height: 91.5%;
-    width: 84%;
-    
-    top: 80px;
-    left: 16%;
+    height: 100%;
+    width: 100%;
     
     border: none;
 }
 
-/* ------------------------------- Sides ------------------------------- */
+/* ------------------------------ Sides------------------------------- */
 
 #frame_left {
     z-index: -1;

@@ -8,26 +8,20 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <script type="text/javascript" src="slides.js"></script>
-        <link href="slider.css" type="text/css" rel="stylesheet">
+        <link href="../css/slider.css" type="text/css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     </head>
     <body>
-        <div class="slidercontainer">
-            <div class="showSlide fade">
-                <img src="images/POTD_chick_3597497k.jpg"/>
-                <div class="content">Chicken</div>
-                <p>Hola?</p>
+        <div id="c-slider">
+            <div id="slider">
+                <section><img src="../images/maxresdefault.jpg" alt=""/></section>
+                <section><img src="../images/potd-squirrel.jpg" alt=""/></section>
+                <section><img src="../images/pexels-photo.jpeg" alt=""/></section>
+                <section><img src="../images/sO0mRdKW.jpeg" alt=""/></section>
             </div>
-            <div class="showSlide fade">
-                <img src="images/maxresdefault.jpg"/>
-                <div class="content">Unknown</div>
-            </div>
-            <div class="showSlide fade">
-                <img src="images/potd-squirrel_3519920k.jpg"/>
-                <div class="content">Squirrel</div>
-            </div>
-            <a class="left" onclick="nextSlide(-1)"><</a>
-            <a class="right" onclick="nextSlide(1)">></a>
+            <div id="btn-prev">&#60</div>
+            <div id="btn-next">&#62</div>
         </div>
+        <script src="../js/slides.js"></script>
     </body>
 </html>
