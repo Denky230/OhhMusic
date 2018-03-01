@@ -8,7 +8,7 @@ location varchar(30) not null,
 email varchar(35) not null,
 phone int not null,
 capacity int not null,
-image varchar(50)
+image varchar(255)
 );
 
 create table musician(
@@ -19,7 +19,7 @@ artist_name varchar(35) not null,
 genre varchar(20) not null,
 phone int not null,
 email varchar(35) not null,
-web varchar(40),
+web varchar(255),
 group_size int not null
 );
 
