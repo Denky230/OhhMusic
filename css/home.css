@@ -39,8 +39,8 @@ body {
     background-color: aqua;
 }
 #concert_box {
-    height: 450px;
-    width: 49%;
+    height: 400px;
+    width: 32%;
     
     margin: 10px 0px;
     padding: 20px;
@@ -50,7 +50,7 @@ body {
 }
 #concert_img {
     width: 100%;
-    height: 60%;    
+    height: 60%;
 }
 #concert_info {
     display: inline-flex;
