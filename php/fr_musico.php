@@ -7,11 +7,49 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <link rel="stylesheet" href="../css/musico.css"/>
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+        <div id="main">
+            <div id="concerts">
+                <div id="concert_box">
+                    <img id="concert_img" src="../media/0002045178_10.jpg" alt="">
+                    <div id="concert_info">
+                        <h2>NombreLocal</h2>
+                        <h2>LugarLocal</h2>
+                        <h2>TelfLocal</h2>
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
