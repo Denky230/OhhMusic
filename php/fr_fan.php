@@ -50,6 +50,24 @@ and open the template in the editor.
 
                     </div>
                 </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
             </div>
         </div>
     </body>
