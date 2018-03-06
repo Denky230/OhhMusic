@@ -54,9 +54,9 @@ and open the template in the editor.
             </div>
         </div>
         <aside id="frame_right">
-            <div id="genres">
-                <p>GÉNEROS:</p>
-                <div id="genres_btns">
+            <div id="musiciansByGenre">
+                <p>MUSICOS BY GENRE:</p>
+                <div id="musiciansByGenre_btns">
                     <form>
                         <input type="submit" value="GENERO">
                         <input type="submit" value="GENERO">
@@ -65,8 +65,35 @@ and open the template in the editor.
                     </form>
                 </div>
             </div>
-            <div id="topArtists">
-                <p>TOP ARTISTAS:</p>
+            <div id="propertiesByCity">
+                <p>LOCALES BY CITY:</p>                
+                <div id="propertiesByCity_hd">
+                    <div id="propertiesByCity_btns">
+                        <table border="0">
+                            <tr>
+                                <th>Local</th>
+                                <th>City</th>
+                            </tr>
+                            <tr id="hrRow"><td colspan="2"><hr></td></tr>
+                            <tr>
+                                <td>hola</td>
+                                <td>hola</td>
+                            </tr>
+                            <tr>
+                                <td>hola</td>
+                                <td>hola</td>
+                            </tr>
+                            <tr>
+                                <td>hola</td>
+                                <td>hola</td>
+                            </tr>
+                            <tr>
+                                <td>hola</td>
+                                <td>hola</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </aside>
     </body>

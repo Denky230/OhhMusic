@@ -23,11 +23,14 @@ and open the template in the editor.
                 <input id="search_bar" type="text" name="search" placeholder="Busca grupos, conciertos, locales..." required>
             </form>
         </header>
+        
         <aside id="frame_left">
             <div id="groupBanner_left">group banner here</div>
             <div id="adBanner_left">ad here</div>
         </aside>
+        
         <iframe id="main" src="fr_home.php"></iframe>
+        
         <div id="modal">
             <div id="modal_login">
                 <h2>LOGIN</h2>
@@ -42,7 +45,8 @@ and open the template in the editor.
                     
                 </form>
             </div>
-        </div>        
+        </div>
+        
         <script src="../js/search.js"></script>
         <script src="../js/account.js"></script>
     </body>
