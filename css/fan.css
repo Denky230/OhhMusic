@@ -9,21 +9,21 @@ p {
 }
 
 body {
+    margin-left: 16%;
     background-color: white;
 }
 
-/* --------------------------- Main --------------------------- */
+/* ------------------------------ Main ------------------------------ */
 
 #main {
     position: absolute;
     
-    width: 68%;
+    width: 84%;
     
     padding-top: 80px;
-    margin-left: 16%;
 
     box-sizing: border-box;
-    background-color: gray;
+    background-color: white;
 }
 
 #concerts {
@@ -39,7 +39,7 @@ body {
     background-color: aqua;
 }
 #concert_box {
-    height: 400px;
+    height: 450px;
     width: 32%;
     
     margin: 10px 0px;
@@ -60,33 +60,4 @@ body {
     width: 100%;
 }
 
-/* --------------------------- Right Frame --------------------------- */
 
-#frame_right {
-    position: absolute;
-    
-    height: 160%;
-    width: 16%;
-    
-    left: 84%;
-    
-    padding-top: 90px;
-    box-sizing: border-box;
-    background-color: rgb(230, 230, 230);
-}
-
-h2{
-    font-family: cursive;
-    font-size: 130%;
-}
-h4{
-    font-size: 100%;
-    font-family: monospace;
-    padding-top: 10%;
-}
-
-input{
-    height: 100%;
-    width: 90%;
-    margin-top: 5%;
-}

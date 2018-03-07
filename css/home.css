@@ -21,8 +21,8 @@ body {
     width: 68%;
     
     padding-top: 80px;
-
     box-sizing: border-box;
+    
     background-color: gray;
 }
 
@@ -33,9 +33,9 @@ body {
     
     width: 100%;
     
-    padding: 20px 30px;
-    
+    padding: 20px 30px;    
     box-sizing: border-box;
+    
     background-color: aqua;
 }
 #concert_box {
@@ -43,14 +43,14 @@ body {
     width: 32%;
     
     margin: 10px 0px;
-    padding: 20px;
-    
+    padding: 20px;    
     box-sizing: border-box;
+    
     background-color: deeppink;
 }
 #concert_img {
     width: 100%;
-    height: 60%;    
+    height: 60%;
 }
 #concert_info {
     display: inline-flex;
@@ -60,7 +60,7 @@ body {
     width: 100%;
 }
 
-/* --------------------------- Right Frame --------------------------- */
+/* -------------------------- Right Frame -------------------------- */
 
 #frame_right {
     position: fixed;
@@ -70,35 +70,55 @@ body {
     
     left: 84%;
     
-    padding-top: 80px;
-
-    box-sizing: border-box;    
+    padding: 80px 15px 0 15px;
+    box-sizing: border-box;
+    
     background-color: orange;
 }
 
-#genres, #topArtists {
+#musiciansByGenre, #propertiesByCity {
     position: relative;
     
     height: 380px;
-    width: 80%;
     
     margin-top: 10%;
     left: 50%;    
     transform: translateX(-50%);
 }
-
-/* ----------------------------- Genres ------------------------------ */
-
-#genres {
-    margin-top: 10%;
-}
-#genres_btns {
-    height: 270px;
-    overflow-y: auto;
-}
-#genres input[type=submit] {
+#musiciansByGenre input[type=submit],
+#propertiesByCity input[type=submit] {
     height: 45px;
     width: 100%;
     
     font-size: 15px;
+}
+#musiciansByGenre_btns,
+#propertiesByCity_btns {
+    height: 340px;
+    overflow-y: auto;
+}
+
+/* ----------------------- MusiciansByGenre ----------------------- */
+
+#musiciansByGenre {
+    margin-top: 10%;
+}
+
+/* ------------------------ PropertiesByCity ------------------------ */
+
+#propertiesByCity_btns {
+    background-color: white;
+}
+#propertiesByCity_btns table {
+    width: 100%;
+    padding: 0 15px;
+    font-size: 18px;
+}
+#propertiesByCity_btns th, 
+#propertiesByCity_btns td {
+    text-align: left;
+    padding: 10px;
+}
+#hrRow td {
+    padding: 0px;
 }
