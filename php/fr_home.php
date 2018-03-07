@@ -70,6 +70,9 @@ and open the template in the editor.
                 <div id="propertiesByCity_hd">
                     <div id="propertiesByCity_btns">
                         <table border="0">
+                            <?php
+                                
+                            ?>
                             <tr>
                                 <th>Local</th>
                                 <th>City</th>
