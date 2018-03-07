@@ -9,6 +9,7 @@ province varchar(20)
 
 create table user(
 id_user int not null primary key auto_increment,
+type int(1) not null,
 username varchar(25) not null,
 pass varchar(255) not null,
 name varchar(25) not null,
