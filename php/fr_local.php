@@ -16,37 +16,43 @@ and open the template in the editor.
     <body>
         <div id="main">
             <div id="concerts">
-                <div id="container">
-                    <header id="header">
-                        <span>View:</span>
-                        <button class="view-list">List</button>
-                        <button class="view-grid">Grid</button>
-                    </header>
-                    <ol class="grid" id="frame">
-                        <li class="frame">
-                            <div class="inset">
-                                <div class="image"></div>
-                                <div class="info">
-                                    <div class="title">Concierto</div>
-                                    <div class="description">Descripcion</div>
-                                    <div class="shares">
-                                        <div class="icon-lik like"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li><li class="frame">
-                            <div class="inset">
-                                <div class="image"></div>
-                                <div class="info">
-                                    <div class="title">Concierto</div>
-                                    <div class="description">Descripcion</div>
-                                    <div class="shares">
-                                        <div class="icon-lik like"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ol>
+                <div id="concert_box">
+                    <img id="concert_img" src="../media/0002045178_10.jpg" alt="">
+                    <div id="concert_info">
+                        <h2>NombreLocal</h2>
+                        <h2>LugarLocal</h2>
+                        <h2>TelfLocal</h2>
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
                 </div>
             </div>
         </div>

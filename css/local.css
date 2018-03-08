@@ -11,159 +11,53 @@ p {
 body {
     background-color: white;
 }
+
 /* --------------------------- Main --------------------------- */
-#main{
+
+#main {
     position: absolute;
     
     width: 68%;
     
     padding-top: 80px;
+    margin-left: 16%;
 
     box-sizing: border-box;
     background-color: gray;
 }
 
-
-#container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 15px;
-    font-family: 'Helvetica', cursive, sans-serif;
-    font-size: 90%;
-    line-height: normal;
-    font-smoothing: antialiased;
-}
-
-#frame{
-    position: relative;
+#concerts {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
     width: 100%;
-    height: 100%;
+    
+    padding: 20px 30px;
+    
+    box-sizing: border-box;
+    background-color: aqua;
 }
-
-#frame .frame{
-    position: relative;
-    overflow: hidden;
+#concert_box {
+    height: 400px;
+    width: 32%;
+    
+    margin: 10px 0px;
+    padding: 20px;
+    
+    box-sizing: border-box;
+    background-color: deeppink;
 }
-
-#frame .frame .inset .info .title{
-    cursor: pointer;
-    display: inline-block;
-    font-weight: bold;
+#concert_img {
+    width: 100%;
+    height: 60%;    
 }
-
-#frame .frame .inset .info .description{
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-#frame .frame .inset .info [class*='icon-']{
-    cursor: pointer;
-    margin-left: 10px;
-    display: inline-block;
-    font-weight: bold;
-}
-
-#frame .frame .inset .info [class*='icon-']:before{
-    margin-right: 5px;
-    font-weight: normal;
-}
-
-.grid{
-    display: flex;
-    flex-flow: row wrap;
-    color: #fff;
-}
-
-.grid .frame{
-    width: 250px;
-    height: 250px;
-    flex: 1 0 250px;
-}
-
-.grid .frame .inset{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 10px;
-}
-
-.grid .frame .inset .image{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
- }
- 
- .grid .frame .inset .info{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 10px;
-    background: rgba(0,0,0,0.85);
-    overflow: hidden;
-}
-
-.grid .frame .inset .shares{
-    margin-top: 10px;
-    display: block;
-    font-size: 85%;
-    text-align: right;
-}
-
-.list{
-    color: #333;
-}
-
-.list .frame{
-    height: 75%;
-    line-height: 75%;
-    box-shadow: inset 0 1px #EEE;
-}
-
-.list .frame .inset .image{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 55px;
-    height: 55px;
-    margin: auto 10px;
-}
-
-.list .frame .inset .info{
-    position: absolute;
-    top: 0;
-    left: 75px;
-    bottom: 0;
-}
-
-.list .frame .inset .info .title{
-    float: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.list .frame .inset .info .description{
-    float: left;
-    max-width: 40%;
-    margin-left: 15px;
-}
-
-.list .frame .inset .info .shares{
-    float: left;
-    margin-left: 10px;
-    font-size: 85px;
+#concert_info {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    width: 100%;
 }
 
 /* --------------------------- Right Frame --------------------------- */
@@ -171,28 +65,28 @@ body {
 #frame_right {
     position: absolute;
     
-    height: 100%;
+    height: 160%;
     width: 16%;
     
     left: 84%;
     
-    padding-top: 80px;
+    padding-top: 90px;
     box-sizing: border-box;
     background-color: rgb(230, 230, 230);
-}
-
-h4{
-    font-size: 100%;
-    font-family: monospace;
-    padding-top: 10%;
-}
-input{
-    height: 100%;
-    width: 90%;
-    margin-top: 5%;
 }
 
 h2{
     font-family: cursive;
     font-size: 130%;
+}
+h4{
+    font-size: 100%;
+    font-family: monospace;
+    padding-top: 10%;
+}
+
+input{
+    height: 100%;
+    width: 90%;
+    margin-top: 5%;
 }

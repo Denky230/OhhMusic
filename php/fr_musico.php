@@ -13,7 +13,7 @@ and open the template in the editor.
         <div id="main">
             <div id="concerts">
                 <div id="concert_box">
-                    <img id="concert_img" src="../media/0002045178_10.jpg" alt="">
+                    <img id="concert_img" src="../media/random.jpg" alt="">
                     <div id="concert_info">
                         <h3>Nombre Local</h3>
                         <h3>Lugar Local</h3>
