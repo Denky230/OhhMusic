@@ -90,7 +90,7 @@ function select($fields, $table, $conditions = ""){
 }
 
 function connect(){
-    $conexion = mysqli_connect("localhost", "root", "", "msg");    
+    $conexion = mysqli_connect("localhost", "root", "", "ohhmusic");    
     if (!$conexion){
         die("No se ha podido establecer la conexión");
     }

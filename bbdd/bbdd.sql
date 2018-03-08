@@ -2,7 +2,7 @@ create database ohhmusic;
 use ohhmusic;
 
 create table city(
-id_city int not null primary key,
+id_city int not null primary key auto_increment,
 name varchar(20) not null,
 province varchar(20)
 );
@@ -22,14 +22,13 @@ constraint fk_user_city foreign key(city) references city(id_city)
 create table local(
 id_local int not null primary key,
 phone varchar(12) not null,
-location varchar(30) not null,
 capacity int not null,
 web varchar(255),
 constraint fk_local_user foreign key(id_local) references user(id_user)
 );
 
 create table genre(
-id_genre int not null primary key,
+id_genre int not null primary key auto_increment,
 name varchar(50) not null
 );
 
@@ -54,7 +53,7 @@ constraint fk_fan_user foreign key(id_fan) references user(id_user)
 );
 
 create table concert(
-id_concert int not null primary key AUTO_INCREMENT,
+id_concert int not null primary key auto_increment,
 state int(1) not null,
 concert_date date not null,
 concert_time time not null,
