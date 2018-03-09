@@ -32,7 +32,7 @@ and open the template in the editor.
         <iframe id="main" src="fr_home.php"></iframe>
         
         <div id="modal">
-            <div id="modal_login">
+            <div id="login_form">
                 <h2>LOGIN</h2>
                 <form method="POST">
                     <input type="text" name="username" id="login_username" placeholder="Username" required><br>
@@ -40,11 +40,17 @@ and open the template in the editor.
                     <input type="submit" value="Log in">
                 </form>
             </div>
-            <div id="modal_signup">
-                <form method="POST">
-                    
-                </form>
-            </div>
+        </div>
+        <div id="signup_bg">
+            <div id="signup_select">
+                <h3>Quieres ser...</h3>
+                <select name="userType">
+                    <option value="">Musician</option>
+                    <option value="">Local</option>
+                    <option value="">Fan</option>
+                </select>
+                <button type="button" id="signup_select_btn">Registrar</button>
+            </div>    
         </div>
         
         <script src="../js/search.js"></script>
