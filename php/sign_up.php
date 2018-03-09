@@ -42,7 +42,7 @@ require "bbdd.php";
                 $list = getProvince();
                 while($fila = mysqli_fetch_assoc($list)){
                     echo("<option>");
-                    echo($fila[""])
+                    echo($fila[""]);
                 }
             ?>
         }
