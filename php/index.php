@@ -40,6 +40,14 @@ and open the template in the editor.
                     <input type="submit" value="Log in">
                 </form>
             </div>
+            <div id="signup_form">
+                <h2>REGISTRO</h2>
+                <form method="POST">
+                    <input type="text" name="username" id="login_username" placeholder="Username" required><br>
+                    <input type="password" name="pass" placeholder="Password" required><br>
+                    <input type="submit" value="Log in">
+                </form>
+            </div>
         </div>
         <div id="signup_bg">
             <div id="signup_select">
