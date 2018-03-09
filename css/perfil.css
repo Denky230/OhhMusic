@@ -1,0 +1,49 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    line-height: 50px;
+}
+
+body {
+    margin-left: 16%;
+    background-color: white;
+}
+
+/* ------------------------------ Main ------------------------------ */
+
+#main {
+    position: absolute;
+    
+    width: 84%;
+    
+    padding-top: 80px;
+
+    box-sizing: border-box;
+    background-color: white;
+}
+
+#display {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    width: 100%;
+    
+    padding: 322px 30px;
+    
+    box-sizing: border-box;
+    background-color: lightpink;
+}
+#image_box {
+    height: 150px;
+    width: 150px;
+    
+    margin-top: -300px;
+    
+    box-sizing: border-box;
+    background-color: lightgoldenrodyellow;
+}
