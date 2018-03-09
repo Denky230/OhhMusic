@@ -61,46 +61,24 @@ require_once 'dmlFunctions.php';
                 <p>MUSICOS BY GENRE:</p>
                 <div id="musiciansByGenre_btns">
                     <form>
-                        <input type="submit" value="GENERO">
-                        <input type="submit" value="GENERO">
-                        <input type="submit" value="GENERO">
-                        <input type="submit" value="GENERO">
+                        <?php
+                        $genres = select("name", "genre");
+                        while ($genre = mysqli_fetch_assoc($genres)){
+                            echo "<input type='submit' value='".strtoupper($genre["name"])."'>";
+                        }
+                        ?>
                     </form>
                 </div>
             </div>
             <div id="propertiesByCity">
                 <p>LOCALES BY CITY:</p>                
-                <div id="propertiesByCity_hd">
-                    <div id="propertiesByCity_btns">
-                        <table border="0">
-                            <?php
-                            /*
-                                $locales = select("local.name, ", "local");                                
-                            */
-                            ?>
-                            <tr>
-                                <th>Local</th>
-                                <th>City</th>
-                            </tr>
-                            <tr id="hrRow"><td colspan="2"><hr></td></tr>
-                            <tr>
-                                <td>hola</td>
-                                <td>hola</td>
-                            </tr>
-                            <tr>
-                                <td>hola</td>
-                                <td>hola</td>
-                            </tr>
-                            <tr>
-                                <td>hola</td>
-                                <td>hola</td>
-                            </tr>
-                            <tr>
-                                <td>hola</td>
-                                <td>hola</td>
-                            </tr>
-                        </table>
-                    </div>
+                <div id="propertiesByCity_btns">
+                    <form>
+                        <input type="submit" value="CITY">
+                        <input type="submit" value="CITY">
+                        <input type="submit" value="CITY">
+                        <input type="submit" value="CITY">
+                    </form>
                 </div>
             </div>
         </aside>

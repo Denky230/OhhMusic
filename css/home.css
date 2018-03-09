@@ -106,19 +106,3 @@ body {
 
 /* ------------------------ PropertiesByCity ------------------------ */
 
-#propertiesByCity_btns {
-    background-color: white;
-}
-#propertiesByCity_btns table {
-    width: 100%;
-    padding: 0 15px;
-    font-size: 18px;
-}
-#propertiesByCity_btns th, 
-#propertiesByCity_btns td {
-    text-align: left;
-    padding: 10px;
-}
-#hrRow td {
-    padding: 0px;
-}
