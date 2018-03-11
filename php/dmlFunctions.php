@@ -1,5 +1,7 @@
 <?php
 
+/* ----------------------------------------- DELETE ----------------------------------------- */
+
 function delete_array($table, $field, $valuesArray){
     $deleteValues = "";
     
@@ -22,6 +24,8 @@ function delete($table, $field, $values){
     return $resultado;
 }
 
+/* ----------------------------------------- UPDATE ----------------------------------------- */
+
 function update($table, $field, $newValue, $conditions = ""){
     $conexion = connect();
     
@@ -36,11 +40,12 @@ function update($table, $field, $newValue, $conditions = ""){
     return $result;
 }
 
+/* ----------------------------------------- INSERT ----------------------------------------- */
 
 function insert_array($table, $valuesArray){
     $insertValues = "";
     
-    // Building SELECT sentence
+    // Building INSERT sentence
     foreach($valuesArray as $value){
         $insertValues = $insertValues . "'$value', ";
     }
@@ -63,6 +68,8 @@ function insert($table, $values){
     return $result;
 }
 
+/* ----------------------------------------- SELECT ----------------------------------------- */
+
 function count_field($field, $table, $name){
     $conexion = connect();
     
@@ -72,7 +79,6 @@ function count_field($field, $table, $name){
     disconnect($conexion);
     return $resultado;
 }
-
 function select_value($field, $table, $conditions = ""){
     $valueAssoc = mysqli_fetch_assoc(select($field, $table, $conditions));
     return $valueAssoc["$field"];
@@ -80,16 +86,17 @@ function select_value($field, $table, $conditions = ""){
 function select($fields, $table, $conditions = ""){
     $conexion = connect();
     
-    $select = "select $fields from $table $conditions";
+    $select = "select ".prepareFieldsString($fields, $table)." from $table $conditions";
     $resultado = mysqli_query($conexion, $select);
         
     disconnect($conexion);
     return $resultado;
 }
 
-// Returns an array containing each word of the string separated by ","
-function stringToArray($string){
-    return explode(",", str_replace(" ", "", $string));
+// Remove " "s and add table name before each field, just in case
+function prepareFieldsString($fields, $table){
+    $fields = "$table." . $fields;
+    return str_replace(",", ",$table.", str_replace(" ", "", $fields));
 }
 
 function connect(){
@@ -103,4 +110,3 @@ function connect(){
 function disconnect($conexion){
     mysqli_close($conexion);
 }
-

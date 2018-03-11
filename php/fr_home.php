@@ -64,7 +64,7 @@ require_once 'dmlFunctions.php';
                 <div id="musiciansByGenre_btns">
                     <form>
                         <?php
-                        $genres = select("genre.name", "genre");
+                        $genres = select("name", "genre");
                         while ($genre = mysqli_fetch_assoc($genres)){
                             echo "<input type='submit' value='".strtoupper($genre["name"])."'>";
                         }

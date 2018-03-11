@@ -7,8 +7,6 @@ and open the template in the editor.
 <?php
 require_once 'dmlFunctions.php';
 session_start();
-
-$_SESSION["type"] = 0;
 ?>
 <html>
     <head>
@@ -27,7 +25,7 @@ $_SESSION["type"] = 0;
                 if (isset($_SESSION["iduser"])){ 
                     ?> <div id="profile">MY PROFILE</div> <?php
                 } else {
-                    ?> <div id="login">LOG IN</div> / <div id="signup">SIGN UP</div> <?php
+                    echo "<div id='login'>LOG IN</div> / <div id='signup'>SIGN UP</div>";
                 }
                 ?>
             </div>
@@ -57,9 +55,9 @@ $_SESSION["type"] = 0;
             <div id="signup_form">
                 <h2>REGISTRO</h2>
                 <form method="POST">
-                    <input type="text" name="username" id="login_username" placeholder="Username" required>
+                    <input type="text" name="username" id="signup_username" placeholder="Username" required>
                     <input type="password" name="pass" placeholder="Password" required>
-                    <select name="province" onchange="">
+                    <select name="province" id="sel_province" onchange="updateCities()">
                         <?php
                         $provinces = select("province", "city", "GROUP BY province");
                         while ($province = mysqli_fetch_assoc($provinces)){
@@ -67,14 +65,20 @@ $_SESSION["type"] = 0;
                         }
                         ?>
                     </select>
-                    <select name="city">
+                    <div id="citySelect"></div>
+                    <!--
+                    <select name="city" id="sel_city">
                         <?php
-                        $cities = select("city.name", "city", "ORDER BY city.name");
+                        /*
+                        $p = $_GET['p'];
+                        $cities = select("name", "city", "WHERE province = '$p' ORDER BY name");
                         while ($city = mysqli_fetch_assoc($cities)){
                             echo "<option>".$city["name"]."</option>";
                         }
+                        */
                         ?>
                     </select>
+                    -->
                     <input type="submit" value="Log in">
                 </form>
             </div>
@@ -90,8 +94,9 @@ $_SESSION["type"] = 0;
                 </select>
                 <button type="button" id="signup_select_btn">Registrar</button>
             </div>    
-        </div>        
+        </div>
         <script src="../js/search.js"></script>
         <script src="../js/account.js"></script>
+        <script src="../js/register.js"></script>
     </body>
 </html>

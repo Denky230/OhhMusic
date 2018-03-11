@@ -19,9 +19,10 @@ signup.addEventListener('click', function(){
 });
 
 signup_select_btn.addEventListener('click', function(){
+    signup_bg.style.display = "none";
     modal.style.display = "block";
     signup_form.style.display = "block";
-    signup_bg.style.display = "none";
+    document.getElementById('signup_username').focus();
 });
 
 // Hide modals by clicking out
