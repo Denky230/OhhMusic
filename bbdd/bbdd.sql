@@ -16,7 +16,7 @@ name varchar(25) not null,
 email varchar(30) not null,
 city int not null,
 image varchar(255),
-constraint fk_user_city foreign key(city) references city(id_city)
+constraint fk_user_city foreign key(city) references city(id_city) on delete cascade on update cascade
 );
 
 create table local(
@@ -24,12 +24,12 @@ id_local int not null primary key,
 phone varchar(12) not null,
 capacity int not null,
 web varchar(255),
-constraint fk_local_user foreign key(id_local) references user(id_user)
+constraint fk_local_user foreign key(id_local) references user(id_user) on delete cascade on update cascade
 );
 
 create table genre(
 id_genre int not null primary key auto_increment,
-name varchar(50) not null
+name varchar(20) not null
 );
 
 create table musician(
@@ -40,8 +40,8 @@ genre int not null,
 phone varchar(12) not null,
 web varchar(255),
 group_size int not null,
-constraint fk_musician_user foreign key(id_musician) references user(id_user),
-constraint fk_musician_genre foreign key(genre) references genre(id_genre)
+constraint fk_musician_user foreign key(id_musician) references user(id_user) on delete cascade on update cascade,
+constraint fk_musician_genre foreign key(genre) references genre(id_genre) on delete cascade on update cascade
 );
 
 create table fan(
@@ -49,7 +49,7 @@ id_fan int not null primary key,
 surname varchar(30) not null,
 phone varchar(12),
 address varchar(50),
-constraint fk_fan_user foreign key(id_fan) references user(id_user)
+constraint fk_fan_user foreign key(id_fan) references user(id_user) on delete cascade on update cascade
 );
 
 create table concert(
@@ -61,7 +61,7 @@ genre int not null,
 payment decimal not null,
 id_local int not null,
 id_musician int,
-constraint fk_conc_genre foreign key(genre) references genre(id_genre),
+constraint fk_conc_genre foreign key(genre) references genre(id_genre) on delete cascade on update cascade,
 constraint fk_conc_local foreign key(id_local) references local(id_local) on delete cascade on update cascade,
 constraint fk_conc_musician foreign key(id_musician) references musician(id_musician) on delete cascade on update cascade
 );

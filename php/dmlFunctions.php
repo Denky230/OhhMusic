@@ -1,5 +1,17 @@
 <?php
 
+function delete_array($table, $field, $valuesArray){
+    $deleteValues = "";
+    
+    // Building DELETE sentence
+    foreach ($valuesArray as $value){
+        $deleteValues = $deleteValues . "'$value', ";
+    }
+    $deleteValues = $deleteValues . "_";                        // Gitanada para eliminar ", "
+    $deleteValues = str_replace(", _", "", $deleteValues);      // del final de la sentencia
+    
+    return delete($table, $field, $deleteValues);
+}
 function delete($table, $field, $values){
     $conexion = connect();
     
@@ -8,19 +20,6 @@ function delete($table, $field, $values){
         
     disconnect($conexion);
     return $resultado;
-}
-
-function delete_array($table, $field, $valuesArray){
-    $deleteValues = "";
-    
-    // Creacion de la sentencia DELETE
-    foreach ($valuesArray as $value){
-        $deleteValues = $deleteValues . "'$value', ";
-    }
-    $deleteValues = $deleteValues . "_";                        // Gitanada para eliminar ", "
-    $deleteValues = str_replace(", _", "", $deleteValues);      // del final de la sentencia
-    
-    return delete($table, $field, $deleteValues);
 }
 
 function update($table, $field, $newValue, $conditions = ""){
@@ -37,6 +36,19 @@ function update($table, $field, $newValue, $conditions = ""){
     return $result;
 }
 
+
+function insert_array($table, $valuesArray){
+    $insertValues = "";
+    
+    // Building SELECT sentence
+    foreach($valuesArray as $value){
+        $insertValues = $insertValues . "'$value', ";
+    }
+    $insertValues = $insertValues . "_";                        // Gitanada para eliminar ", " 
+    $insertValues = str_replace(", _", "", $insertValues);      // del final de la sentencia
+    
+    return insert($table, $insertValues);
+}
 function insert($table, $values){
     $conexion = connect();
     
@@ -49,19 +61,6 @@ function insert($table, $values){
     
     disconnect($conexion);
     return $result;
-}
-
-function insert_array($table, $valuesArray){
-    $insertValues = "";
-    
-    // Creacion de la sentencia INSERT
-    foreach($valuesArray as $value){
-        $insertValues = $insertValues . "'$value', ";
-    }
-    $insertValues = $insertValues . "_";                        // Gitanada para eliminar ", " 
-    $insertValues = str_replace(", _", "", $insertValues);      // del final de la sentencia
-    
-    return insert($table, $insertValues);
 }
 
 function count_field($field, $table, $name){
@@ -78,7 +77,6 @@ function select_value($field, $table, $conditions = ""){
     $valueAssoc = mysqli_fetch_assoc(select($field, $table, $conditions));
     return $valueAssoc["$field"];
 }
-
 function select($fields, $table, $conditions = ""){
     $conexion = connect();
     
@@ -89,6 +87,11 @@ function select($fields, $table, $conditions = ""){
     return $resultado;
 }
 
+// Returns an array containing each word of the string separated by ","
+function stringToArray($string){
+    return explode(",", str_replace(" ", "", $string));
+}
+
 function connect(){
     $conexion = mysqli_connect("localhost", "root", "", "ohhmusic");    
     if (!$conexion){
@@ -97,7 +100,6 @@ function connect(){
     
     return $conexion;
 }
-
 function disconnect($conexion){
     mysqli_close($conexion);
 }

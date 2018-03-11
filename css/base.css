@@ -81,7 +81,7 @@ html {
     
     background-color: white;
 }
-#login_form input, #signup_form input {
+#modal input, #modal select {
     height: 48px;
     width: 270px;
 

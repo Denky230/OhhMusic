@@ -14,6 +14,7 @@ require_once 'dmlFunctions.php';
         <title>Home</title>
     </head>
     <body>
+        <!-- BODY -->
         <div id="main">
             <div id="concerts">
                 <div id="concert_box">
@@ -56,13 +57,14 @@ require_once 'dmlFunctions.php';
                 </div>
             </div>
         </div>
+        <!-- RIGHT FRAME -->
         <aside id="frame_right">
             <div id="musiciansByGenre">
                 <p>MUSICOS BY GENRE:</p>
                 <div id="musiciansByGenre_btns">
                     <form>
                         <?php
-                        $genres = select("name", "genre");
+                        $genres = select("genre.name", "genre");
                         while ($genre = mysqli_fetch_assoc($genres)){
                             echo "<input type='submit' value='".strtoupper($genre["name"])."'>";
                         }
@@ -74,10 +76,13 @@ require_once 'dmlFunctions.php';
                 <p>LOCALES BY CITY:</p>                
                 <div id="propertiesByCity_btns">
                     <form>
-                        <input type="submit" value="CITY">
-                        <input type="submit" value="CITY">
-                        <input type="submit" value="CITY">
-                        <input type="submit" value="CITY">
+                        <?php
+                        // Select every city which contains min 1 local
+                        $cities = select("city", "user", "WHERE user.type = 'L' GROUP BY city");
+                        while ($city = mysqli_fetch_assoc($cities)){
+                            echo "<input type='submit' value='".strtoupper($city["city"])."'>";
+                        }
+                        ?>
                     </form>
                 </div>
             </div>
