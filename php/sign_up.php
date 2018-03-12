@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<?php
-require "bbdd.php";
-?>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <title>Sign Up</title>
+        <style>
+            .hidden_01{
+                display: none;
+            }
+            .hidden_02{
+                display: none;
+            }
+        </style>
     </head>
     <body>
     <form method="post">
@@ -20,32 +20,26 @@ require "bbdd.php";
         Password: <input type="password" name="pass"><br>
         Name: <input type="text" name="name"><br>
         E-mail: <input type="email" name="email"><br>
-        <form method="post">
-        County council: <select name="city" onchange="provincia()">
-            <?php
-                $list = getCouncil();
-                while($fila = mysqli_fetch_assoc($list)){
-                    echo("<option id='comunidad'>");
-                    echo($fila["nombre"]);
-                    echo("</option>");
-                }
-            ?>
-            </select><br>
-        </form>
+        <div id="container">
+            <div class="council">
+                County council: <select id="council-select">
+                    <option value="" disabled selected style="..."></option>
+                    </select>
+            </div>
+            <div class="provinces hidden_01">
+                Province: <select id="provinces-select">
+                    <option value="" disabled selected style="..."></option>
+                </select>
+            </div>
+            <div class="municipalities hidden_02">
+                Municipality: <select id="municipality-select">
+                    <option value="" disabled selected style="..."></option>
+                </select>
+            </div>
+        </div>
         Image: <input type="file" name="image" accept="image/*"><br>
         <input type="submit" name="submit" value="Send">
     </form>
-    <script>
-        function provincia(){
-            var comunidad = document.getElementById("comunidad");
-            <?php
-                $list = getProvince();
-                while($fila = mysqli_fetch_assoc($list)){
-                    echo("<option>");
-                    echo($fila[""]);
-                }
-            ?>
-        }
-    </script>
+    <script src="../js/comunidades.js" type="text/javascript"></script>
     </body>
 </html>
