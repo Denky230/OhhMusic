@@ -55,17 +55,29 @@ session_start();
             <div id="signup_form">
                 <h2>REGISTRO</h2>
                 <form method="POST">
-                    <input type="text" name="username" id="signup_username" placeholder="Username" required>
-                    <input type="password" name="pass" placeholder="Password" required>
-                    <select name="province" id="sel_province" onchange="updateCities()">
-                        <?php
-                        $provinces = select("province", "city", "GROUP BY province");
-                        while ($province = mysqli_fetch_assoc($provinces)){
-                            echo "<option>".$province["province"]."</option>";
-                        }
-                        ?>
-                    </select>
-                    <div id="citySelect"></div>
+                    <div id="signup_fields">
+                        <div id="userSpecFields">
+                            <input type="text" name="username" id="signup_username" placeholder="Username" required>
+                            <input type="password" name="pass" placeholder="Password" required>
+                            <input type="text" name="name" placeholder="Name" required>
+                            <input type="email" name="email" placeholder="E-mail" required>
+                            <select name="province" id="sel_province" onchange="updateCities()">
+                                <?php
+                                $provinces = select("province", "city", "GROUP BY province");
+                                while ($province = mysqli_fetch_assoc($provinces)){
+                                    echo "<option>".$province["province"]."</option>";
+                                }
+                                ?>
+                            </select>
+                            <div id="citySelect"></div>
+                        </div>
+                        <div id="nonUserSpecFields">                        
+                            <input type="text" name="username" id="signup_username" placeholder="Username" required>
+                            <input type="password" name="pass" placeholder="Password" required>
+                            <input type="text" name="name" placeholder="Name" required>
+                            <input type="email" name="email" placeholder="E-mail" required>
+                        </div>
+                    </div>
                     <!--
                     <select name="city" id="sel_city">
                         <?php
@@ -79,7 +91,7 @@ session_start();
                         ?>
                     </select>
                     -->
-                    <input type="submit" value="Log in">
+                    <input type="submit" value="Sign up">
                 </form>
             </div>
         </div>

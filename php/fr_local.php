@@ -8,8 +8,6 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/local.css"/>
-        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
         <script src="../js/local.js" type="text/javascript"></script>
         <title>Local</title>
     </head>

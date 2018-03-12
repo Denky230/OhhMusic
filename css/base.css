@@ -56,7 +56,7 @@ html {
 
 #modal {
     z-index: 1;
-    display: none;    
+    display: none;
     position: absolute;
     
     height: 100%;
@@ -69,7 +69,7 @@ html {
     display: none;
     
     width: 300px;
-    
+
     margin: 15% auto;
     padding: 20px 15px 10px 15px;
     
@@ -80,15 +80,28 @@ html {
     
     background-color: white;
 }
+#signup_form {
+    width: 500px;
+    margin: 10% auto;
+}
 #modal input, #modal select {
     height: 48px;
-    width: 270px;
-
+    width: 100%;
+    
     margin: 8px 0 0 0;
     padding: 12px 12px;
     
     font-size: 16px;
     box-sizing: border-box;
+}
+#signup_fields {
+    display: flex;
+}
+#userSpecFields, #nonUserSpecFields {
+    width: 50%;
+}
+#userSpecFields {
+    margin-right: 10px;
 }
 
 /* -------------------------- SignupSelect -------------------------- */
@@ -210,4 +223,3 @@ html {
 #adBanner_left {
     height: 50%;
 }
-
