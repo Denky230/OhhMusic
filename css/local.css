@@ -13,12 +13,11 @@ body {
 }
 
 /* --------------------------- Main --------------------------- */
-
 #main {
     position: absolute;
-    
+
     width: 68%;
-    
+
     padding-top: 80px;
     margin-left: 16%;
 
@@ -26,51 +25,156 @@ body {
     background-color: gray;
 }
 
-#concerts {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
-    width: 100%;
-    
-    padding: 20px 30px;
-    
-    box-sizing: border-box;
-    background-color: aqua;
+header img{
+    width: 3%;
+    margin-top: 2%;
+    margin-left: 1%;
 }
-#concert_box {
-    height: 400px;
-    width: 32%;
-    
-    margin: 10px 0px;
-    padding: 20px;
-    
-    box-sizing: border-box;
-    background-color: deeppink;
+
+#container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 5%;
+    margin-left: 15%;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 90%;
+    line-height: normal;
+    font-smoothing: antialiased;
 }
-#concert_img {
+
+#frame {
+    position: relative;
     width: 100%;
-    height: 60%;    
+    height: 100%;
 }
-#concert_info {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
-    width: 100%;
+#frame .frame {
+    position: relative;
+    overflow: hidden;
+}
+#frame .frame .inset .image {
+    cursor: pointer;
+    background-position: center;
+    background-size: cover;
+}
+#frame .frame .inset .info .title {
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+}
+#frame .frame .inset .info .description {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#frame .frame .inset .info [class*='icon-'] {
+    cursor: pointer;
+    margin-left: 10px;
+    display: inline-block;
+    font-weight: bold;
+}
+#frame .frame .inset .info [class*='icon-']:before {
+    margin-right: 5px;
+    font-weight: normal;
+}
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    color: #FFF;
+}
+.grid .frame {
+    width: 250px;
+    height: 250px;
+}
+.grid .frame .inset {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+}
+.grid .frame .inset .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.grid .frame .inset .info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.85);
+    overflow: hidden;
+}
+.grid .frame .inset .info .shares {
+    margin-top: 10px;
+    display: block;
+    font-size: 85%;
+    text-align: right;
+}
+
+.list {
+    color: #333;
+}
+.list .frame {
+    height: 75px;
+    line-height: 75px;
+    box-shadow: inset 0 1px #EEE;
+}
+.list .frame:first-child {
+    box-shadow: none;
+}
+.list .frame .inset .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 55px;
+    height: 55px;
+    margin: auto 10px;
+}
+.list .frame .inset .info {
+    position: absolute;
+    top: 0;
+    left: 75px;
+    bottom: 0;
+}
+.list .frame .inset .info .title {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list .frame .inset .info .description {
+    float: left;
+    max-width: 40%;
+    margin-left: 15px;
+}
+.list .frame .inset .info .shares {
+    float: left;
+    margin-left: 10px;
+    font-size: 85%;
 }
 
 /* --------------------------- Right Frame --------------------------- */
 
 #frame_right {
     position: absolute;
-    
-    height: 160%;
+
+    height: 125.5%;
     width: 16%;
-    
+
     left: 84%;
     padding-left: 1%;
-    padding-top: 90px;
+    padding-top: 8%;
     box-sizing: border-box;
     background-color: rgb(230, 230, 230);
 }
@@ -89,4 +193,6 @@ input{
     height: 100%;
     width: 90%;
     margin-top: 5%;
+    padding: 10px 10px;
 }
+
