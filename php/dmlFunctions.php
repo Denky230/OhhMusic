@@ -70,6 +70,18 @@ function insert($table, $values){
 
 /* ----------------------------------------- SELECT ----------------------------------------- */
 
+function selectAllConcerts(){
+    $conexion = connect();
+    
+    $select = "select * from concert";
+    
+    $resultado = mysqli_query($conexion, $select);
+    
+    disconnect($conexion);
+    
+    return $resultado;
+}
+
 function count_field($field, $table, $name){
     $conexion = connect();
     
