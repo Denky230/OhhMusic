@@ -10,7 +10,7 @@ province varchar(20)
 create table user(
 id_user int not null primary key auto_increment,
 type int(1) not null,
-username varchar(25) not null,
+username varchar(25) not null unique,
 pass varchar(255) not null,
 name varchar(25) not null,
 email varchar(30) not null,
@@ -34,9 +34,9 @@ name varchar(20) not null
 
 create table musician(
 id_musician int not null primary key,
-surname varchar(30) not null,
 artist_name varchar(35) not null,
 genre int not null,
+surname varchar(30) not null,
 phone varchar(12) not null,
 web varchar(255),
 group_size int not null,
@@ -46,9 +46,9 @@ constraint fk_musician_genre foreign key(genre) references genre(id_genre) on de
 
 create table fan(
 id_fan int not null primary key,
-surname varchar(30) not null,
 phone varchar(12),
 address varchar(50),
+surname varchar(30) not null,
 constraint fk_fan_user foreign key(id_fan) references user(id_user) on delete cascade on update cascade
 );
 

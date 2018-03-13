@@ -16,6 +16,6 @@ function updateCities(){
             }
         };
     
-    xmlhttp.open("GET", "citySelect.php?p=" + province_select.value, true);
+    xmlhttp.open("GET", "ajax_citySelect.php?p=" + province_select.value, true);
     xmlhttp.send();
 };
