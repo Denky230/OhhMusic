@@ -12,8 +12,35 @@ and open the template in the editor.
     </head>
     <body style="background-color: white">
         <div id="main">
-            <div id="concerts">
-                <div id="concert_box">
+           <div id="concerts">
+               <h2>Listado de conciertos</h2> 
+               <?php
+               require_once 'dmlFunctions.php';
+               
+               $concerts = selectAllConcerts();
+               
+               echo "<table>";
+        
+               echo "<tr>";
+               echo "<th>Id Concert</th><th>State</th><th>Concert Date</th><th>Concert Time</th>"
+               . "<th>Genre</th><th>Payment</th><th>Id Local</th><th>Id Musician</th>";
+               echo "</tr>";
+        
+               while ($fila = mysqli_fetch_assoc($concerts)) {
+               echo "<tr>";
+               foreach ($fila as $valor) {
+               echo "<td>$valor</td>";
+               }
+               echo "</tr>";
+               }
+               echo "</table>";
+               ?>
+           </div>
+            <div id="musicos">
+                
+            </div>
+               
+               <!--     <div id="concert_box">
                     <img id="concert_img" src="../media/0002045178_10.jpg" alt="">
                     <div id="concert_info">
                         <h2>NombreLocal</h2>
@@ -67,8 +94,8 @@ and open the template in the editor.
                     <div id="concert_info">
 
                     </div>
-                </div>
-            </div>
+                </div>-->
+            
         </div>
     </body>
 </html>
