@@ -37,7 +37,17 @@ body {
     
     box-sizing: border-box;
     background-color: aqua;
-}/*
+}
+
+#list_concerts {
+    width: 49%;
+    background-color: green;
+}
+#list_musicians {
+    width: 49%;
+    background-color: pink;
+}
+/*
 #concert_box {
     height: 450px;
     width: 32%;
