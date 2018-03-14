@@ -4,9 +4,9 @@ require_once 'dmlFunctions.php';
 $p = $_GET['p'];
 
 echo "<select name='city' id='sel_city'>";
-$cities = select("name", "city", "WHERE province = '$p' ORDER BY name");
+$cities = select("id_city, name", "city", "WHERE province = '$p' ORDER BY name");
     while ($city = mysqli_fetch_assoc($cities)){
-        echo "<option>".$city["name"]."</option>";
+        echo "<option value='".$city["id_city"]."'>".$city["name"]."</option>";
     }
 echo "</select>";
     

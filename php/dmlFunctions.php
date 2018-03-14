@@ -98,7 +98,7 @@ function select_value($field, $table, $conditions = ""){
 function select($fields, $table, $conditions = ""){
     $conexion = connect();
     
-    $select = "select ".prepareFieldsString($fields, $table)." from $table $conditions";
+    $select = "select ".prepareSelectFieldsString($fields, $table)." from $table $conditions";
     $resultado = mysqli_query($conexion, $select);
         
     disconnect($conexion);
@@ -106,7 +106,7 @@ function select($fields, $table, $conditions = ""){
 }
 
 // Remove " "s and add table name before each field, just in case
-function prepareFieldsString($fields, $table){
+function prepareSelectFieldsString($fields, $table){
     $fields = "$table." . $fields;
     return str_replace(",", ",$table.", str_replace(" ", "", $fields));
 }

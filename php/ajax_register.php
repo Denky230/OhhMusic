@@ -24,7 +24,7 @@ switch ($t){
             <input type='number' name='groupSize' id='' placeholder='Tamaño del grupo' required>";
         break;
         
-    /* --------------------------------------- LOCAL --------------------------------------- */
+    /* -------------------------------------- LOCAL -------------------------------------- */
         
     case 'L':
         echo "<input type='text' name='phone' id='' placeholder='Teléfono' maxlength='9'           required>
@@ -32,7 +32,7 @@ switch ($t){
             <input type='text' name='web' id='' placeholder='Página web' maxlength='255'>";
         break;
         
-    /* ---------------------------------------- FAN ---------------------------------------- */
+    /* --------------------------------------- FAN --------------------------------------- */
         
     case 'F':
         echo "<input type='text' name='phone' id='' placeholder='Teléfono' maxlength='9'>
