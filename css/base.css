@@ -46,13 +46,13 @@ html {
     display: flex;
     right: 5%;
 }
-#login, #signup {
+#login_btn, #signup_btn {
     position: relative;
     
     margin-left: 10px;
     margin-right: 10px;
 }
-#login:hover, #signup:hover {
+#login_btn:hover, #signup_btn:hover {
     cursor: pointer;
 }
 

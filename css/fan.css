@@ -33,7 +33,7 @@ body {
     
     width: 100%;
     
-    padding: 20px 30px;
+    padding: 10px 10px;
     
     box-sizing: border-box;
     background-color: aqua;
@@ -41,22 +41,26 @@ body {
 
 #list_concerts {
     width: 49%;
-    background-color: green;
+    background-color: lightpink;
+    text-align: center;
+    padding: 3px 3px;
 }
 #list_musicians {
     width: 49%;
-    background-color: pink;
+    background-color: lightpink;
+    text-align: center;
+    padding: 3px 3px;
 }
-/*
+
 #concert_box {
-    height: 450px;
-    width: 32%;
+    height: 200px;
+    width: 100%;
     
     margin: 10px 0px;
-    padding: 20px;
+    padding: 10px;
     
     box-sizing: border-box;
-    background-color: deeppink;
+    background-color: lightpink;
 }
 #concert_img {
     width: 100%;
@@ -71,4 +75,3 @@ body {
 }
 
 
-*/

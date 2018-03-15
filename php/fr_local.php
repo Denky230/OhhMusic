@@ -12,79 +12,91 @@ and open the template in the editor.
     </head>
     <body>
         <div id="main">
-            <main id='container'>
-                <header id='header'>
-                    <img src="../media/icons8-lista-50.png" class='view-list'/>
-                    <img src="../media/icons8-cuadricula-de-actividad-2-50.png" class='view-grid'/>
-                </header>
-                <ol class='grid' id='frame'>
-                    <li class='frame'>
-                        <div class='inset'>
-                            <div class='image'></div>
-                            <div class='info'>
-                                <div class='title'>Lorem Ipsum</div>
-                                <div class='description'>bfuiebadj</div>
-                                <div class='shares'>
-                                    <div class='icon-lik likes'></div>
-                                    <div class='icon-ask comments'></div>
+            <div id="container">
+                <div id="concerts">
+                    <header id='header'>
+                        <img src="../media/icons8-lista-50.png" class='view-list'/>
+                        <img src="../media/icons8-cuadricula-de-actividad-2-50.png" class='view-grid'/>
+                    </header>
+                    <ol class='grid' id='frame'>
+                        <div class="concert_box">
+                            <li class='frame'>
+                                <div class='inset'>
+                                    <div class='image'></div>
+                                    <div class='info'>
+                                        <div class='title'>Lorem Ipsum</div>
+                                        <div class='description'>bfuiebadj</div>
+                                        <div class='shares'>
+                                            <div class='icon-lik likes'></div>
+                                            <div class='icon-ask comments'></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </li>
                         </div>
-                    </li>
-                    <li class='frame'>
-                        <div class='inset'>
-                            <div class='image'></div>
-                            <div class='info'>
-                                <div class='title'>Lorem Ipsum</div>
-                                <div class='description'></div>
-                                <div class='shares'>
-                                    <div class='icon-lik likes'></div>
-                                    <div class='icon-ask comments'></div>
+                        <div class="concert_box">
+                            <li class='frame'>
+                                <div class='inset'>
+                                    <div class='image'></div>
+                                    <div class='info'>
+                                        <div class='title'>Lorem Ipsum</div>
+                                        <div class='description'></div>
+                                        <div class='shares'>
+                                            <div class='icon-lik likes'></div>
+                                            <div class='icon-ask comments'></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </li>
                         </div>
-                    </li>
-                    <li class='frame'>
-                        <div class='inset'>
-                            <div class='image'></div>
-                            <div class='info'>
-                                <div class='title'>Lorem Ipsum</div>
-                                <div class='description'></div>
-                                <div class='shares'>
-                                    <div class='icon-lik likes'></div>
-                                    <div class='icon-ask comments'></div>
+                        <div class="concert_box">
+                            <li class='frame'>
+                                <div class='inset'>
+                                    <div class='image'></div>
+                                    <div class='info'>
+                                        <div class='title'>Lorem Ipsum</div>
+                                        <div class='description'></div>
+                                        <div class='shares'>
+                                            <div class='icon-lik likes'></div>
+                                            <div class='icon-ask comments'></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </li>
                         </div>
-                    </li>
-                    <li class='frame'>
-                        <div class='inset'>
-                            <div class='image'></div>
-                            <div class='info'>
-                                <div class='title'>Lorem Ipsum</div>
-                                <div class='description'></div>
-                                <div class='shares'>
-                                    <div class='icon-lik likes'></div>
-                                    <div class='icon-ask comments'></div>
+                        <div class="concert_box">
+                            <li class='frame'>
+                                <div class='inset'>
+                                    <div class='image'></div>
+                                    <div class='info'>
+                                        <div class='title'>Lorem Ipsum</div>
+                                        <div class='description'></div>
+                                        <div class='shares'>
+                                            <div class='icon-lik likes'></div>
+                                            <div class='icon-ask comments'></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </li>
                         </div>
-                    </li>
-                    <li class='frame'>
-                        <div class='inset'>
-                            <div class='image'></div>
-                            <div class='info'>
-                                <div class='title'>Lorem Ipsum</div>
-                                <div class='description'></div>
-                                <div class='shares'>
-                                    <div class='icon-lik likes'></div>
-                                    <div class='icon-ask comments'></div>
+                        <div class="concert_box">
+                            <li class='frame'>
+                                <div class='inset'>
+                                    <div class='image'></div>
+                                    <div class='info'>
+                                        <div class='title'>Lorem Ipsum</div>
+                                        <div class='description'></div>
+                                        <div class='shares'>
+                                            <div class='icon-lik likes'></div>
+                                            <div class='icon-ask comments'></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </li>
                         </div>
-                    </li>
-                </ol>
-            </main>
+                    </ol>
+                </div>
+            </div>
         </div>
 
         <aside id="frame_right">
@@ -107,6 +119,6 @@ and open the template in the editor.
         </aside>
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-        <script src="../js/local.js" type="text/javascript"></script>
+        <script src="../js/gridList_toggle.js" type="text/javascript"></script>
     </body>
 </html>

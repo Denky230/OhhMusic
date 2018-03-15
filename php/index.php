@@ -38,10 +38,16 @@ if (isset($_POST["reg_submit"])){
     // Validate user
     $userData = mysqli_fetch_assoc(select("pass, type", "user", "WHERE username = '".$_POST["username"]."'"));
     if (password_verify($_POST["pass"], $userData["pass"])){
+        $_SESSION["type"] = $userData["type"];        
         header("Location:index.php?pag=" . $userData["type"]);
     } else {
         echo "incorresto";
     }
+}
+
+echo "SESSION:<br>";
+foreach ($_SESSION as $key => $value){
+    echo "$key: $value<br>";
 }
 ?>
 <html>
@@ -61,7 +67,7 @@ if (isset($_POST["reg_submit"])){
                 if (isset($_SESSION["type"])){ 
                     echo "<div id='profile'><a href='index.php?close'>CLOSE SESSION</a></div>";
                 } else {
-                    echo "<div id='login'>LOG IN</div> / <div id='signup'>SIGN UP</div>";
+                    echo "<div id='login_btn'>LOG IN</div> / <div id='signup_btn'>SIGN UP</div>";
                 }
                 ?>
             </div>
@@ -79,7 +85,7 @@ if (isset($_POST["reg_submit"])){
         <?php
         if (isset($_GET["pag"])){
             switch ($_GET["pag"]){
-                case "1": // MUSICIAN                   
+                case "1": // MUSICIAN
                     echo "<iframe id='main' src='fr_musico.php'></iframe>";
                     break;
                 case "2": // LOCAL
@@ -93,7 +99,7 @@ if (isset($_POST["reg_submit"])){
             echo "<iframe id='main' src='fr_home.php'></iframe>";
         }            
         ?>
-        <!-- MODAL -->         
+        <!-- MODAL -->
         <div id="modal">
             <!-- LOGIN FORM -->
             <div id="login_form">
@@ -156,7 +162,5 @@ if (isset($_POST["reg_submit"])){
         </div>
         <script src="../js/search.js"></script>
         <script src="../js/account.js"></script>
-        <script src="../js/register.js"></script>
     </body>
 </html>
-?>
