@@ -8,6 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <link type="text/css" href="../css/slider.css">
     </head>
     <body>
         <div id="c-slider">
