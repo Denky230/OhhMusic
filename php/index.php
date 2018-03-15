@@ -1,3 +1,7 @@
+<?php
+require_once 'dmlFunctions.php';
+session_start();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -5,9 +9,6 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-require_once 'dmlFunctions.php';
-session_start();
-
 /* ------ GITANADA ------ */
 if (isset($_GET["close"])){
     session_destroy();
@@ -32,7 +33,15 @@ if (isset($_POST["reg_submit"])){
             $lastUserID = select_value("max(id_user)", "user");
             insert("fan", "'$lastUserID', '$phone', '$address', '$surname'");
             break;
-    }    
+    }
+} else if (isset($_POST["login_submit"])){
+    // Validate user
+    $userData = mysqli_fetch_assoc(select("pass, type", "user", "WHERE username = '".$_POST["username"]."'"));
+    if (password_verify($_POST["pass"], $userData["pass"])){
+        header("Location:index.php?pag=" . $userData["type"]);
+    } else {
+        echo "incorresto";
+    }
 }
 ?>
 <html>
@@ -46,11 +55,11 @@ if (isset($_POST["reg_submit"])){
         <!-- SITE HEADER -->
         <header id="header">
             <div id="langs">ESPAÑOL</div>
-            <div id="title"><h1>OHH MUSIC</h1></div>
+            <div id="title"><h1><a href="index.php">OHH MUSIC</a></h1></div>
             <div id="account">
                 <?php
                 if (isset($_SESSION["type"])){ 
-                    echo "<div id='profile'><a href='index.php?close'>MY PROFILE</a></div>";
+                    echo "<div id='profile'><a href='index.php?close'>CLOSE SESSION</a></div>";
                 } else {
                     echo "<div id='login'>LOG IN</div> / <div id='signup'>SIGN UP</div>";
                 }
@@ -66,16 +75,33 @@ if (isset($_POST["reg_submit"])){
             <div id="groupBanner_left">group banner here</div>
             <div id="adBanner_left">ad here</div>
         </aside>
-        <!-- SITE BODY (iFRAME) -->        
-        <iframe id="main" src="fr_home.php"></iframe>        
+        <!-- SITE BODY (iFRAME) -->
+        <?php
+        if (isset($_GET["pag"])){
+            switch ($_GET["pag"]){
+                case "1": // MUSICIAN                   
+                    echo "<iframe id='main' src='fr_musico.php'></iframe>";
+                    break;
+                case "2": // LOCAL
+                    echo "<iframe id='main' src='fr_local.php'></iframe>";
+                    break;
+                case "3": // FAN
+                    echo "<iframe id='main' src='fr_fan.php'></iframe>";
+                    break;
+            }
+        } else {
+            echo "<iframe id='main' src='fr_home.php'></iframe>";
+        }            
+        ?>
+        <!-- MODAL -->         
         <div id="modal">
             <!-- LOGIN FORM -->
             <div id="login_form">
                 <h2>LOGIN</h2>
                 <form method="POST">
-                    <input type="text" name="username" id="login_username" placeholder="Username">
-                    <input type="password" name="pass" placeholder="Password">
-                    <input type="submit" value="Log in">
+                    <input type="text" name="username" id="login_username" placeholder="Username" required>
+                    <input type="password" name="pass" placeholder="Password" required>
+                    <input type="submit" name="login_submit" value="Log in">
                 </form>
             </div>
             <!-- REGISTER FORM -->

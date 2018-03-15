@@ -35,6 +35,10 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+#title a {
+    text-decoration: none;
+    color: black;
+}
 #langs {
     left: 3%;
 }
@@ -104,7 +108,7 @@ html {
     margin-right: 10px;
 }
 
-/* ------------------------------------- SignupSelect ------------------------------------- */
+/* ------------------------------------ SignupSelect ------------------------------------ */
 
 #signup_bg {
     z-index: 1;
