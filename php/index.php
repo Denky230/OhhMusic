@@ -9,46 +9,46 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-/* ------ GITANADA ------ */
+/* ---- GITANADA (?) ---- */
 if (isset($_GET["close"])){
     session_destroy();
+    header("Location: index.php"); // Refresh site + remove $_GET["close"]
 }
 /* ---------------------- */
 if (isset($_POST["reg_submit"])){
-    // Insert user
+    // INSERT USER
     extract($_POST);
-    switch ($_SESSION["type"]){
-        case 'M':            
-            insert("user", "0, 1, '$username', '".password_hash($pass, PASSWORD_DEFAULT)."', '$name', '$email', '$city', 0");
-            $lastUserID = select_value("max(id_user)", "user");
+    
+    insert("user", "0, $userType, '$username', '".password_hash($pass, PASSWORD_DEFAULT)."', '$name', '$email', '$city', 0");
+    $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
+    
+    switch ($userType){
+        case '1': // MUSICIAN
             insert("musician", "'$lastUserID', '$artistName', '$genre', '$surname', '$phone', '$web', '$groupSize'");
             break;
-        case 'L':
-            insert("user", "0, 2, '$username', '".password_hash($pass, PASSWORD_DEFAULT)."', '$name', '$email', '$city', 0");
-            $lastUserID = select_value("max(id_user)", "user");
+        case '2': // LOCAL
             insert("local", "'$lastUserID', '$phone', '$capacity', '$web'");
             break;
-        case 'F':
-            insert("user", "0, 3, '$username', '".password_hash($pass, PASSWORD_DEFAULT)."', '$name', '$email', '$city', 0");
-            $lastUserID = select_value("max(id_user)", "user");
+        case '3': // FAN
             insert("fan", "'$lastUserID', '$phone', '$address', '$surname'");
             break;
     }
 } else if (isset($_POST["login_submit"])){
-    // Validate user
+    // VALIDATE USER
     $userData = mysqli_fetch_assoc(select("pass, type", "user", "WHERE username = '".$_POST["username"]."'"));
     if (password_verify($_POST["pass"], $userData["pass"])){
-        $_SESSION["type"] = $userData["type"];        
-        header("Location:index.php?pag=" . $userData["type"]);
+        $_SESSION["type"] = $userData["type"];
+        header("Location: index.php?user");
     } else {
         echo "incorresto";
     }
 }
-
+/* ------------- TEST ------------- 
 echo "SESSION:<br>";
 foreach ($_SESSION as $key => $value){
     echo "$key: $value<br>";
-}
+}*/
+/* -------------------------------- */
 ?>
 <html>
     <head>
@@ -61,11 +61,13 @@ foreach ($_SESSION as $key => $value){
         <!-- SITE HEADER -->
         <header id="header">
             <div id="langs">ESPAÑOL</div>
+            <!-- No $_GET = home page -->
             <div id="title"><h1><a href="index.php">OHH MUSIC</a></h1></div>
             <div id="account">
                 <?php
-                if (isset($_SESSION["type"])){ 
-                    echo "<div id='profile'><a href='index.php?close'>CLOSE SESSION</a></div>";
+                if (isset($_SESSION["type"])){
+                    // $_GET["close"] = destroy session  -  $_GET["user"] = user page
+                    echo "<a href='index.php?close'>CLOSE SESSION</a>&nbsp/<div id='profile'><a href='index.php?user'>MY PROFILE</a></div>";
                 } else {
                     echo "<div id='login_btn'>LOG IN</div> / <div id='signup_btn'>SIGN UP</div>";
                 }
@@ -83,17 +85,21 @@ foreach ($_SESSION as $key => $value){
         </aside>
         <!-- SITE BODY (iFRAME) -->
         <?php
-        if (isset($_GET["pag"])){
-            switch ($_GET["pag"]){
-                case "1": // MUSICIAN
-                    echo "<iframe id='main' src='fr_musico.php'></iframe>";
-                    break;
-                case "2": // LOCAL
-                    echo "<iframe id='main' src='fr_local.php'></iframe>";
-                    break;
-                case "3": // FAN
-                    echo "<iframe id='main' src='fr_fan.php'></iframe>";
-                    break;
+        if (isset($_GET["user"])){
+            if (isset($_SESSION["type"])){
+                switch ($_SESSION["type"]){
+                    case "1": // MUSICIAN
+                        echo "<iframe id='main' src='fr_musico.php'></iframe>";
+                        break;
+                    case "2": // LOCAL
+                        echo "<iframe id='main' src='fr_local.php'></iframe>";
+                        break;
+                    case "3": // FAN
+                        echo "<iframe id='main' src='fr_fan.php'></iframe>";
+                        break;
+                }
+            } else {
+                header("Location: index.php");
             }
         } else {
             echo "<iframe id='main' src='fr_home.php'></iframe>";
@@ -153,9 +159,9 @@ foreach ($_SESSION as $key => $value){
             <div id="signup_select">
                 <h3>Quieres ser...</h3>
                 <select name="userType_select" id="userType_select">
-                    <option value="M">Musician</option>
-                    <option value="L">Local</option>
-                    <option value="F">Fan</option>
+                    <option value="1">Musician</option>
+                    <option value="2">Local</option>
+                    <option value="3">Fan</option>
                 </select>
                 <button type="button" id="signup_select_btn">Registrar</button>
             </div>    
