@@ -64,7 +64,7 @@ require_once 'dmlFunctions.php';
                 <div id="musiciansByGenre_btns">
                     <form>
                         <?php
-                        $genres = select("name", "genre");
+                        $genres = selectFields("name", "genre");
                         while ($genre = mysqli_fetch_assoc($genres)){
                             echo "<input type='submit' value='".strtoupper($genre["name"])."'>";
                         }
@@ -78,9 +78,9 @@ require_once 'dmlFunctions.php';
                     <form>
                         <?php
                         // Select every city which contains min 1 local
-                        $cities = select("city", "user", "WHERE user.type = 'L' GROUP BY city");
+                        $cities = selectFields("name", "city", "WHERE id_city IN (SELECT id_city FROM user WHERE user.type = 2 GROUP BY id_city)");
                         while ($city = mysqli_fetch_assoc($cities)){
-                            echo "<input type='submit' value='".strtoupper($city["city"])."'>";
+                            echo "<input type='submit' value='".strtoupper($city["name"])."'>";
                         }
                         ?>
                     </form>

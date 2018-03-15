@@ -16,24 +16,21 @@ if (isset($_GET["close"])){
 if (isset($_POST["reg_submit"])){
     // Insert user
     extract($_POST);
-    foreach ($_POST as $value){
-        echo "$value<br>";
-    }
     switch ($_SESSION["type"]){
-        case 'M':
-            insert("user", "0, 1, '$username', '$pass', '$name', '$email', '$city'");
-            $lastUserID = select("max(id_user)", "user");
+        case 'M':            
+            insert("user", "0, 1, '$username', '".password_hash($pass, PASSWORD_DEFAULT)."', '$name', '$email', '$city', 0");
+            $lastUserID = select_value("max(id_user)", "user");
             insert("musician", "'$lastUserID', '$artistName', '$genre', '$surname', '$phone', '$web', '$groupSize'");
             break;
         case 'L':
-            insert("user", "0, 2, '$username', '$pass', '$name', '$email', '$city'");
-            $lastUserID = select("max(id_user)", "user");
-            insert("local", "'$lastUserID', '$phone', '$capacity, '$web'");
+            insert("user", "0, 2, '$username', '".password_hash($pass, PASSWORD_DEFAULT)."', '$name', '$email', '$city', 0");
+            $lastUserID = select_value("max(id_user)", "user");
+            insert("local", "'$lastUserID', '$phone', '$capacity', '$web'");
             break;
         case 'F':
-            insert("user", "0, 3, '$username', '$pass', '$name', '$email', '$city'");
-            $lastUserID = select("max(id_user)", "user");
-            insert("fan", "'$lastUserID', '$phone', '$address, '$surname'");
+            insert("user", "0, 3, '$username', '".password_hash($pass, PASSWORD_DEFAULT)."', '$name', '$email', '$city', 0");
+            $lastUserID = select_value("max(id_user)", "user");
+            insert("fan", "'$lastUserID', '$phone', '$address', '$surname'");
             break;
     }    
 }
@@ -93,14 +90,13 @@ if (isset($_POST["reg_submit"])){
                             <input type="email" name="email" placeholder="E-mail" maxlength="30" required>
                             <select name="province" id="sel_province" onchange="updateCities()">
                                 <?php
-                                $provinces = select("province", "city", "GROUP BY province");
+                                $provinces = selectFields("province", "city", "GROUP BY province");
                                 while ($province = mysqli_fetch_assoc($provinces)){
                                     echo "<option>".$province["province"]."</option>";
                                 }
                                 ?>
                             </select>
-                            <div id="citySelect"></div>
-</div>
+                            <div id="citySelect"></div></div>
                         <div id="nonUserSpecFields"></div>
                     </div>
                     <!--

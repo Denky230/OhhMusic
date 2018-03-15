@@ -5,7 +5,7 @@
 function delete_array($table, $field, $valuesArray){
     $deleteValues = "";
     
-    // Building DELETE sentence
+    // Building of DELETE sentence
     foreach ($valuesArray as $value){
         $deleteValues = $deleteValues . "'$value', ";
     }
@@ -18,22 +18,22 @@ function delete($table, $field, $values){
     $conexion = connect();
     
     $delete = "delete from $table where $field in ($values)";
-    $resultado = mysqli_query($conexion, $delete);
+    $result = mysqli_query($connection, $delete);
         
-    disconnect($conexion);
-    return $resultado;
+    disconnect($connection);
+    return $result;
 }
 
 /* ----------------------------------------- UPDATE ----------------------------------------- */
 
 function update($table, $field, $newValue, $conditions = ""){
-    $conexion = connect();
+    $connection = connect();
     
     $update = "update $table set $field = $newValue $conditions";
-    if (mysqli_query($conexion, $update)){
+    if (mysqli_query($connection, $update)){
         $result = "Ok";
     } else {
-        $result = mysqli_error($conexion);
+        $result = mysqli_error($connection);
     }
     
     disconnect($conexion);
@@ -45,7 +45,7 @@ function update($table, $field, $newValue, $conditions = ""){
 function insert_array($table, $valuesArray){
     $insertValues = "";
     
-    // Building INSERT sentence
+    // Building of INSERT sentence
     foreach($valuesArray as $value){
         $insertValues = $insertValues . "'$value', ";
     }
@@ -55,16 +55,16 @@ function insert_array($table, $valuesArray){
     return insert($table, $insertValues);
 }
 function insert($table, $values){
-    $conexion = connect();
+    $connection = connect();
     
     $insert = "insert into $table values ($values)";
-    if (mysqli_query($conexion, $insert)){
+    if (mysqli_query($connection, $insert)){
         $result = "Ok";
     } else {
-        $result = mysqli_error($conexion);
+        $result = mysqli_error($connection);
     }
     
-    disconnect($conexion);
+    disconnect($connection);
     return $result;
 }
 
@@ -83,42 +83,44 @@ function selectAllConcerts(){
 }
 
 function count_field($field, $table, $name){
-    $conexion = connect();
-    
     $select = "select $field from $table where $field = '$name'";    
-    $resultado = mysqli_num_rows(mysqli_query($conexion, $select));
+    $result = mysqli_num_rows(mysqli_query($connection, $select));
     
-    disconnect($conexion);
-    return $resultado;
+    return mysqli_num_rows(select());
 }
+// Returns a single value instead of a select result
 function select_value($field, $table, $conditions = ""){
     $valueAssoc = mysqli_fetch_assoc(select($field, $table, $conditions));
     return $valueAssoc["$field"];
 }
-function select($fields, $table, $conditions = ""){
-    $conexion = connect();
+//  $fields = exact field names ONLY
+function selectFields($fields, $table, $conditions = ""){
+    // Remove " "s and add table name before each field, just in case
+    $fields = "$table." . $fields;
+    $fields = str_replace(",", ",$table.", str_replace(" ", "", $fields));
     
-    $select = "select ".prepareSelectFieldsString($fields, $table)." from $table $conditions";
-    $resultado = mysqli_query($conexion, $select);
+    return select($fields, $table, $conditions);
+}
+function select($fields, $table, $conditions = ""){
+    $connection = connect();
+    
+    $select = "select $fields from $table $conditions";
+    $result = mysqli_query($connection, $select);
         
-    disconnect($conexion);
-    return $resultado;
+    disconnect($connection);
+    return $result;
 }
 
-// Remove " "s and add table name before each field, just in case
-function prepareSelectFieldsString($fields, $table){
-    $fields = "$table." . $fields;
-    return str_replace(",", ",$table.", str_replace(" ", "", $fields));
-}
+/* --------------------------------------- CONNECTION --------------------------------------- */
 
 function connect(){
-    $conexion = mysqli_connect("localhost", "root", "", "ohhmusic");    
-    if (!$conexion){
+    $connection = mysqli_connect("localhost", "root", "", "ohhmusic");    
+    if (!$connection){
         die("No se ha podido establecer la conexión");
     }
     
-    return $conexion;
+    return $connection;
 }
-function disconnect($conexion){
-    mysqli_close($conexion);
+function disconnect($connection){
+    mysqli_close($connection);
 }
