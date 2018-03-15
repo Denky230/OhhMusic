@@ -30,19 +30,33 @@ header img{
     margin-top: 2%;
     margin-left: 1%;
 }
+#concerts {
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 20px 30px;
+
+    box-sizing: border-box;
+    background-color: aqua;
+}
+.concert_box {
+    height: 300px;
+    width: 32%;
+
+    margin: 10px 6px;
+    padding: 20px;
+
+    box-sizing: border-box;
+    background-color: deeppink;
+}
 
 #container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     margin-top: 5%;
-    margin-left: 15%;
     font-family: 'Helvetica', Arial, sans-serif;
     font-size: 90%;
     line-height: normal;
-    font-smoothing: antialiased;
 }
 
 #frame {
