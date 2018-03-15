@@ -4,12 +4,15 @@
     padding: 0;
 }
 
+html {
+    background-color: lightgrey;
+}
 p {
     line-height: 50px;
 }
-
-html {
-    background-color: lightgrey;
+a {
+    text-decoration: none;
+    color: black;
 }
 
 /* --------------------------------------- Header --------------------------------------- */
@@ -35,10 +38,6 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#title a {
-    text-decoration: none;
-    color: black;
-}
 #langs {
     left: 3%;
 }
@@ -46,11 +45,9 @@ html {
     display: flex;
     right: 5%;
 }
-#login_btn, #signup_btn {
-    position: relative;
-    
-    margin-left: 10px;
-    margin-right: 10px;
+#login_btn, #signup_btn, #profile {
+    position: relative;    
+    margin: 0 10px;
 }
 #login_btn:hover, #signup_btn:hover {
     cursor: pointer;
