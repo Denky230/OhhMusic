@@ -10,12 +10,13 @@ and open the template in the editor.
 -->
 <?php
 /* ---- GITANADA (?) ---- */
+$userTypeName = "";
 if (isset($_GET["close"])){
     session_destroy();
     header("Location: index.php"); // Refresh site + remove $_GET["close"]
 }
 /* ---------------------- */
-if (isset($_POST["reg_submit"])){
+if (isset($_POST["signup_submit"])){
     // INSERT USER
     extract($_POST);
     
@@ -110,20 +111,21 @@ foreach ($_SESSION as $key => $value){
             <!-- LOGIN FORM -->
             <div id="login_form">
                 <h2>LOGIN</h2>
-                <form method="POST">
-                    <input type="text" name="username" id="login_username" placeholder="Username" required>
+                <form method="POST" onsubmit="verifySignup()">
+                    <input type="text" name="username" id="login_username" placeholder="Username" required>                    
                     <input type="password" name="pass" placeholder="Password" required>
                     <input type="submit" name="login_submit" value="Log in">
                 </form>
             </div>
             <!-- REGISTER FORM -->
             <div id="signup_form">
-                <h2>REGISTRO</h2>
-                <form method="POST">
+                <h2><div id="signup_title"></div></h2>
+                <form method="POST" onsubmit="verifySignup()">
                     <div id="signup_fields">
                         <div id="userSpecFields">
                             <input type="text" name="username" id="signup_username" placeholder="Username" maxlength="25" required>
-                            <input type="password" name="pass" placeholder="Password" maxlength="255" required>
+                            <input type="password" name="pass" id="signup_pass"placeholder="Password" maxlength="12" required>
+                            <input type="password" name="varPass" id="signup_verPass"placeholder="Verify password" maxlength="12" required>
                             <input type="text" name="name" placeholder="Name" maxlength="25" required>
                             <input type="email" name="email" placeholder="E-mail" maxlength="30" required>
                             <select name="province" id="sel_province" onchange="updateCities()">
@@ -137,20 +139,7 @@ foreach ($_SESSION as $key => $value){
                             <div id="citySelect"></div></div>
                         <div id="nonUserSpecFields"></div>
                     </div>
-                    <!--
-                    <select name="city" id="sel_city">
-                        <?php
-                        /*
-                        $p = $_GET['p'];
-                        $cities = select("name", "city", "WHERE province = '$p' ORDER BY name");
-                        while ($city = mysqli_fetch_assoc($cities)){
-                            echo "<option>".$city["name"]."</option>";
-                        }
-                        */
-                        ?>
-                    </select>
-                    -->
-                    <input type="submit" name="reg_submit" value="Sign up">
+                    <input type="submit" name="signup_submit" id="signup_submit" value="Sign up">
                 </form>
             </div>
         </div>
@@ -159,12 +148,12 @@ foreach ($_SESSION as $key => $value){
             <div id="signup_select">
                 <h3>Quieres ser...</h3>
                 <select name="userType_select" id="userType_select">
-                    <option value="1">Musician</option>
+                    <option value="1">Músico</option>
                     <option value="2">Local</option>
                     <option value="3">Fan</option>
                 </select>
                 <button type="button" id="signup_select_btn">Registrar</button>
-            </div>    
+            </div>
         </div>
         <script src="../js/search.js"></script>
         <script src="../js/account.js"></script>

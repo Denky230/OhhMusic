@@ -16,8 +16,8 @@ switch ($t){
                 echo "<option value=".$genre["id_genre"].">".$genre["name"]."</option>";
             }
             echo "</select>
-            <input type='text' name='surname' id='' placeholder='Apellidos' maxlength='30' required>
             <input type='text' name='phone' id='' placeholder='Teléfono' maxlength='9' required>
+            <input type='text' name='surname' id='' placeholder='Apellidos' maxlength='30' required>
             <input type='text' name='web' id='' placeholder='Página web' maxlength='255'>
             <input type='number' name='groupSize' id='' placeholder='Tamaño del grupo' required>";
         break;

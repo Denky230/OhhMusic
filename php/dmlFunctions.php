@@ -1,6 +1,6 @@
 <?php
 
-/* ----------------------------------------- DELETE ----------------------------------------- */
+/* --------------------------------------- DELETE --------------------------------------- */
 
 function delete_array($table, $field, $valuesArray){
     $deleteValues = "";
@@ -15,7 +15,7 @@ function delete_array($table, $field, $valuesArray){
     return delete($table, $field, $deleteValues);
 }
 function delete($table, $field, $values){
-    $conexion = connect();
+    $connection = connect();
     
     $delete = "delete from $table where $field in ($values)";
     $result = mysqli_query($connection, $delete);
@@ -24,7 +24,7 @@ function delete($table, $field, $values){
     return $result;
 }
 
-/* ----------------------------------------- UPDATE ----------------------------------------- */
+/* ---------------------------------------- UPDATE ---------------------------------------- */
 
 function update($table, $field, $newValue, $conditions = ""){
     $connection = connect();
@@ -36,11 +36,11 @@ function update($table, $field, $newValue, $conditions = ""){
         $result = mysqli_error($connection);
     }
     
-    disconnect($conexion);
+    disconnect($connection);
     return $result;
 }
 
-/* ----------------------------------------- INSERT ----------------------------------------- */
+/* --------------------------------------- INSERT --------------------------------------- */
 
 function insert_array($table, $valuesArray){
     $insertValues = "";
@@ -68,15 +68,10 @@ function insert($table, $values){
     return $result;
 }
 
-/* ----------------------------------------- SELECT ----------------------------------------- */
+/* --------------------------------------- SELECT --------------------------------------- */
 
-
-
-function count_field($field, $table, $name){
-    $select = "select $field from $table where $field = '$name'";    
-    $result = mysqli_num_rows(mysqli_query($connection, $select));
-    
-    return mysqli_num_rows(select());
+function count_field($field, $table, $name){    
+    return mysqli_num_rows(select($field, $table, "WHERE $field = '$name'"));
 }
 // Returns a single value instead of a select result
 function select_value($field, $table, $conditions = ""){
@@ -101,7 +96,7 @@ function select($fields, $table, $conditions = ""){
     return $result;
 }
 
-/* --------------------------------------- CONNECTION --------------------------------------- */
+/* ------------------------------------- CONNECTION ------------------------------------- */
 
 function connect(){
     $connection = mysqli_connect("localhost", "root", "", "ohhmusic");    
