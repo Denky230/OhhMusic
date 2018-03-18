@@ -1,14 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    display: flex;
-    min-height: 100vh;
-    background: lightblue;
-}
 
 #c-slider{
     margin: auto;
@@ -17,7 +6,7 @@ body{
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 0 10px #fff,
-                0 15px 50px;
+    0 15px 50px;
 }
 /* width = 400% -> depende de las imagenes que haya */
 #slider{
@@ -25,7 +14,7 @@ body{
     display: -moz-flex;
     display: -o-flex;
     display: flex;
-    width: 400%; 
+    width: 400%;
 }
 
 #slider section{
@@ -33,7 +22,7 @@ body{
 }
 
 #slider img{
-    display: block;
+    display: inline-block;
     width: 100%;
     height: 100%;
 }
@@ -54,7 +43,7 @@ body{
 }
 
 #btn-prev:hover, #btn-next:hover{
-    background: rgba(255, 255, 255, 1); 
+    background: rgba(255, 255, 255, 1);
 }
 
 #btn-prev{
