@@ -90,7 +90,7 @@ function updateCities(){
     // Pass the province selected to ajax_citySelect.php
     xmlhttp.open("GET", "ajax_citySelect.php?p=" + province_select.value, true);
     xmlhttp.send();
-};
+}
 
 function verifyPass(){
        
