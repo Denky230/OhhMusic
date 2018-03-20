@@ -27,10 +27,10 @@ body {
 }
 
 #display{
-    position: fixed;
+    position: absolute;
     background-color: lightslategray;
     width:98%;
-    height:50.2em;
+    height:68em;
     padding: 1%;
 }
 
@@ -59,12 +59,14 @@ body {
     justify-content: center;
     align-items: stretch;
     margin-left: 2%;
+    font-size:2em;
 }
 
-div #username, #name, #email, #city{
-    height: 2em;
+input{
     color: #962;
     padding: 1%;
+    margin: 2em;
+    font-size:1em;
 }
 
 div #artist_name, #genre, #surname, #phone, #webpage, #group_size{
