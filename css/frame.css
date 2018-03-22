@@ -1,0 +1,26 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    line-height: 50px;
+}
+
+body {
+    margin-left: 16%;
+    padding-top: 80px;
+}
+
+/* --------------------------------------- SPECIFIC --------------------------------------- */
+
+#main {
+    padding: 20px;
+    background-color: pink;
+}
+
+#title {
+    margin-bottom: 40px;
+}
+
