@@ -1,29 +1,8 @@
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-p {
-    line-height: 50px;
-}
-
-body {
-    margin-left: 16%;
-    background-color: white;
-}
-
-/* ------------------------------ Main ------------------------------ */
-
+/* ----------------------------------------- Main ----------------------------------------- */
+    
 #main {
-    position: absolute;
-    
     width: 84%;
-    
-    padding-top: 80px;
-
-    box-sizing: border-box;
-    background-color: white;
 }
 
 #concerts {
@@ -33,9 +12,6 @@ body {
     
     width: 100%;
     
-    padding: 20px 30px;
-    
-    box-sizing: border-box;
     background-color: aqua;
 }
 #concert_box {
@@ -59,5 +35,3 @@ body {
     
     width: 100%;
 }
-
-

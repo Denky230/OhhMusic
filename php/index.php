@@ -49,6 +49,14 @@ if (isset($_POST["signup_submit"])){
 echo "SESSION:<br>";
 foreach ($_SESSION as $key => $value){
     echo "$key: $value<br>";
+}
+echo "POST:<br>";
+foreach ($_POST as $key => $value){
+    echo "$key: $value<br>";
+}
+echo "GET:<br>";
+foreach ($_GET as $key => $value){
+    echo "$key: $value<br>";
 }*/
 /* -------------------------------- */
 ?>

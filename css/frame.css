@@ -1,0 +1,29 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    line-height: 50px;
+}
+
+body {
+    margin-left: 16%;
+    padding-top: 80px;
+}
+
+#main {
+    position: absolute;
+    
+    width: 68%;
+    
+    padding: 25px 30px 20px 30px;
+    box-sizing: border-box;
+    
+    background-color: skyblue;
+}
+
+#frameTitle {
+    margin-bottom: 10px;
+}

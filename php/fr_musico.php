@@ -7,10 +7,12 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/frame.css"/>
         <link rel="stylesheet" href="../css/musico.css"/>
     </head>
     <body>
         <div id="main">
+            <div id="frameTitle"><h2>CONCIERTOS</h2></div>
             <div id="concerts">
                 <div id="concert_box">
                     <img id="concert_img" src="../media/random.jpg" alt="">
