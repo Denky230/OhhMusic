@@ -6,6 +6,6 @@ search_icon.addEventListener('click', function(){
     
     if (search_bar.className == 'search_bar_show'){
         search_bar.value = "";
-        search_bar.focus();    
+        search_bar.focus();
     }    
 });

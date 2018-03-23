@@ -7,14 +7,14 @@ session_start();
 if(isset($_POST["button"])){
     if($_SESSION["type"] == 1){
         updateUser("user", "name", $_POST['name'], "email", $_POST['email'], "username", $_SESSION["username"]);
-        updateMusician("musician", "artist_name", $_POST["artist_name"], "surname", $_POST["surname"],
+        updateMusician("artist_name", $_POST["artist_name"], "surname", $_POST["surname"],
             "phone", $_POST["phone"], "web", $_POST["web"], "group_size", $_POST["group_size"]);
     }elseif ($_SESSION["type"] == 2){
         updateUser("user", "name", $_POST['name'], "email", $_POST['email'], "username", $_SESSION["username"]);
-        updateLocal("local", "phone", $_POST["phone"], "capacity", $_POST["capacity"], "web", $_POST["web"]);
+        updateLocal("phone", $_POST["phone"], "capacity", $_POST["capacity"], "web", $_POST["web"]);
     }elseif($_SESSION["type"] == 3){
         updateUser("user", "name", $_POST['name'], "email", $_POST['email'], "username", $_SESSION["username"]);
-        updateFan("fan", "phone", $_POST["phone"], "address", $_POST["address"], "surname", $_POST["surname"]);
+        updateFan("phone", $_POST["phone"], "address", $_POST["address"], "surname", $_POST["surname"]);
     }
 }
 ?>
@@ -40,10 +40,11 @@ if(isset($_POST["button"])){
                                 E-mail: <input type="email" name="email" value="<?php echo $user['email']; ?>"><br>
                                 City: <input type="text" name="city" value="<?php echo $user['city']; ?>" disabled><br>
                             </div>
-                            <div id="profile_specific_info"><?php
+                            <div id="profile_specific_info">
+                                <?php
                                 switch ($_SESSION["type"]) {
                                     case 1:
-                                        $musician = mysqli_fetch_assoc(select("m.artist_name, g.name AS genre, m.surname, m.phone, m.web, m.group_size", "musician m INNER JOIN genre g ON m.id_genre = g.id_genre"));
+                                        $musician = mysqli_fetch_assoc(select("m.artist_name, g.name AS genre, m.surname, m.phone, m.web, m.group_size", "musician m INNER JOIN genre g ON m.id_genre = g.id_genre INNER JOIN user ON id_musician = id_user", "WHERE username = '".$_SESSION["username"]."'"));
                                         echo("Artist Name: <input type='text' name='artist_name' value='" . $musician['artist_name'] . "'><br>
                                         Genre: <input type='text' name='genre' value='" . $musician['genre'] . "' disabled><br>
                                         Surname: <input type='text' name='surname' value='" . $musician['surname'] . "'><br>
@@ -52,15 +53,13 @@ if(isset($_POST["button"])){
                                         Group Size: <input type='number' name='group_size' value='" . $musician['group_size'] . "'>");
                                         break;
                                     case 2:
-                                        $locals = selectFields("phone, capacity, web", "local");
-                                        $local = mysqli_fetch_assoc($locals);
+                                        $local = mysqli_fetch_assoc(select("phone, capacity, web", "local INNER JOIN user", "WHERE username = '".$_SESSION["username"]."'"));
                                         echo("Phone number: <input type='number' name='phone' value='" . $local['phone'] . "'><br>
                                         Max Capacity: <input type='number' name='capacity' value='" . $local['capacity'] . "'><br>
                                         Webpage: <input type='text' name='web' value='" . $local['web'] . "'>");
                                         break;
                                     case 3:
-                                        $fans = selectFields("phone, address, surname", "fan");
-                                        $fan = mysqli_fetch_assoc($fans);
+                                        $fan = mysqli_fetch_assoc(select("phone, address, surname", "fan INNER JOIN user", "WHERE username = '".$_SESSION["username"]."'"));
                                         echo("Phone number: <input type='number' name='phone' value='" . $fan['phone'] . "'><br>
                                         Address: <input type='text' name='address' value='" . $fan['address'] . "'><br>
                                         Surname: <input type='text' name='surname' value='" . $fan['surname'] . "'>");

@@ -10,7 +10,6 @@ and open the template in the editor.
 -->
 <?php
 /* ---- GITANADA (?) ---- */
-$userTypeName = "";
 if (isset($_GET["close"])){
     session_destroy();
     header("Location: index.php"); // Refresh site + remove $_GET["close"]
@@ -96,8 +95,7 @@ foreach ($_GET as $key => $value){
             <div id="adBanner_left">ad here</div>
         </aside>
         <!-- SITE BODY (iFRAME) -->
-        <?php        
-        
+        <?php 
         if (isset($_GET["user"])){
             if (isset($_SESSION["type"])){
                 switch ($_SESSION["type"]){
@@ -111,39 +109,12 @@ foreach ($_GET as $key => $value){
                         echo "<iframe id='main' src='fr_fan.php'></iframe>";
                         break;
                 }
-            } else {
-                header("Location: index.php");
             }
         } else if (isset($_GET["profile"])){
             echo "<iframe id='main' src='fr_perfil.php'></iframe>";
         } else {
             echo "<iframe id='main' src='fr_home.php'></iframe>";
-        }
-        /*
-        if (isset($_GET[0])){
-            if (isset($_SESSION["type"])){
-                if (isset($_GET["user"])){
-                    switch ($_SESSION["type"]){
-                        case "1": // MUSICIAN
-                            echo "<iframe id='main' src='fr_musico.php'></iframe>";
-                            break;
-                        case "2": // LOCAL
-                            echo "<iframe id='main' src='fr_local.php'></iframe>";
-                            break;
-                        case "3": // FAN
-                            echo "<iframe id='main' src='fr_fan.php'></iframe>";
-                            break;
-                    }
-                } else {
-                    echo "<iframe id='main' src='fr_home.php'></iframe>";
-                }
-            } else {
-                header("Location: index.php");
-            }
-        } else {
-            echo "<iframe id='main' src='fr_home.php'></iframe>";
-        }*/
-        
+        }        
         ?>
         <!-- MODAL -->
         <div id="modal">

@@ -7,11 +7,11 @@
     justify-content: space-between;
         
     width: 100%;
-    
+
     background-color: aqua;
 }
 #concert_box {
-    height: 400px;
+    height: 380px;
     width: 32%;
     
     margin: 10px 0px;

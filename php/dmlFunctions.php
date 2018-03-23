@@ -25,10 +25,11 @@ function delete($table, $field, $values){
 }
 
 /* ---------------------------------------- UPDATE ---------------------------------------- */
-function updateFan($table, $phone, $newPhone, $address, $newAddress, $surname, $newSurname){
+
+function updateFan($phone, $newPhone, $address, $newAddress, $surname, $newSurname){
     $connection = connect();
 
-    $update = "update $table set $phone = '$newPhone', $address = '$newAddress', $surname = '$newSurname' WHERE id_fan in (select id_user from user)";
+    $update = "update fan set $phone = '$newPhone', $address = '$newAddress', $surname = '$newSurname' WHERE id_fan = (select id_user from user where username = '".$_SESSION["username"]."')";
     if (mysqli_query($connection, $update)){
         $result = "Ok";
     } else {
@@ -39,10 +40,10 @@ function updateFan($table, $phone, $newPhone, $address, $newAddress, $surname, $
     return $result;
 }
 
-function updateLocal($table, $phone, $newPhone, $capacity, $newCapacity, $web, $newWeb){
+function updateLocal($phone, $newPhone, $capacity, $newCapacity, $web, $newWeb){
     $connection = connect();
 
-    $update = "update $table set $phone = '$newPhone', $capacity = '$newCapacity', $web = '$newWeb' WHERE id_local in (select id_user from user)";
+    $update = "update local set $phone = '$newPhone', $capacity = '$newCapacity', $web = '$newWeb' WHERE id_local = (select id_user from user where username = '".$_SESSION["username"]."')";
     if (mysqli_query($connection, $update)){
         $result = "Ok";
     } else {
@@ -53,10 +54,10 @@ function updateLocal($table, $phone, $newPhone, $capacity, $newCapacity, $web, $
     return $result;
 }
 
-function updateMusician($table, $artistName, $newName, $surname, $newSurname,$phone, $newPhone, $web, $newWeb, $size, $newSize){
+function updateMusician($artistName, $newName, $surname, $newSurname, $phone, $newPhone, $web, $newWeb, $size, $newSize){
     $connection = connect();
 
-    $update = "update $table set $artistName = '$newName', $surname = '$newSurname', $phone = '$newPhone', $web = '$newWeb', $size = '$newSize' where id_musician in (select id_user from user)";
+    $update = "update musician set $artistName = '$newName', $surname = '$newSurname', $phone = '$newPhone', $web = '$newWeb', $size = '$newSize' where id_musician = (select id_user from user where username = '".$_SESSION["username"]."')";
     if (mysqli_query($connection, $update)){
         $result = "Ok";
     } else {
