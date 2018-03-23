@@ -10,50 +10,27 @@ require_once 'dmlFunctions.php';
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/frame.css"/>
         <link rel="stylesheet" href="../css/fan.css"/>
         <title>Fan</title>
     </head>
-    <body style="background-color: white">
+    <body>
         <div id="main">
-           <div id="concerts">
-               <div id="list_concerts">
-                    <h2>Listado de conciertos</h2> 
-                    <div id="concert_box">
-                        <img id="concert_img" src="" alt="">
-                        <div id="concert_info">
-                        </div>
+           <div id="list_concerts">
+                <div id="frameTitle"><h2>CONCIERTOS</h2> </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
                     </div>
-                    <div id="concert_box">
-                        <img id="concert_img" src="" alt="">
-                        <div id="concert_info">
-                        </div>
+                </div>                    
+           </div>
+           <div id="list_musicians">
+               <div id="frameTitle"><h2>MÚSICOS</h2></div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
                     </div>
-                    <div id="concert_box">
-                        <img id="concert_img" src="" alt="">
-                        <div id="concert_info">
-                        </div>
-                    </div>
-               </div>
-               <div id="list_musicians">
-                    
-                   
-                   <h2>Listado de músicos</h2>
-                    <div id="concert_box">
-                        <img id="concert_img" src="" alt="">
-                        <div id="concert_info">
-                        </div>
-                    </div>
-                    <div id="concert_box">
-                        <img id="concert_img" src="" alt="">
-                        <div id="concert_info">
-                        </div>
-                    </div>
-                    <div id="concert_box">
-                        <img id="concert_img" src="" alt="">
-                        <div id="concert_info">
-                        </div>
-                    </div>
-               </div>
+                </div>                    
            </div>
         </div>
     </body>

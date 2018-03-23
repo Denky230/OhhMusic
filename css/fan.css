@@ -1,42 +1,12 @@
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-p {
-    line-height: 50px;
-}
-
-body {
-    margin-left: 16%;
-    background-color: white;
-}
-
-/* ------------------------------ Main ------------------------------ */
+/* ----------------------------------------- Main ----------------------------------------- */
 
 #main {
-    position: absolute;
-    
     width: 84%;
-    
-    padding-top: 80px;
-
-    box-sizing: border-box;
-    background-color: white;
-}
-
-#concerts {
+   
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    
-    width: 100%;
-    
-    padding: 10px 10px;
-    
-    box-sizing: border-box;
-    background-color: lightgreen;
 }
 
 #list_concerts {
@@ -45,11 +15,13 @@ body {
     text-align: center;
     padding: 3px 3px;
 }
+
+#list_concerts, 
 #list_musicians {
     width: 49%;
     background-color: lightgreen;
     text-align: center;
-    padding: 3px 3px;
+    padding: 5px;
 }
 
 #concert_box {
