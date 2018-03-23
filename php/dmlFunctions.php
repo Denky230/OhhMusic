@@ -24,7 +24,62 @@ function delete($table, $field, $values){
     return $result;
 }
 
-/* --------------------------------------- UPDATE --------------------------------------- */
+/* ---------------------------------------- UPDATE ---------------------------------------- */
+function updateFan($table, $phone, $newPhone, $address, $newAddress, $surname, $newSurname){
+    $connection = connect();
+
+    $update = "update $table set $phone = '$newPhone', $address = '$newAddress', $surname = '$newSurname' WHERE id_fan in (select id_user from user)";
+    if (mysqli_query($connection, $update)){
+        $result = "Ok";
+    } else {
+        $result = mysqli_error($connection);
+    }
+
+    disconnect($connection);
+    return $result;
+}
+
+function updateLocal($table, $phone, $newPhone, $capacity, $newCapacity, $web, $newWeb){
+    $connection = connect();
+
+    $update = "update $table set $phone = '$newPhone', $capacity = '$newCapacity', $web = '$newWeb' WHERE id_local in (select id_user from user)";
+    if (mysqli_query($connection, $update)){
+        $result = "Ok";
+    } else {
+        $result = mysqli_error($connection);
+    }
+
+    disconnect($connection);
+    return $result;
+}
+
+function updateMusician($table, $artistName, $newName, $surname, $newSurname,$phone, $newPhone, $web, $newWeb, $size, $newSize){
+    $connection = connect();
+
+    $update = "update $table set $artistName = '$newName', $surname = '$newSurname', $phone = '$newPhone', $web = '$newWeb', $size = '$newSize' where id_musician in (select id_user from user)";
+    if (mysqli_query($connection, $update)){
+        $result = "Ok";
+    } else {
+        $result = mysqli_error($connection);
+    }
+
+    disconnect($connection);
+    return $result;
+}
+
+function updateUser($table, $field, $newValue, $field2, $newValue2, $condition, $type){
+    $connection = connect();
+
+    $update = "update $table set $field = '$newValue', $field2 = '$newValue2' where $condition = '$type'";
+    if (mysqli_query($connection, $update)){
+        $result = "Ok";
+    } else {
+        $result = mysqli_error($connection);
+    }
+
+    disconnect($connection);
+    return $result;
+}
 
 function update($table, $field, $newValue, $conditions = ""){
     $connection = connect();
