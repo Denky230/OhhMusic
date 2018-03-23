@@ -77,7 +77,9 @@ foreach ($_GET as $key => $value){
                 <?php
                 if (isset($_SESSION["type"])){
                     // $_GET["close"] = destroy session  -  $_GET["user"] = user page
-                    echo "<a href='index.php?close'>CLOSE SESSION</a>&nbsp/<div id='profile'><a href='index.php?user'>MY PROFILE</a></div>";
+                    echo "<a href='index.php?close'>CLOSE SESSION</a>&nbsp/
+                          <a href='index.php?profile'>MY PROFILE</a>&nbsp/
+                          <a href='index.php?user'>MY PAGE</a>";
                 } else {
                     echo "<div id='login_btn'>LOG IN</div> / <div id='signup_btn'>SIGN UP</div>";
                 }
@@ -94,7 +96,8 @@ foreach ($_GET as $key => $value){
             <div id="adBanner_left">ad here</div>
         </aside>
         <!-- SITE BODY (iFRAME) -->
-        <?php
+        <?php        
+        
         if (isset($_GET["user"])){
             if (isset($_SESSION["type"])){
                 switch ($_SESSION["type"]){
@@ -111,9 +114,36 @@ foreach ($_GET as $key => $value){
             } else {
                 header("Location: index.php");
             }
+        } else if (isset($_GET["profile"])){
+            echo "<iframe id='main' src='fr_perfil.php'></iframe>";
         } else {
             echo "<iframe id='main' src='fr_home.php'></iframe>";
-        }            
+        }
+        /*
+        if (isset($_GET[0])){
+            if (isset($_SESSION["type"])){
+                if (isset($_GET["user"])){
+                    switch ($_SESSION["type"]){
+                        case "1": // MUSICIAN
+                            echo "<iframe id='main' src='fr_musico.php'></iframe>";
+                            break;
+                        case "2": // LOCAL
+                            echo "<iframe id='main' src='fr_local.php'></iframe>";
+                            break;
+                        case "3": // FAN
+                            echo "<iframe id='main' src='fr_fan.php'></iframe>";
+                            break;
+                    }
+                } else {
+                    echo "<iframe id='main' src='fr_home.php'></iframe>";
+                }
+            } else {
+                header("Location: index.php");
+            }
+        } else {
+            echo "<iframe id='main' src='fr_home.php'></iframe>";
+        }*/
+        
         ?>
         <!-- MODAL -->
         <div id="modal">

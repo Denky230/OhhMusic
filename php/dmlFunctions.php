@@ -24,7 +24,7 @@ function delete($table, $field, $values){
     return $result;
 }
 
-/* ---------------------------------------- UPDATE ---------------------------------------- */
+/* --------------------------------------- UPDATE --------------------------------------- */
 
 function update($table, $field, $newValue, $conditions = ""){
     $connection = connect();
