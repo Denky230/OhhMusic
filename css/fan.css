@@ -36,18 +36,18 @@ body {
     padding: 10px 10px;
     
     box-sizing: border-box;
-    background-color: aqua;
+    background-color: lightgreen;
 }
 
 #list_concerts {
     width: 49%;
-    background-color: lightpink;
+    background-color: lightgreen;
     text-align: center;
     padding: 3px 3px;
 }
 #list_musicians {
     width: 49%;
-    background-color: lightpink;
+    background-color: lightgreen;
     text-align: center;
     padding: 3px 3px;
 }
@@ -60,7 +60,7 @@ body {
     padding: 10px;
     
     box-sizing: border-box;
-    background-color: lightpink;
+    background-color: lightcyan;
 }
 #concert_img {
     width: 100%;
