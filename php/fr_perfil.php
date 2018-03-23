@@ -9,6 +9,7 @@ session_start();
     <html>
         <head>
             <meta charset="UTF-8">
+            <link rel="stylesheet" href="../css/frame.css"/>
             <link rel="stylesheet" href="../css/perfil.css"/>
             <title></title>
         </head>
