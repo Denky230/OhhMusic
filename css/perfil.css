@@ -65,8 +65,11 @@ body {
 input{
     color: #962;
     padding: 1%;
-    margin: 2em;
     font-size:1em;
+}
+
+#username, input[type="text"], input[type="email"], #city{
+    margin:1em;
 }
 
 div #artist_name, #genre, #surname, #phone, #webpage, #group_size{
@@ -75,3 +78,6 @@ div #artist_name, #genre, #surname, #phone, #webpage, #group_size{
     padding: 1%;
 }
 
+input[name="button"]{
+    font-size:2em;
+}
