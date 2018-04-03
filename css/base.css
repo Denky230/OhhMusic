@@ -47,8 +47,8 @@ a {
     display: flex;
     right: 5%;
 }
-#login_btn, #signup_btn, #profile {
-    position: relative;    
+#account * {
+    position: relative;
     margin: 0 10px;
 }
 #login_btn:hover, #signup_btn:hover {
@@ -155,7 +155,7 @@ a {
     position: absolute;
     
     height: 80px;
-    width: 400px;
+    width: 450px;
     
     right: -450px;
     
@@ -180,7 +180,7 @@ a {
     cursor: pointer;
 }
 .search_bar_show {
-    transform: translateX(-137.5%);
+    transform: translateX(-550px);
 }
 
 /* ------------------------------------ Main (iFrame) ------------------------------------ */

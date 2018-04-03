@@ -59,7 +59,7 @@ require_once 'dmlFunctions.php';
             <div id="musiciansByGenre">
                 <p>MUSICOS BY GENRE:</p>
                 <div id="musiciansByGenre_btns">
-                    <form action="fr_genre.php" method="GET">
+                    <form action="fr_musiciansByGenre.php" method="GET">
                         <?php
                         // Select every genre played by min 1 musician
                         $genres = selectFields("name", "genre", "WHERE id_genre IN (SELECT id_genre FROM musician)");
@@ -73,7 +73,7 @@ require_once 'dmlFunctions.php';
             <div id="propertiesByCity">
                 <p>LOCALES BY CITY:</p>                
                 <div id="propertiesByCity_btns">
-                    <form action="index.php" method="GET">
+                    <form action="fr_localesByCity.php" method="GET">
                         <?php
                         // Select every city which contains min 1 local
                         $cities = selectFields("name", "city", "WHERE id_city IN (SELECT id_city FROM user WHERE user.type = 2 GROUP BY id_city)");

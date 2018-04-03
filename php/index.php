@@ -10,7 +10,6 @@ and open the template in the editor.
 -->
 <?php
 /* ---- GITANADA (?) ---- */
-$userTypeName = "";
 if (isset($_GET["close"])){
     session_destroy();
     header("Location: index.php"); // Refresh site + remove $_GET["close"]
@@ -77,7 +76,9 @@ foreach ($_GET as $key => $value){
                 <?php
                 if (isset($_SESSION["type"])){
                     // $_GET["close"] = destroy session  -  $_GET["user"] = user page
-                    echo "<a href='index.php?close'>CLOSE SESSION</a>&nbsp/<div id='profile'><a href='index.php?user'>MY PROFILE</a></div>";
+                    echo "<a href='index.php?close'>CLOSE SESSION</a>&nbsp/
+                          <a href='index.php?profile'>MY PROFILE</a>&nbsp/
+                          <a href='index.php?user'>MY PAGE</a>";
                 } else {
                     echo "<div id='login_btn'>LOG IN</div> / <div id='signup_btn'>SIGN UP</div>";
                 }
@@ -94,7 +95,7 @@ foreach ($_GET as $key => $value){
             <div id="adBanner_left">ad here</div>
         </aside>
         <!-- SITE BODY (iFRAME) -->
-        <?php
+        <?php 
         if (isset($_GET["user"])){
             if (isset($_SESSION["type"])){
                 switch ($_SESSION["type"]){
@@ -108,12 +109,12 @@ foreach ($_GET as $key => $value){
                         echo "<iframe id='main' src='fr_fan.php'></iframe>";
                         break;
                 }
-            } else {
-                header("Location: index.php");
             }
+        } else if (isset($_GET["profile"])){
+            echo "<iframe id='main' src='fr_perfil.php'></iframe>";
         } else {
             echo "<iframe id='main' src='fr_home.php'></iframe>";
-        }            
+        }        
         ?>
         <!-- MODAL -->
         <div id="modal">
