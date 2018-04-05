@@ -1,3 +1,7 @@
+<?php
+require_once 'dmlFunctions.php';
+session_start();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
