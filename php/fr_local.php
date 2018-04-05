@@ -123,3 +123,8 @@ and open the template in the editor.
         <script src="../js/gridList_toggle.js" type="text/javascript"></script>
     </body>
 </html>
+<?php
+    if(isset($_POST["button"])){
+        insert('concert', '2', $_POST['concert_date'], $_POST["concert_time"], $_POST["price"], $_POST["price"]);
+    }
+?>
