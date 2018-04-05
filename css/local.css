@@ -208,4 +208,10 @@ input{
     margin-top: 5%;
     padding: 10px 10px;
 }
+select{
+    height: 100%;
+    width: 90%;
+    margin-top: 5%;
+    padding: 10px 10px;
+}
 

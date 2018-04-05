@@ -1,3 +1,6 @@
+<?php
+    require 'dmlFunctions.php';
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -110,7 +113,14 @@ and open the template in the editor.
                         <h4>Hora:</h4>
                         <input type="time" name="concert_time"><br>
                         <h4>Genero:</h4>
-                        <input type="text" name="genre"><br>
+                        <select name="genre">
+                        <?php
+                            $fila = select("name", "genre");
+                            while($filas = mysqli_fetch_assoc($fila)){
+                                echo("<option value='". $filas['name'] ."'> " . $filas['name'] . "</option>");
+                            }
+                        ?>
+                        </select>
                         <h4>Tarifa:</h4>
                         <input type="number" name="price"><br><br>
                         <input type="submit" name="button" value="Enviar">
