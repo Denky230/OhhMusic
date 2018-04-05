@@ -1,6 +1,8 @@
 <?php
 require_once 'dmlFunctions.php';
 session_start();
+
+//$acceptedConcerts = select("", "concert", "WHERE id_musician = ".$_SESSION[""])
 ?>
 <!DOCTYPE html>
 <!--
@@ -16,7 +18,7 @@ and open the template in the editor.
     </head>
     <body>
         <div id="main">
-            <div id="frameTitle"><h2>CONCIERTOS</h2></div>
+            <div id="frameTitle"><h2>CONCIERTOS ACEPTADOS</h2></div>
             <div id="concerts">
                 <div id="concert_box">
                     <img id="concert_img" src="../media/random.jpg" alt="">

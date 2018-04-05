@@ -38,7 +38,7 @@ if (isset($_POST["signup_submit"])){
     $userData = mysqli_fetch_assoc(select("pass, type", "user", "WHERE username = '".$_POST["username"]."'"));
     if (password_verify($_POST["pass"], $userData["pass"])){
         $_SESSION["type"] = $userData["type"];
-        $_SESSION["username"] = $_POST["username"];
+        $_SESSION["id_user"] = select_value("id_user", "user", "WHERE username = '".$_POST["username"]."'");
         header("Location: index.php?user");
     } else {
         echo "incorresto";
