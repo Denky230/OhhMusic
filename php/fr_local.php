@@ -1,5 +1,6 @@
 <?php
     require 'dmlFunctions.php';
+    session_start();
 ?>
 <!DOCTYPE html>
 <!--
@@ -109,32 +110,36 @@ and open the template in the editor.
                 <div id="create_concert">
                     <form method="post">
                         <h4>Fecha del concierto:</h4>
-                        <input type="date" name="concert_date"><br>
+                        <input type="date" name="concert_date" required><br>
                         <h4>Hora:</h4>
-                        <input type="time" name="concert_time"><br>
+                        <input type="time" name="concert_time" required><br>
                         <h4>Genero:</h4>
-                        <select name="genre">
+                        <select name="genre" required>
                         <?php
-                            $fila = select("name", "genre");
+                            $fila = select("*", "genre");
                             while($filas = mysqli_fetch_assoc($fila)){
-                                echo("<option value='". $filas['name'] ."'> " . $filas['name'] . "</option>");
+                                echo("<option value='". $filas['id_genre'] ."'> " . $filas['name'] . "</option>");
                             }
                         ?>
                         </select>
                         <h4>Tarifa:</h4>
-                        <input type="number" name="price"><br><br>
+                        <input type="number" name="price" required><br><br>
                         <input type="submit" name="button" value="Enviar">
                     </form>
                 </div>
             </div>
+            <?php
+            if(isset($_POST["button"])){
+                if(insert('concert (state, concert_date, concert_time, id_genre, payment, id_local)', "1, '". $_POST['concert_date'] . "', '". $_POST['concert_time'] . "', ". $_POST['genre'] . ",". $_POST['price'] . ",". $_SESSION['type'] . "")){
+                    echo("You've created a concert!:)");
+                }else{
+                    echo("Something went wrong.. Try again with the correct characters.");
+                }
+            }
+            ?>
         </aside>
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
         <script src="../js/gridList_toggle.js" type="text/javascript"></script>
     </body>
 </html>
-<?php
-    if(isset($_POST["button"])){
-        insert('concert', '2', $_POST['concert_date'], $_POST["concert_time"], $_POST["price"], $_POST["price"]);
-    }
-?>
