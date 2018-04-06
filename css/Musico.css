@@ -3,6 +3,7 @@
     
 #main {
     width: 84%;
+    background-color: burlywood;
 }
 
 #concerts {
@@ -12,7 +13,7 @@
     
     width: 100%;
     
-    background-color: aqua;
+    background-color: burlywood;
 }
 #concert_box {
     height: 400px;
@@ -22,7 +23,7 @@
     padding: 20px;
     
     box-sizing: border-box;
-    background-color: deeppink;
+    background-color: beige;
 }
 #concert_img {
     width: 100%;
