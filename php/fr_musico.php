@@ -2,7 +2,6 @@
 require_once 'dmlFunctions.php';
 session_start();
 
-//$acceptedConcerts = select("", "concert", "WHERE id_musician = ".$_SESSION[""])
 ?>
 <!DOCTYPE html>
 <!--
@@ -20,43 +19,22 @@ and open the template in the editor.
         <div id="main">
             <div id="frameTitle"><h2>CONCIERTOS ACEPTADOS</h2></div>
             <div id="concerts">
-                <div id="concert_box">
-                    <img id="concert_img" src="../media/random.jpg" alt="">
-                    <div id="concert_info">
-                        <h3>Nombre Local</h3>
-                        <h3>Lugar Local</h3>
-                        <h3>Telf Local</h3>
+                <?php
+                $acceptedConcerts = select("*", "concert", "WHERE id_musician = ".$_SESSION["id_user"]." AND state = 1");
+                
+                while ($acceptedConcert = mysqli_fetch_assoc($acceptedConcerts)){
+                    ?>
+                    <div id="concert_box">
+                        <img id="concert_img" src="../media/random.jpg" alt="">
+                        <div id="concert_info">
+                            <h3>Nombre Local</h3>
+                            <h3>Lugar Local</h3>
+                            <h3>Telf Local</h3>
+                        </div>
                     </div>
-                </div>
-                <div id="concert_box">
-                    <img id="concert_img" src="" alt="">
-                    <div id="concert_info">
-                    </div>
-                </div>
-                <div id="concert_box">
-                    <img id="concert_img" src="" alt="">
-                    <div id="concert_info">
-
-                    </div>
-                </div>
-                <div id="concert_box">
-                    <img id="concert_img" src="" alt="">
-                    <div id="concert_info">
-
-                    </div>
-                </div>
-                <div id="concert_box">
-                    <img id="concert_img" src="" alt="">
-                    <div id="concert_info">
-
-                    </div>
-                </div>
-                <div id="concert_box">
-                    <img id="concert_img" src="" alt="">
-                    <div id="concert_info">
-
-                    </div>
-                </div>
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </body>

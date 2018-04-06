@@ -29,7 +29,7 @@ and open the template in the editor.
                                     <div class='image'></div>
                                     <div class='info'>
                                         <div class='title'>Lorem Ipsum</div>
-                                        <div class='description'>bfuiebadj</div>
+                                        <div class='description'></div>
                                         <div class='shares'>
                                             <div class='icon-lik likes'></div>
                                             <div class='icon-ask comments'></div>
