@@ -15,16 +15,6 @@ body {
 
 /* ------------------------------ Main ------------------------------ */
 
-#main {
-    position: absolute;
-    
-    width: 84%;
-    
-    padding-top: 80px;
-
-    box-sizing: border-box;
-    background-color: white;
-}
 
 #display{
     background-color: lightslategray;

@@ -12,14 +12,14 @@ body {
     background-color: white;
 }
 
-/* --------------------------- Main --------------------------- */
+/* ----------------------------------------- Main ----------------------------------------- */
+
 #main {
     position: absolute;
 
     width: 68%;
 
     padding-top: 80px;
-    margin-left: 16%;
 
     box-sizing: border-box;
     background-color: gray;
@@ -178,7 +178,7 @@ header img{
     font-size: 85%;
 }
 
-/* --------------------------- Right Frame --------------------------- */
+/* ------------------------------------- Right Frame ------------------------------------- */
 
 #frame_right {
     position: absolute;
@@ -204,6 +204,12 @@ h4{
 }
 
 input{
+    height: 100%;
+    width: 90%;
+    margin-top: 5%;
+    padding: 10px 10px;
+}
+select{
     height: 100%;
     width: 90%;
     margin-top: 5%;
