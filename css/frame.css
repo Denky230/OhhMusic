@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 p {
     line-height: 50px;
 }
@@ -13,13 +17,8 @@ body {
     padding-top: 80px;
 }
 
-#content {
-    background-color: yellow;
-}
-
 #main {
     position: absolute;
-    
     overflow-y: auto;
     
     height: 91.5%;

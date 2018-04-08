@@ -44,20 +44,51 @@ if (isset($_POST["signup_submit"])){
         echo "incorresto";
     }
 }
-/* ------------- TEST ------------- 
+/* ------------- TEST ------------- */
+if (isset($_POST["quickAdd"])){
+    for ($i = 0; $i < $_POST["quickAdd"]; $i++){
+        switch ($_POST["qa_usertype"]){
+            case 1:
+                $numM = mysqli_num_rows(select("*", "musician")) + 1;
+
+                insert("user", "0, ".$_POST["qa_usertype"].", 'M".str_pad($numM, 2, '0', STR_PAD_LEFT)."', 123, 'musi', 'mus@ician.com', 1, 0");
+
+                $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
+                insert("musician", "'$lastUserID', 'M".str_pad($numM, 2, '0', STR_PAD_LEFT)."', 1, 'cian', 12345, 'web', 1");
+                break;
+            case 2:            
+                $numL = mysqli_num_rows(select("*", "local")) + 1;
+
+                insert("user", "0, ".$_POST["qa_usertype"].", 'L".str_pad($numL, 2, '0', STR_PAD_LEFT)."', 123, 'local', 'lo@cal.com', 1, 0");
+
+                $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
+                insert("local", "'$lastUserID', 12345, 5, 'web'");
+                break;
+            case 3:
+                $numF = mysqli_num_rows(select("*", "fan")) + 1;
+
+                insert("user", "0, ".$_POST["qa_usertype"].", 'F".str_pad($numF, 2, '0', STR_PAD_LEFT)."', 123, 'fan', 'fan@felis.com', 1, 0");
+
+                $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
+                insert("fan", "'$lastUserID', 12345, 'MaHause', 'felis'");
+                break;
+        }
+    }    
+}
+/*
 echo "SESSION:<br>";
 foreach ($_SESSION as $key => $value){
-    echo "$key: $value<br>";
+    echo "$key - $value<br>";
 }
 echo "POST:<br>";
 foreach ($_POST as $key => $value){
-    echo "$key: $value<br>";
+    echo "$key - $value<br>";
 }
 echo "GET:<br>";
 foreach ($_GET as $key => $value){
-    echo "$key: $value<br>";
-}*/
-/* -------------------------------- */
+    echo "$key - $value<br>";
+}
+ ------------- TEST ------------- */
 ?>
 <html>
     <head>
@@ -146,11 +177,19 @@ foreach ($_GET as $key => $value){
                                 }
                                 ?>
                             </select>
-                            <div id="citySelect"></div></div>
+                            <div id="citySelect"></div>
+                        </div>
                         <div id="nonUserSpecFields"></div>
                     </div>
                     <input type="submit" name="signup_submit" id="signup_submit" value="Sign up">
                 </form>
+                <!-- TEST -->
+                <form method="POST">
+                    <input type="number" name="quickAdd" id="quickAdd" placeholder="Quick Add (TESTING)">
+                    <input type="hidden" name="qa_usertype" id="qa_usertype">
+                    <input type="submit" value="ADD" id="quickAdd" onclick="getUserType()">
+                </form>
+                <!-- TEST -->
             </div>
         </div>
         <!-- SIGN UP - USER TYPE SELECT -->
@@ -162,10 +201,11 @@ foreach ($_GET as $key => $value){
                     <option value="2">Local</option>
                     <option value="3">Fan</option>
                 </select>
-                <button type="button" id="signup_select_btn">Registrar</button>
+                <button type="button" id="signup_select_btn" onclick="showRegisterForm()">Registrar</button>
             </div>
         </div>
         <script src="../js/search.js"></script>
         <script src="../js/account.js"></script>
+        <script src="../js/test.js"></script>
     </body>
 </html>

@@ -23,7 +23,7 @@ signup_btn.addEventListener('click', function(){
 });
 
 // REGISTER BUTTON
-signup_select_btn.addEventListener('click', function(){
+function showRegisterForm(){
     signup_bg.style.display = "none";
     modal.style.display = "block";
     signup_form.style.display = "block";
@@ -56,7 +56,7 @@ signup_select_btn.addEventListener('click', function(){
         
     }, 'false');
     document.getElementById("signup_verPass").addEventListener('keypress', verifyPass, 'false');
-});
+};
 
 // Hide modals by clicking outside
 window.onclick = function(event) {
