@@ -39,7 +39,7 @@ $musicians = select("artist_name AS 'Artista'", "musician m INNER JOIN genre g O
             if ($currPage > 1){
                 echo "<a href='fr_musiciansByGenre.php?genre=$genre&currPage=1'><<</a> ";
                 echo "<a href='fr_musiciansByGenre.php?genre=$genre&currPage=".($currPage - 1)."'><</a> ";
-            }            
+            }
             for ($i = 1; $i <= $numPages; $i++){
                 echo "<a href='fr_musiciansByGenre.php?genre=$genre&currPage=$i'>$i</a> ";
             }

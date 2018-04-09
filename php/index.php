@@ -48,7 +48,7 @@ if (isset($_POST["signup_submit"])){
 if (isset($_POST["quickAdd"])){
     for ($i = 0; $i < $_POST["quickAdd"]; $i++){
         switch ($_POST["qa_usertype"]){
-            case 1:
+            case 1: // MUSICIAN
                 $numM = mysqli_num_rows(select("*", "musician")) + 1;
 
                 insert("user", "0, ".$_POST["qa_usertype"].", 'M".str_pad($numM, 2, '0', STR_PAD_LEFT)."', 123, 'musi', 'mus@ician.com', 1, 0");
@@ -56,15 +56,15 @@ if (isset($_POST["quickAdd"])){
                 $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
                 insert("musician", "'$lastUserID', 'M".str_pad($numM, 2, '0', STR_PAD_LEFT)."', 1, 'cian', 12345, 'web', 1");
                 break;
-            case 2:            
+            case 2: // LOCAL
                 $numL = mysqli_num_rows(select("*", "local")) + 1;
 
-                insert("user", "0, ".$_POST["qa_usertype"].", 'L".str_pad($numL, 2, '0', STR_PAD_LEFT)."', 123, 'local', 'lo@cal.com', 1, 0");
+                insert("user", "0, ".$_POST["qa_usertype"].", 'L".str_pad($numL, 2, '0', STR_PAD_LEFT)."', 123, 'L".str_pad($numL, 2, '0', STR_PAD_LEFT)."', 'lo@cal.com', 1, 0");
 
                 $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
                 insert("local", "'$lastUserID', 12345, 5, 'web'");
                 break;
-            case 3:
+            case 3: // FAN
                 $numF = mysqli_num_rows(select("*", "fan")) + 1;
 
                 insert("user", "0, ".$_POST["qa_usertype"].", 'F".str_pad($numF, 2, '0', STR_PAD_LEFT)."', 123, 'fan', 'fan@felis.com', 1, 0");
