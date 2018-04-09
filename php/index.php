@@ -51,7 +51,7 @@ if (isset($_POST["quickAdd"])){
             case 1: // MUSICIAN
                 $numM = mysqli_num_rows(select("*", "musician")) + 1;
 
-                insert("user", "0, ".$_POST["qa_usertype"].", 'M".str_pad($numM, 2, '0', STR_PAD_LEFT)."', 123, 'musi', 'mus@ician.com', 1, 0");
+                insert("user", "0, ".$_POST["qa_usertype"].", 'M".str_pad($numM, 2, '0', STR_PAD_LEFT)."', '".password_hash(123, PASSWORD_DEFAULT)."', 'musi', 'mus@ician.com', 1, 0");
 
                 $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
                 insert("musician", "'$lastUserID', 'M".str_pad($numM, 2, '0', STR_PAD_LEFT)."', 1, 'cian', 12345, 'web', 1");
@@ -59,7 +59,7 @@ if (isset($_POST["quickAdd"])){
             case 2: // LOCAL
                 $numL = mysqli_num_rows(select("*", "local")) + 1;
 
-                insert("user", "0, ".$_POST["qa_usertype"].", 'L".str_pad($numL, 2, '0', STR_PAD_LEFT)."', 123, 'L".str_pad($numL, 2, '0', STR_PAD_LEFT)."', 'lo@cal.com', 1, 0");
+                insert("user", "0, ".$_POST["qa_usertype"].", 'L".str_pad($numL, 2, '0', STR_PAD_LEFT)."', '".password_hash(123, PASSWORD_DEFAULT)."', 'L".str_pad($numL, 2, '0', STR_PAD_LEFT)."', 'lo@cal.com', 1, 0");
 
                 $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
                 insert("local", "'$lastUserID', 12345, 5, 'web'");
@@ -67,7 +67,7 @@ if (isset($_POST["quickAdd"])){
             case 3: // FAN
                 $numF = mysqli_num_rows(select("*", "fan")) + 1;
 
-                insert("user", "0, ".$_POST["qa_usertype"].", 'F".str_pad($numF, 2, '0', STR_PAD_LEFT)."', 123, 'fan', 'fan@felis.com', 1, 0");
+                insert("user", "0, ".$_POST["qa_usertype"].", 'F".str_pad($numF, 2, '0', STR_PAD_LEFT)."', '".password_hash(123, PASSWORD_DEFAULT)."', 'fan', 'fan@felis.com', 1, 0");
 
                 $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
                 insert("fan", "'$lastUserID', 12345, 'MaHause', 'felis'");
