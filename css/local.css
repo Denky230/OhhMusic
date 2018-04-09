@@ -1,34 +1,14 @@
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-p {
-    line-height: 50px;
-}
-
-body {
-    background-color: white;
-}
-
 /* ----------------------------------------- Main ----------------------------------------- */
 
-#main {
-    position: absolute;
-
-    width: 68%;
-
-    padding-top: 80px;
-
-    box-sizing: border-box;
-    background-color: gray;
+#header {
+    display: inline;
 }
 
-header img{
-    width: 3%;
-    margin-top: 2%;
-    margin-left: 1%;
+#view_icons img {
+    width: 35px;
+}
+#view_icons img:hover {
+    cursor: pointer;
 }
 #concerts {
     flex-wrap: wrap;
@@ -50,13 +30,6 @@ header img{
 
     box-sizing: border-box;
     background-color: deeppink;
-}
-
-#container {
-    margin-top: 5%;
-    font-family: 'Helvetica', Arial, sans-serif;
-    font-size: 90%;
-    line-height: normal;
 }
 
 #frame {
@@ -181,38 +154,39 @@ header img{
 /* ------------------------------------- Right Frame ------------------------------------- */
 
 #frame_right {
-    position: absolute;
-
-    height: 125.5%;
+    position: fixed;
+    
+    height: 100%;
     width: 16%;
-
+    
     left: 84%;
-    padding-left: 1%;
-    padding-top: 8%;
+    
+    padding: 30px 15px;
     box-sizing: border-box;
-    background-color: rgb(230, 230, 230);
+    
+    background-color: orange;
 }
 
-h2{
+#frame_right h2, h4, input, select {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#frame_right h2, h4 {
+    left: 55%;
     font-family: cursive;
-    font-size: 130%;
 }
-h4{
-    font-size: 100%;
-    font-family: monospace;
-    padding-top: 10%;
+#frame_right h4 {
+    padding-top: 8%;
 }
 
-input{
+input, select {
     height: 100%;
     width: 90%;
-    margin-top: 5%;
+    
+    margin-top: 8px;
     padding: 10px 10px;
+    box-sizing: border-box;
+    
+    font-size: 15px;
 }
-select{
-    height: 100%;
-    width: 90%;
-    margin-top: 5%;
-    padding: 10px 10px;
-}
-

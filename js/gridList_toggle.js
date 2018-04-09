@@ -1,6 +1,6 @@
 //local.js
 
-$('#header img').on('click',function(){
+$('#view_icons img').on('click',function(){
     if ( $(this).hasClass('view-list') ) {
         $('#frame').removeClass('grid').addClass('list');
         $('.concert_box').css('height', '120px').css('width', '100%');
