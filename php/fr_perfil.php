@@ -6,14 +6,14 @@ session_start();
 <?php
 if(isset($_POST["button"])){
     if($_SESSION["type"] == 1){
-        updateUser("user", "name", $_POST['name'], "email", $_POST['email'], "username", $_SESSION["username"]);
+        updateUser("name", $_POST['name'], "email", $_POST['email'], $_SESSION["id_user"]);
         updateMusician("artist_name", $_POST["artist_name"], "surname", $_POST["surname"],
             "phone", $_POST["phone"], "web", $_POST["web"], "group_size", $_POST["group_size"]);
     }elseif ($_SESSION["type"] == 2){
-        updateUser("user", "name", $_POST['name'], "email", $_POST['email'], "username", $_SESSION["username"]);
+        updateUser("name", $_POST['name'], "email", $_POST['email'], $_SESSION["id_user"]);
         updateLocal("phone", $_POST["phone"], "capacity", $_POST["capacity"], "web", $_POST["web"]);
     }elseif($_SESSION["type"] == 3){
-        updateUser("user", "name", $_POST['name'], "email", $_POST['email'], "username", $_SESSION["username"]);
+        updateUser("name", $_POST['name'], "email", $_POST['email'], $_SESSION["id_user"]);
         updateFan("phone", $_POST["phone"], "address", $_POST["address"], "surname", $_POST["surname"]);
     }
 }

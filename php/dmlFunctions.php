@@ -29,7 +29,7 @@ function delete($table, $field, $values){
 function updateFan($phone, $newPhone, $address, $newAddress, $surname, $newSurname){
     $connection = connect();
 
-    $update = "update fan set $phone = '$newPhone', $address = '$newAddress', $surname = '$newSurname' WHERE id_fan = (select id_user from user where username = '".$_SESSION["username"]."')";
+    $update = "update fan set $phone = '$newPhone', $address = '$newAddress', $surname = '$newSurname' WHERE id_fan = ".$_SESSION["id_user"];
     if (mysqli_query($connection, $update)){
         $result = "Ok";
     } else {
@@ -43,7 +43,7 @@ function updateFan($phone, $newPhone, $address, $newAddress, $surname, $newSurna
 function updateLocal($phone, $newPhone, $capacity, $newCapacity, $web, $newWeb){
     $connection = connect();
 
-    $update = "update local set $phone = '$newPhone', $capacity = '$newCapacity', $web = '$newWeb' WHERE id_local = (select id_user from user where username = '".$_SESSION["username"]."')";
+    $update = "update local set $phone = '$newPhone', $capacity = '$newCapacity', $web = '$newWeb' WHERE id_local = ".$_SESSION["id_user"];
     if (mysqli_query($connection, $update)){
         $result = "Ok";
     } else {
@@ -57,7 +57,7 @@ function updateLocal($phone, $newPhone, $capacity, $newCapacity, $web, $newWeb){
 function updateMusician($artistName, $newName, $surname, $newSurname, $phone, $newPhone, $web, $newWeb, $size, $newSize){
     $connection = connect();
 
-    $update = "update musician set $artistName = '$newName', $surname = '$newSurname', $phone = '$newPhone', $web = '$newWeb', $size = '$newSize' where id_musician = (select id_user from user where username = '".$_SESSION["username"]."')";
+    $update = "update musician set $artistName = '$newName', $surname = '$newSurname', $phone = '$newPhone', $web = '$newWeb', $size = '$newSize' where id_musician = ".$_SESSION["id_user"];
     if (mysqli_query($connection, $update)){
         $result = "Ok";
     } else {
@@ -68,10 +68,10 @@ function updateMusician($artistName, $newName, $surname, $newSurname, $phone, $n
     return $result;
 }
 
-function updateUser($table, $field, $newValue, $field2, $newValue2, $condition, $type){
+function updateUser($field, $newValue, $field2, $newValue2, $id){
     $connection = connect();
 
-    $update = "update $table set $field = '$newValue', $field2 = '$newValue2' where $condition = '$type'";
+    $update = "update user set $field = '$newValue', $field2 = '$newValue2' where id_user = $id";
     if (mysqli_query($connection, $update)){
         $result = "Ok";
     } else {
