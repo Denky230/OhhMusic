@@ -13,13 +13,31 @@ require_once 'dmlFunctions.php';
         <!-- BODY -->
         <div id="main">
             <div id="frameTitle"><h2>CONCIERTOS</h2></div>
-            <div id="concerts">                
+            <div id="concerts">
                 <div id="concert_box">
                     <img id="concert_img" src="../media/random.jpg" alt="">
                     <div id="concert_info">
                         <h2>NombreLocal</h2>
                         <h2>LugarLocal</h2>
                         <h2>TelfLocal</h2>
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="" alt="">
+                    <div id="concert_info">
+
                     </div>
                 </div>
                 <div id="concert_box">

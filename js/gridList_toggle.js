@@ -1,6 +1,6 @@
 //local.js
 
-$('#header img').on('click',function(){
+$('#view_icons img').on('click',function(){
     if ( $(this).hasClass('view-list') ) {
         $('#frame').removeClass('grid').addClass('list');
         $('.concert_box').css('height', '120px').css('width', '100%');
@@ -8,17 +8,4 @@ $('#header img').on('click',function(){
         $('#frame').removeClass('list').addClass('grid');
         $('.concert_box').css('height', '300px').css('width', '32%');
     }
-});
-
-$('.frame').each(function(){
-    var images = ['random.jpg','https://goo.gl/b93Zu','https://goo.gl/y4kdu',
-        'https://goo.gl/eh4OX','https://goo.gl/aR2Y0','https://goo.gl/L16VF'];
-    $(this).find('.image')
-        .css({ 'background-image': 'url('+images[Math.floor(Math.random()*images.length)]+')' });
-    var like = 100,
-        likes = Math.floor(Math.random() * like) + 1;
-    $(this).find('.likes').text(likes);
-    var comment = 50,
-        comments = Math.floor(Math.random() * comment) + 1;
-    $(this).find('.comments').text(comments);
 });
