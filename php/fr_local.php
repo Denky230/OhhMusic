@@ -12,7 +12,6 @@ if (isset($_POST["button"])){
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/frame.css"/>
         <link rel="stylesheet" href="../css/local.css"/>
-        <title>Local</title>
     </head>
     <body>
         <div id="main">
