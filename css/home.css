@@ -4,7 +4,6 @@
 #concerts {
     display: inline-flex;
     flex-wrap: wrap;
-    justify-content: space-between;
         
     width: 100%;
 
@@ -14,7 +13,7 @@
     height: 380px;
     width: 32%;
     
-    margin: 10px 0px;
+    margin: 10px 8px;
     padding: 20px;
     box-sizing: border-box;
     
