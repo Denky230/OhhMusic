@@ -2,17 +2,24 @@
 /* ----------------------------------------- Main ----------------------------------------- */
 
 #main {
-    width: 84%;    
-    
+    width: 84%;
+   
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
+#list_concerts {
+    width: 49%;
+    background-color: lightgreen;
+    text-align: center;
+    padding: 3px 3px;
+}
+
 #list_concerts, 
 #list_musicians {
     width: 49%;
-    background-color: lightpink;
+    background-color: lightgreen;
     text-align: center;
     padding: 5px;
 }
@@ -25,7 +32,7 @@
     padding: 10px;
     
     box-sizing: border-box;
-    background-color: lightpink;
+    background-color: lightcyan;
 }
 #concert_img {
     width: 100%;
@@ -38,3 +45,5 @@
     
     width: 100%;
 }
+
+
