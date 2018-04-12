@@ -9,7 +9,7 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/frame.css"/>
-        <link rel="stylesheet" href="../css/Musico.css"/>
+        <link rel="stylesheet" href="../css/musico.css"/>
     </head>
     <body>
         <div id="main">
