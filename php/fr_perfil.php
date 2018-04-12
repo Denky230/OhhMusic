@@ -7,7 +7,7 @@ session_start();
 if(isset($_POST["button"])){
     if($_SESSION["type"] == 1){
         updateUser("name", $_POST['name'], "email", $_POST['email'], $_SESSION["id_user"]);
-        updateMusician("artist_name", $_POST["artist_name"], "surname", $_POST["surname"],
+        updateMusician("artist_name", $_POST["artist_name"], "id_genre", $_POST["genre"], "surname", $_POST["surname"],
             "phone", $_POST["phone"], "web", $_POST["web"], "group_size", $_POST["group_size"]);
     }elseif ($_SESSION["type"] == 2){
         updateUser("name", $_POST['name'], "email", $_POST['email'], $_SESSION["id_user"]);
@@ -37,6 +37,9 @@ if(isset($_POST["button"])){
                             Username: <input type="text" name="username" value="<?php echo $user['username']; ?>" disabled><br>
                             Name: <input type="text" name="name" value="<?php echo $user['name']; ?>"><br>
                             E-mail: <input type="email" name="email" value="<?php echo $user['email']; ?>"><br>
+                            <select name="city">
+                                <option></option>
+                            </select>
                             City: <input type="text" name="city" value="<?php echo $user['city']; ?>" disabled><br>
                         </div>
                         <div id="profile_specific_info">
@@ -45,7 +48,13 @@ if(isset($_POST["button"])){
                                 case 1:
                                     $musician = mysqli_fetch_assoc(select("m.artist_name, g.name AS genre, m.surname, m.phone, m.web, m.group_size", "musician m INNER JOIN genre g ON m.id_genre = g.id_genre INNER JOIN user ON id_musician = id_user", "WHERE id_user = '".$_SESSION["id_user"]."'"));
                                     echo("Artist Name: <input type='text' name='artist_name' value='" . $musician['artist_name'] . "'><br>
-                                    Genre: <input type='text' name='genre' value='" . $musician['genre'] . "' disabled><br>
+                                    Genre: <select name = 'genre' >");
+                                    $genres = selectFields("*", "genre");
+                                    echo("<option disabled>" . $musician["genre"] . "</option>");
+                                    while($genre = mysqli_fetch_assoc($genres)) {
+                                        echo("<option value = '". $genre['id_genre'] ."' > ". $genre['name'] ." </option >");
+                                    }
+                                    echo("</select ><br >
                                     Surname: <input type='text' name='surname' value='" . $musician['surname'] . "'><br>
                                     Phone:  <input type='number' name='phone' value='" . $musician['phone'] . "'><br>
                                     Webpage: <input type='text' name='web' value='" . $musician['web'] . "'><br>
@@ -71,6 +80,9 @@ if(isset($_POST["button"])){
                         </div>
                     </div>
                 </form>
+                <?php
+                    echo $_POST["city"];
+                ?>
             </div>
         </body>
     </html>

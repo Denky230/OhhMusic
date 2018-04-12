@@ -70,3 +70,9 @@ div #artist_name, #genre, #surname, #phone, #webpage, #group_size{
 input[name="button"]{
     font-size:2em;
 }
+
+select{
+    height:2em;
+    width:15em;
+    font-size:0.7em;
+}

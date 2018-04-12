@@ -65,6 +65,7 @@ if (isset($_POST["button"])){
                         <input type="time" name="concert_time" required><br>
                         <h4>Tarifa:</h4>
                         <input type="number" name="price" required><br><br>
+                        <input type="submit" name="button" value="Enviar">
                         <input type="submit" name="button" value="Crear">
                     </form>
                 </div>
@@ -74,4 +75,5 @@ if (isset($_POST["button"])){
         <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
         <script src="../js/gridList_toggle.js" type="text/javascript"></script>
     </body>
+</html>
 </html>
