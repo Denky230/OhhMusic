@@ -54,10 +54,10 @@ function updateLocal($phone, $newPhone, $capacity, $newCapacity, $web, $newWeb){
     return $result;
 }
 
-function updateMusician($artistName, $newName, $surname, $newSurname, $phone, $newPhone, $web, $newWeb, $size, $newSize){
+function updateMusician($artistName, $newName, $genre, $newgenre, $surname, $newSurname, $phone, $newPhone, $web, $newWeb, $size, $newSize){
     $connection = connect();
 
-    $update = "update musician set $artistName = '$newName', $surname = '$newSurname', $phone = '$newPhone', $web = '$newWeb', $size = '$newSize' where id_musician = ".$_SESSION["id_user"];
+    $update = "update musician set $artistName = '$newName', $genre = '$newgenre', $surname = '$newSurname', $phone = '$newPhone', $web = '$newWeb', $size = '$newSize' where id_musician = ".$_SESSION["id_user"];
     if (mysqli_query($connection, $update)){
         $result = "Ok";
     } else {
