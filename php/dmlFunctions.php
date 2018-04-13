@@ -24,7 +24,7 @@ function delete($table, $field, $values){
     return $result;
 }
 
-/* ---------------------------------------- UPDATE ---------------------------------------- */
+/* --------------------------------------- UPDATE --------------------------------------- */
 
 function updateFan($phone, $newPhone, $address, $newAddress, $surname, $newSurname){
     $connection = connect();
