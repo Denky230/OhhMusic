@@ -162,31 +162,23 @@
     
     background-color: orange;
 }
-
-#frame_right h2, h4, input, select {
+#frame_right * {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
-#frame_right h2, h4 {
+#frame_right h2, #frame_right h4 {
     left: 55%;
     font-family: cursive;
 }
 #frame_right h4 {
     padding-top: 8%;
 }
-
-input, select {
-    height: 100%;
-    width: 90%;
+#frame_right input,
+#frame_right select {
+    width: 100%;
     
     margin-top: 8px;
     padding: 10px 10px;
+    box-sizing: border-box;
 }
-select{
-    height: 100%;
-    width: 90%;
-    margin-top: 5%;
-    padding: 10px 10px;
-}
-
