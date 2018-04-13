@@ -35,12 +35,13 @@ if(isset($_POST["button"])){
                             ?>
                             <div id="image_box"><?php echo $user['image']; ?></div>
                             Username: <input type="text" name="username" value="<?php echo $user['username']; ?>" disabled><br>
-                            Name: <input type="text" name="name" value="<?php echo $user['name']; ?>"><br>
-                            E-mail: <input type="email" name="email" value="<?php echo $user['email']; ?>"><br>
-                            <select name="city">
+                            Name: <br><input type="text" name="name" value="<?php echo $user['name']; ?>"><br>
+                            E-mail: <br><input type="email" name="email" value="<?php echo $user['email']; ?>"><br>
+                            City: 
+                            <br><select name="city">
                                 <option></option>
                             </select>
-                            City: <input type="text" name="city" value="<?php echo $user['city']; ?>" disabled><br>
+                            <input type="text" name="city" value="<?php echo $user['city']; ?>" disabled><br>
                         </div>
                         <div id="profile_specific_info">
                             <?php
@@ -80,9 +81,6 @@ if(isset($_POST["button"])){
                         </div>
                     </div>
                 </form>
-                <?php
-                    echo $_POST["city"];
-                ?>
             </div>
         </body>
     </html>
