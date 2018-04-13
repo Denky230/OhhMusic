@@ -5,6 +5,9 @@ session_start();
 if (isset($_POST["button"])){
     insert('concert (state, concert_date, concert_time, id_genre, payment, id_local)', "0, '".$_POST['concert_date']."', '".$_POST['concert_time']."', ".$_POST['genre'].", ".$_POST['price'].", ".$_SESSION['id_user']);    
 }
+if(isset($_POST["delete"])){
+    delete("concert", "id_concert", "" . $_POST['idconcert'] . "");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,15 +32,19 @@ if (isset($_POST["button"])){
                     ?>
                     <!-- CONCERT BOX -->
                     <div class="concert_box">
-                        <li class='frame'>
-                            <div class='inset'>
-                                <div class='image'></div>
-                                <div class='info'>
-                                    <div class='title'>Lorem Ipsum</div>
-                                    <div class='description'></div>
-                                </div>
-                            </div>
-                        </li>
+                        <form method="post">
+                            <input type="hidden" name="idconcert" value="<?php echo $concert['id_concert']; ?>">
+                            <input type="submit" name="delete" value="X" style="width: 15%; margin-left: 50%;">
+                                <li class='frame'>
+                                    <div class='inset' style="margin-bottom: 20%;">
+                                        <div class='image'></div>
+                                        <div class='info'>
+                                            <div class='title'>Lorem Ipsum</div>
+                                            <div class='description'></div>
+                                        </div>
+                                    </div>
+                                </li>
+                        </form>
                     </div>
                     <?php
                 }

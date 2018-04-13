@@ -80,9 +80,6 @@ if(isset($_POST["button"])){
                         </div>
                     </div>
                 </form>
-                <?php
-                    echo $_POST["city"];
-                ?>
             </div>
         </body>
     </html>
