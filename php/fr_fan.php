@@ -12,25 +12,22 @@ require_once 'dmlFunctions.php';
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/frame.css"/>
         <link rel="stylesheet" href="../css/fan.css"/>
-        <title>Fan</title>
     </head>
     <body>
         <div id="main">
            <div id="list_concerts">
-                <div id="frameTitle"><h2>CONCIERTOS</h2> </div>
+                <div id="frameTitle"><h2>CONCIERTOS</h2></div>
                 <div id="concert_box">
                     <img id="concert_img" src="" alt="">
-                    <div id="concert_info">
-                    </div>
-                </div>                    
+                    <div id="concert_info"></div>
+                </div>
            </div>
            <div id="list_musicians">
                <div id="frameTitle"><h2>MÚSICOS</h2></div>
                 <div id="concert_box">
                     <img id="concert_img" src="" alt="">
-                    <div id="concert_info">
-                    </div>
-                </div>                    
+                    <div id="concert_info"></div>
+                </div>
            </div>
         </div>
     </body>

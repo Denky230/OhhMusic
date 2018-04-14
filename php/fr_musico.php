@@ -13,11 +13,15 @@ session_start();
     <body>
         <div id="main">
             <div id="frameTitle">
-                <h2><div id="proposed">CONCIERTOS PROPUESTOS</div> / <div id="accepted">CONCIERTOS ACEPTADOS</div></h2>
+                <h2>
+                    <div id="proposed" onclick="drawConcerts(this)">CONCIERTOS PROPUESTOS</div> / 
+                    <div id="accepted" onclick="drawConcerts(this)">CONCIERTOS ACEPTADOS</div> / 
+                    <div id="pending" onclick="drawConcerts(this)">CONCIERTOS PENDIENTES</div>
+                </h2>
             </div>
             <div id="concerts">
                 <!-- TEST -->
-                <div id='concert_box'>
+                <!-- <div id='concert_box'>
                     <img id='concert_img' src=''>
                     <div id='concert_info'>
                         <h2>Nombre Local</h2>
@@ -25,10 +29,11 @@ session_start();
                         <h2>Telf Local</h2>
                         <input type="button" id="concert_submit" value="Sign" onclick="signUpConcert()">
                     </div>
-                </div>
+                </div> -->
                 <!-- TEST -->
             </div>
         </div>
+        <script src="../js/functions.js"></script>
         <script src="../js/musico.js"></script>
     </body>
 </html>

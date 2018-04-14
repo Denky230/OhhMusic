@@ -35,15 +35,15 @@ if(isset($_POST["delete"])){
                         <form method="post">
                             <input type="hidden" name="idconcert" value="<?php echo $concert['id_concert']; ?>">
                             <input type="submit" name="delete" value="X" style="width: 15%; margin-left: 50%;">
-                                <li class='frame'>
-                                    <div class='inset' style="margin-bottom: 20%;">
-                                        <div class='image'></div>
-                                        <div class='info'>
-                                            <div class='title'>Lorem Ipsum</div>
-                                            <div class='description'></div>
-                                        </div>
+                            <li class='frame'>
+                                <div class='inset' style="margin-bottom: 20%;">
+                                    <div class='image'></div>
+                                    <div class='info'>
+                                        <div class='title'>Lorem Ipsum</div>
+                                        <div class='description'></div>
                                     </div>
-                                </li>
+                                </div>
+                            </li>
                         </form>
                     </div>
                     <?php

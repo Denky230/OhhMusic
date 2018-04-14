@@ -1,78 +1,47 @@
-var x = $(document);
-x.ready(startEvents);
+//var funcs = require('./functions');
 
-function startEvents(){
-    onLoad();
-    
-    // Assign event listeners
-    var x = $("#frameTitle div");
-    x.click(ajaxConcerts);
-}
+$(document).ready(function(){
+    drawConcerts(document.getElementById("proposed"));
+});
 
-function onLoad(){
-    // Underline default title
-    $("#proposed").css("text-decoration", "underline");
-    
-    // XMLHTTP object for new and old browsers
-    if (window.XMLHttpRequest) {
-        var xmlhttp = new XMLHttpRequest();
-    } else {
-        var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    // Ajax to print register form based on user type
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("concerts").innerHTML = this.responseText;
-        }
-    };
-    // Pass user user type to ajax_register.php
-    xmlhttp.open("GET", "ajax_musico.php?concertType=proposed", true);
-    xmlhttp.send();
-}
-
-function ajaxConcerts(){
-    // Get title clicked on
-    var x = $(this);
-    
+function drawConcerts(title){
     // Underline active title
     $("#frameTitle div").css("text-decoration", "none");
-    x.css("text-decoration", "underline");
-    
-    // XMLHTTP object for new and old browsers
-    if (window.XMLHttpRequest) {
-        var xmlhttp = new XMLHttpRequest();
-    } else {
-        var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    // Ajax to print register form based on user type
-    xmlhttp.onreadystatechange = function() {
+    title.style.textDecoration = "underline";
+
+    ajax("ajax_musico.php?concertState=" + title.getAttribute("id")).onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("concerts").innerHTML = this.responseText;
         }
     };
-    // Pass user user type to ajax_register.php
-    xmlhttp.open("GET", "ajax_musico.php?concertType=" + x.attr("id"), true);
-    xmlhttp.send();
 }
 
-function signUpConcert(){
-    // Get concert id
-    var x = $("#id_concert");
-    
+function subConcert(id){
+    ajax("ajax_musico.php?subConcert=" + id).onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+        }
+    };
+}
+
+function unsubConcert(id) {
+    ajax("ajax_musico.php?unsubConcert=" + id).onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+        }
+    };
+}
+
+function ajax(urlData) {
     // XMLHTTP object for new and old browsers
     if (window.XMLHttpRequest) {
         var xmlhttp = new XMLHttpRequest();
     } else {
         var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    // Ajax to print register form based on user type
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            if (this.response == "Ok")
-                alert("Te has registrado correctamente a " + x);
-        }
-    };
-    // Pass user user type to ajax_register.php
-    xmlhttp.open("GET", "ajax_musico.php?concertID=" + x, true);
+
+    xmlhttp.open("GET", urlData, true);
     xmlhttp.send();
+
+    return xmlhttp;
 }

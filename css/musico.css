@@ -1,43 +1,21 @@
 
-/* ---------------------------------------- Main ---------------------------------------- */
+/* ------------------ Main ------------------ */
     
 #main {
     width: 84%;
-    background-color: burlywood;
 }
 
-#concerts {
-    display: inline-flex;
-    flex-wrap: wrap;
-    
-    width: 100%;
-    
-    background-color: burlywood;
+#frameTitle * {
+    display: inline;
 }
-#concert_box {
-    position: relative;
-    
-    height: 400px;
-    width: 32%;
-    
-    margin: 10px 8px;
-    padding: 20px;
-    
-    box-sizing: border-box;
-    background-color: beige;
+#frameTitle div:hover {
+    cursor: pointer;
 }
-#concert_img {
-    width: 100%;
-    height: 60%;    
-}
-#concert_info {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
-    width: 100%;
-}
-#concert_submit {
+
+/* --------------- Concert Box --------------- */
+
+#concert_sub,
+#concert_unsub {
     position: absolute;
     
     height: 40px;
@@ -48,10 +26,6 @@
     
     font-size: 18px;
 }
-
-#frameTitle * {
-    display: inline;
-}
-#frameTitle div:hover {
-    cursor: pointer;
+#concert_unsub {
+	width: 25%;
 }

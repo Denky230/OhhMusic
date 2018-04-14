@@ -34,3 +34,36 @@ body {
     margin-bottom: 10px;
     font-size: 20px;    
 }
+
+/* ---------------- Concert Box ---------------- */
+
+#concerts {
+    display: inline-flex;
+    flex-wrap: wrap;
+        
+    width: 100%;
+
+    background-color: lightgreen;
+}
+#concert_box {
+    position: relative;
+
+    height: 380px;
+    width: 33.3%;
+    
+    padding: 20px;
+    box-sizing: border-box;
+    
+    background-color: deeppink;
+}
+#concert_img {
+    height: 60%;
+    width: 100%;
+}
+#concert_info {
+    display: block;
+    
+    width: 100%;
+
+    background-color: pink;
+}

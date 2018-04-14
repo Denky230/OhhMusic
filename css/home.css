@@ -1,37 +1,5 @@
 
-/* ---------------------------------------- Main ---------------------------------------- */
-
-#concerts {
-    display: inline-flex;
-    flex-wrap: wrap;
-        
-    width: 100%;
-
-    background-color: aqua;
-}
-#concert_box {
-    height: 380px;
-    width: 32%;
-    
-    margin: 10px 8px;
-    padding: 20px;
-    box-sizing: border-box;
-    
-    background-color: deeppink;
-}
-#concert_img {
-    width: 100%;
-    height: 60%;
-}
-#concert_info {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
-    width: 100%;
-}
-
-/* ------------------------------------- Right Frame ------------------------------------- */
+/* ---------------- Right Frame ---------------- */
 
 #frame_right {
     position: fixed;
@@ -68,9 +36,6 @@
     height: 340px;
     overflow-y: auto;
 }
-
-/* ---------------------------------- MusiciansByGenre ---------------------------------- */
-
 #musiciansByGenre {
     margin-top: 10%;
 }
