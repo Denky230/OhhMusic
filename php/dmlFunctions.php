@@ -14,10 +14,10 @@ function delete_array($table, $field, $valuesArray){
     
     return delete($table, $field, $deleteValues);
 }
-function delete($table, $field, $values){
+function delete($table, $conditions){
     $connection = connect();
     
-    $delete = "delete from $table where $field in ($values)";
+    $delete = "delete from $table $conditions";
     $result = mysqli_query($connection, $delete);
         
     disconnect($connection);

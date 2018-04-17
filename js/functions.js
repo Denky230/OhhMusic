@@ -1,5 +1,5 @@
 
-export function ajax(urlData) {
+function ajax(urlData) {
     // XMLHTTP object for new and old browsers
     if (window.XMLHttpRequest) {
         var xmlhttp = new XMLHttpRequest();

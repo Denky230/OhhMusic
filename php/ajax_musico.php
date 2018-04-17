@@ -45,23 +45,27 @@ if (isset($_GET["concertState"])){
                   <div id='concert_info'>
                       <h2>".$concert["localName"]."</h2>
                       <h2>".$concert["cityName"]."</h2>
-                      <h2>".$concert["localPhone"]."</h2>
-                      ".($concertState == 'proposed' ? "<input type='button' id='concert_sub' value='Inscribirse' onclick='subConcert(".$concert["concertID"].")'>" : 
-                                                       "<input type='button' id='concert_unsub' value='Desinscribirse' onclick='unsubConcert(".$concert["concertID"].")'>")."
-                  </div>
+                      <h2>".$concert["localPhone"]."</h2>";
+                    // Only show buttons for proposed or pending concerts
+                    if ($concertState === 'proposed')
+                        echo "<input type='button' id='concert_sub' value='Inscribirse' onclick='subConcert(".$concert["concertID"].")'>";
+                    else if ($concertState === 'pending')
+                        echo "<input type='button' id='concert_unsub' value='Desinscribirse' onclick='unsubConcert(".$concert["concertID"].")'>";
+            echo "</div>
               </div>";
     }
 /* ----------- SIGN UP TO CONCERT ----------- */
 } else if (isset($_GET["subConcert"])){
     $insert = insert("applyconcert", $_SESSION["id_user"].", ".$_GET["subConcert"].", 0");
-    if ($insert == "Ok"){
+    if ($insert === "Ok"){
         echo "Te has registrado exitosamente a este concierto (ID: ".$_GET["subConcert"].") :D";
     } else {
         echo "Oops, algo ha salido mal: $insert";
     }
 /* ----------- UNSUB FROM CONCERT ----------- */
 } else if (isset($_GET["unsubConcert"])){
-    echo "Algun dia este botón hará algo... (ID: ".$_GET["unsubConcert"].")";
+    delete("applyconcert", "WHERE id_musician = ".$_SESSION["id_user"]." AND id_concert = ".$_GET["unsubConcert"]);
+    echo "Te has dado de baja de este concierto exitosamente (ID: ".$_GET["unsubConcert"].")";
 }
 
 ?>
