@@ -5,9 +5,6 @@ session_start();
 if (isset($_POST["button"])){
     insert('concert (state, concert_date, concert_time, id_genre, payment, id_local)', "0, '".$_POST['concert_date']."', '".$_POST['concert_time']."', ".$_POST['genre'].", ".$_POST['price'].", ".$_SESSION['id_user']);    
 }
-if(isset($_POST["delete"])){
-    delete("concert", "id_concert", "" . $_POST['idconcert'] . "");
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,6 +12,11 @@ if(isset($_POST["delete"])){
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/frame.css"/>
         <link rel="stylesheet" href="../css/local.css"/>
+        <script src="../js/gridList_toggle.js" type="text/javascript"></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+        <script src="../js/functions.js"></script>
+        <script src="../js/concerts.js"></script>
     </head>
     <body>
         <div id="main">
@@ -29,14 +31,15 @@ if(isset($_POST["delete"])){
                 $concerts = select("*", "concert", "WHERE state = 0 AND id_local = '".$_SESSION["id_user"]."'");
 
                 while ($concert = mysqli_fetch_assoc($concerts)){
+                    $musiciansApplied = select("applyconcert", "");
                     ?>
                     <!-- CONCERT BOX -->
-                    <div class="concert_box">
+                    <div id="concert_box">
                         <form method="post">
                             <input type="hidden" name="idconcert" value="<?php echo $concert['id_concert']; ?>">
-                            <input type="submit" name="delete" value="X" style="width: 15%; margin-left: 50%;">
+                            <input type="button" name="delete" id="delete" value="X" onclick="deleteConcert(<?php echo $concert["id_concert"] ?>)">
                             <li class='frame'>
-                                <div class='inset' style="margin-bottom: 20%;">
+                                <div class='inset'>
                                     <div class='image'></div>
                                     <div class='info'>
                                         <div class='title'>Lorem Ipsum</div>
@@ -77,8 +80,5 @@ if(isset($_POST["delete"])){
                 </div>
             </div>
         </aside>
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-        <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-        <script src="../js/gridList_toggle.js" type="text/javascript"></script>
     </body>
 </html>

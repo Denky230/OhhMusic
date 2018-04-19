@@ -66,6 +66,8 @@ if (isset($_GET["concertState"])){
 } else if (isset($_GET["unsubConcert"])){
     delete("applyconcert", "WHERE id_musician = ".$_SESSION["id_user"]." AND id_concert = ".$_GET["unsubConcert"]);
     echo "Te has dado de baja de este concierto exitosamente (ID: ".$_GET["unsubConcert"].")";
+} else if (isset($_GET["deleteConcert"])){
+    echo "Has borrado exitosamente este concierto (ID: ".$_GET["deleteConcert"].")";
 }
 
 ?>
