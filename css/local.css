@@ -17,16 +17,6 @@
     box-sizing: border-box;
     background-color: aqua;
 }
-.concert_box {
-    height: 300px;
-    width: 32%;
-
-    margin: 10px 6px;
-    padding: 20px;
-
-    box-sizing: border-box;
-    background-color: deeppink;
-}
 
 #frame {
     position: relative;

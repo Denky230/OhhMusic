@@ -34,6 +34,6 @@ session_start();
             </div>
         </div>
         <script src="../js/functions.js"></script>
-        <script src="../js/musico.js"></script>
+        <script src="../js/concerts.js"></script>
     </body>
 </html>
