@@ -31,3 +31,11 @@ function unsubConcert(id) {
         }
     };
 }
+
+function deleteConcert(id){
+    ajax("ajax_concerts.php?deleteConcert=" + id).onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);            
+        }
+    };
+}

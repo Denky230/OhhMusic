@@ -78,8 +78,5 @@ if (isset($_POST["button"])){
                 </div>
             </div>
         </aside>
-        <script src="../js/functions.js"></script>
-        <script src="../js/local.js"></script>
-        <script src="../js/gridList_toggle.js"></script>
     </body>
 </html>
