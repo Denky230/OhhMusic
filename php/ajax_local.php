@@ -26,17 +26,7 @@ if (isset($_GET["concertState"])){
                         "WHERE concert.id_musician = ".$_SESSION["id_user"]."
                         AND concert.state = 1");
             break;
-        case 'pending':
-            $concerts = select("concert.id_concert concertID, user.name localName, city.name cityName, local.phone localPhone", 
-                        "applyconcert
-                        INNER JOIN concert ON applyconcert.id_concert = concert.id_concert
-                        INNER JOIN user ON concert.id_local = user.id_user
-                        INNER JOIN city ON user.id_city = city.id_city
-                        INNER JOIN local ON user.id_user = local.id_local",
-                        "WHERE applyconcert.id_musician = ".$_SESSION["id_user"]."
-                        AND applyconcert.state = 0");
-            break;
-        default:
+        default:        
     }
 
     while ($concert = mysqli_fetch_assoc($concerts)){
@@ -55,18 +45,10 @@ if (isset($_GET["concertState"])){
             echo "</div>
               </div>";
     }
-/* ----------- SIGN UP TO CONCERT ----------- */
-} else if (isset($_GET["subConcert"])){
-    $insert = insert("applyconcert", $_SESSION["id_user"].", ".$_GET["subConcert"].", 0");
-    if ($insert === "Ok"){
-        echo "Te has registrado exitosamente a este concierto (ID: ".$_GET["subConcert"].") :D";
-    } else {
-        echo "Oops, algo ha salido mal: $insert";
-    }
-/* ----------- UNSUB FROM CONCERT ----------- */
-} else if (isset($_GET["unsubConcert"])){
-    delete("applyconcert", "WHERE id_musician = ".$_SESSION["id_user"]." AND id_concert = ".$_GET["unsubConcert"]);
-    echo "Te has dado de baja de este concierto exitosamente (ID: ".$_GET["unsubConcert"].")";
+/* --------------- DELETE CONCERT --------------- */
+} else if (isset($_GET["deleteConcert"])){
+    delete("concert", "WHERE id_concert = ".$_GET["deleteConcert"]);
+    echo "Has borrado exitosamente este concierto (ID: ".$_GET["deleteConcert"].")";    
 }
 
 ?>

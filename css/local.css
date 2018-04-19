@@ -6,26 +6,9 @@
 #view_icons img:hover {
     cursor: pointer;
 }
-#concerts {
-    flex-wrap: wrap;
-    justify-content: space-between;
 
-    width: 100%;
-
-    padding: 20px 30px;
-
-    box-sizing: border-box;
-    background-color: aqua;
-}
-.concert_box {
-    height: 300px;
-    width: 32%;
-
-    margin: 10px 6px;
-    padding: 20px;
-
-    box-sizing: border-box;
-    background-color: deeppink;
+#delete {
+    
 }
 
 #frame {
@@ -167,16 +150,20 @@
     left: 50%;
     transform: translateX(-50%);
 }
-#frame_right h2, #frame_right h4 {
-    left: 55%;
+#frame_right h2,
+#frame_right h4 {
+    left: 56%;
     font-family: cursive;
 }
+#frame_right h2 {    
+    margin-bottom: 40px;
+}
 #frame_right h4 {
-    padding-top: 8%;
+    margin-top: 22px;
 }
 #frame_right input,
 #frame_right select {
-    width: 100%;
+    width: 90%;
     
     margin-top: 8px;
     padding: 10px 10px;
