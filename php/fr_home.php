@@ -38,6 +38,30 @@ require_once 'dmlFunctions.php';
                         <h2>TelfLocal</h2>
                     </div>
                 </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="../media/random.jpg" alt="">
+                    <div id="concert_info">
+                        <h2>NombreLocal</h2>
+                        <h2>LugarLocal</h2>
+                        <h2>TelfLocal</h2>
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="../media/random.jpg" alt="">
+                    <div id="concert_info">
+                        <h2>NombreLocal</h2>
+                        <h2>LugarLocal</h2>
+                        <h2>TelfLocal</h2>
+                    </div>
+                </div>
+                <div id="concert_box">
+                    <img id="concert_img" src="../media/random.jpg" alt="">
+                    <div id="concert_info">
+                        <h2>NombreLocal</h2>
+                        <h2>LugarLocal</h2>
+                        <h2>TelfLocal</h2>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- RIGHT FRAME -->
