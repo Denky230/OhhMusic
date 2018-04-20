@@ -27,7 +27,7 @@ body {
     padding: 25px 30px 20px 30px;
     box-sizing: border-box;
     
-    background-color: skyblue;
+    background-color: #e6e6e6;
 }
 
 #frameTitle {
@@ -43,7 +43,7 @@ body {
         
     width: 100%;
 
-    background-color: deeppink;
+    background-color: #e6e6e6;
 }
 #concert_box {
     position: relative;
@@ -54,7 +54,7 @@ body {
     padding: 20px;
     box-sizing: border-box;
     
-    background-color: deeppink;
+    background-color: #e6e6e6;
 }
 #concert_img {
     height: 60%;
@@ -65,5 +65,5 @@ body {
     
     width: 100%;
 
-    background-color: pink;
+    background-color: #b3b3b3;
 }

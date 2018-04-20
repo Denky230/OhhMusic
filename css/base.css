@@ -20,7 +20,7 @@ a {
 
     font-size: 20px;
     
-    background-color: red;
+    background-color: #bfbfbf;
 }
 #title, #langs, #account {
     position: absolute;
@@ -198,7 +198,7 @@ a {
     
     padding-top: 80px;
 
-    background-color: yellow;
+    background-color: #e6e6e6;
 }
 
 #groupBanner_left, #adBanner_left {
@@ -210,7 +210,7 @@ a {
     left: 50%;
     transform: translate(-50%, 0%);
 
-    background-color: red;
+    background-color: #cccccc;
 }
 #groupBanner_left {
     height: 30%;
