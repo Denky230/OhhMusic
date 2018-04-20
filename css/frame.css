@@ -34,6 +34,12 @@ body {
     margin-bottom: 10px;
     font-size: 20px;    
 }
+#frameTitle * {
+    display: inline;
+}
+#frameTitle div:hover {
+    cursor: pointer;
+}
 
 /* ---------------- Concert Box ---------------- */
 

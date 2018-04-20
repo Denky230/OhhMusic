@@ -18,7 +18,8 @@ if (isset($_POST["button"])){
         <div id="main">
             <div id="frameTitle">
                 <h2>
-                    <div id="proposed" onclick="drawConcerts(this)">CONCIERTOS PROPUESTOS</div>
+                    <div id="proposed" onclick="drawConcerts(this)">TUS CONCIERTOS PROPUESTOS</div> /
+                    <div id="accepted" onclick="drawConcerts(this)">TUS CONCIERTOS ACEPTADOS</div>
                 </h2>
             </div>
             <div id="view_icons">
@@ -26,38 +27,7 @@ if (isset($_POST["button"])){
                 <img id='grid_ico' src="../media/icons8-cuadricula-de-actividad-2-50.png"/>
             </div>
             <div id="concerts">
-                <?php
-                $concerts = select("*", "concert", "WHERE state = 0 AND id_local = '".$_SESSION["id_user"]."'");
-                while ($concert = mysqli_fetch_assoc($concerts)){
-                    $musiciansApplied = select("id_musician, u.name as name", "applyconcert a INNER JOIN user u ON a.id_musician = u.id_user", "WHERE id_concert = ".$concert["id_concert"]);
-                    ?>
-                    <!-- CONCERT BOX -->
-                    <div class="concert_box">
-                        <?php echo $concert["id_concert"] ?>
-                        <input type="hidden" name="idconcert" value="<?php echo $concert['id_concert']; ?>">
-                        <input type="button" name="delete" class="delete_btn" value="X" onclick="deleteConcert(<?php echo $concert["id_concert"] ?>)">
-                        <img id='concert_img' src='../media/random.jpg'>
-                        <h2>Username</h2>
-                        <h2>Phone</h2>
-                        <h2>Date</h2>
-                        <div id="assignMusician">
-                            <?php
-                            if (mysqli_num_rows($musiciansApplied) > 0){
-                                echo "<input type='button' name='assign' class='assign_btn' value='Asignar' onclick='assignMusician(".$concert["id_concert"].")'>";
-                                echo "<select name='musiciansApplied' id='musiciansApplied'>";
-                                while ($musician = mysqli_fetch_assoc($musiciansApplied)){
-                                    echo "<option value='".$musician["id_musician"]."'>"
-                                        .$musician["name"].
-                                        "</option>";
-                                }
-                                echo "</select>";
-                            }
-                            ?>
-                        </div>
-                    </div>
-                    <?php
-                }
-                ?>
+                
             </div>
         </div>
         <aside id="frame_right">

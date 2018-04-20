@@ -5,13 +5,6 @@
     width: 84%;
 }
 
-#frameTitle * {
-    display: inline;
-}
-#frameTitle div:hover {
-    cursor: pointer;
-}
-
 /* --------------- Concert Box --------------- */
 
 #concert_sub,

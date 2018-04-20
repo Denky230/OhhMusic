@@ -8,42 +8,47 @@ if (isset($_GET["concertState"])){
     $concertState = $_GET["concertState"];
     switch ($concertState) {
         case 'proposed':
-            $concerts = select("concert.id_concert concertID, user.name localName, city.name cityName, local.phone localPhone", 
-                        "concert
-                        INNER JOIN user ON concert.id_local = user.id_user
-                        INNER JOIN city ON user.id_city = city.id_city
-                        INNER JOIN local ON user.id_user = local.id_local", 
-                        "WHERE concert.id_genre = (SELECT id_genre FROM musician WHERE id_musician = ".$_SESSION["id_user"].")
-                        AND concert.id_concert NOT IN (SELECT id_concert FROM applyconcert WHERE id_musician = ".$_SESSION["id_user"].")
-                        AND state = 0");
+            $concerts = select("*", "concert", "WHERE state = 0 AND id_local = ".$_SESSION["id_user"]);
             break;
         case 'accepted':
-            $concerts = select("concert.id_concert concertID, user.name localName, city.name cityName, local.phone localPhone", 
-                        "concert
-                        INNER JOIN user ON concert.id_local = user.id_user
-                        INNER JOIN city ON user.id_city = city.id_city
-                        INNER JOIN local ON user.id_user = local.id_local",
-                        "WHERE concert.id_musician = ".$_SESSION["id_user"]."
-                        AND concert.state = 1");
+            $concerts = select("*", "concert", "WHERE state = 1 AND id_local = ".$_SESSION["id_user"]);
             break;
         default:        
     }
 
     while ($concert = mysqli_fetch_assoc($concerts)){
-        // CONCERT BOX
-        echo "<div class='concert_box'>
-                  <img id='concert_img' src=''>
-                  <div id='concert_info'>
-                      <h2>".$concert["localName"]."</h2>
-                      <h2>".$concert["cityName"]."</h2>
-                      <h2>".$concert["localPhone"]."</h2>";
-                    // Only show buttons for proposed or pending concerts
-                    if ($concertState === 'proposed')
-                        echo "<input type='button' id='concert_sub' value='Inscribirse' onclick='subConcert(".$concert["concertID"].")'>";
-                    else if ($concertState === 'pending')
-                        echo "<input type='button' id='concert_unsub' value='Desinscribirse' onclick='unsubConcert(".$concert["concertID"].")'>";
-            echo "</div>
-              </div>";
+        if ($concertState === "proposed")
+            $musiciansApplied = select("id_musician, u.name as name", "applyconcert a INNER JOIN user u ON a.id_musician = u.id_user", "WHERE id_concert = ".$concert["id_concert"]);
+        else $musicianAssigned = select_value("artist_name", "concert c INNER JOIN musician m ON c.id_musician = m.id_musician", "WHERE id_concert = ".$concert["id_concert"]);
+        /* CONCERT BOX */
+        echo "
+            <div class='concert_box'>
+                ".$concert['id_concert']."
+                <input type='hidden' name='idconcert' value='".$concert['id_concert']."'>";
+                if ($concertState === "proposed")                         
+                    echo "<input type='button' name='delete' class='delete_btn' value='X' onclick='deleteConcert(".$concert['id_concert'].")'>";
+                echo "<img id='concert_img' src='../media/random.jpg'>
+                <h2>Username</h2>
+                <h2>Phone</h2>
+                <h2>Date</h2>
+                <div id='assignMusician'>";
+                if ($concertState === "proposed"){
+                    if (mysqli_num_rows($musiciansApplied) > 0){
+                        echo "<input type='button' name='assign' class='assign_btn' value='Asignar' onclick='assignMusician(".$concert["id_concert"].")'>";
+                        echo "<select name='musiciansApplied' id='musiciansApplied'>";
+                        while ($musician = mysqli_fetch_assoc($musiciansApplied)){
+                            echo "<option value='".$musician["id_musician"]."'>"
+                                .$musician["name"].
+                                "</option>";
+                        }
+                        echo "</select>";
+                    }
+                } else {
+                    echo "<h2>Musicaso: $musicianAssigned</h2>";
+                }                    
+                echo "
+                </div>                
+            </div>";
     }
 /* --------------- DELETE CONCERT --------------- */
 } else if (isset($_GET["deleteConcert"])){

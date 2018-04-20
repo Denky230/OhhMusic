@@ -40,7 +40,7 @@ if (isset($_GET["concertState"])){
     }
 
     while ($concert = mysqli_fetch_assoc($concerts)){
-        // CONCERT BOX
+        /* CONCERT BOX */
         echo "<div class='concert_box'>
                   <img id='concert_img' src=''>
                   <div id='concert_info'>
