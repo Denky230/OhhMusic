@@ -21,3 +21,11 @@ function deleteConcert(id){
 	    }
 	};
 }
+
+function assignMusician(id){
+	ajax("ajax_local.php?assignMusician=" + $("#musiciansApplied").val() + "&concertID=" + id).onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	        alert(this.responseText);
+	    }
+	};
+}

@@ -82,6 +82,26 @@ function updateUser($field, $newValue, $field2, $newValue2, $id){
     return $result;
 }
 
+function updateMultiple($table, $fields, $newValues, $conditions = ""){
+    $connection = connect();
+    
+    // Building of UPDATE sentence
+    $update = "update $table set ";
+    for ($i = 0; $i < count($fields); $i++) { 
+        $update .= $fields[$i] . "=" . $newValues[$i] . ",";
+    }
+    $update = substr($update, 0, strlen($update) - 1) . " " . $conditions;
+    
+    if (mysqli_query($connection, $update)){
+        $result = "Ok";
+    } else {
+        $result = mysqli_error($connection);
+    }
+    
+    disconnect($connection);
+    return $result;
+}
+
 function update($table, $field, $newValue, $conditions = ""){
     $connection = connect();
     

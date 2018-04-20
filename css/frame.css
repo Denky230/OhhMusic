@@ -45,13 +45,14 @@ body {
 
     background-color: lightgreen;
 }
-#concert_box {
+.concert_box {
+    border: solid 1px black;
     position: relative;
 
     height: 380px;
     width: 33.3%;
     
-    padding: 20px;
+    padding: 15px;
     box-sizing: border-box;
     
     background-color: deeppink;

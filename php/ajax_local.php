@@ -31,7 +31,7 @@ if (isset($_GET["concertState"])){
 
     while ($concert = mysqli_fetch_assoc($concerts)){
         // CONCERT BOX
-        echo "<div id='concert_box'>
+        echo "<div class='concert_box'>
                   <img id='concert_img' src=''>
                   <div id='concert_info'>
                       <h2>".$concert["localName"]."</h2>
@@ -49,6 +49,12 @@ if (isset($_GET["concertState"])){
 } else if (isset($_GET["deleteConcert"])){
     delete("concert", "WHERE id_concert = ".$_GET["deleteConcert"]);
     echo "Has borrado exitosamente este concierto (ID: ".$_GET["deleteConcert"].")";    
+/* --------- ASSIGN MUSICIAN TO CONCERT --------- */
+} else if (isset($_GET["assignMusician"])){
+    updateMultiple("concert", array("id_musician", "state"), array($_GET["assignMusician"], 1), "WHERE id_concert = ".$_GET["concertID"]);
+    update("applyconcert", "state", 1, "WHERE id_concert = ".$_GET["concertID"]." AND id_musician = ".$_GET["assignMusician"]);
+    update("applyconcert", "state", 2, "WHERE id_concert = ".$_GET["concertID"]." AND id_musician <> ".$_GET["assignMusician"]);
+    echo "El músico ".select_value("artist_name", "musician", "WHERE id_musician = ".$_GET["assignMusician"])." ha sido asignado a este concierto exitosamente, todos los demás han sido rechazados. :(";
 }
 
 ?>
