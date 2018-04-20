@@ -122,7 +122,7 @@ foreach ($_GET as $key => $value){
         </header>
         <!-- LEFT FRAME -->
         <aside id="frame_left">
-            <div id="groupBanner_left">group banner here</div>
+            <div id="groupBanner_left"><iframe id="main" src="slider.php"></iframe></div>
             <div id="adBanner_left">ad here</div>
         </aside>
         <!-- SITE BODY (iFRAME) -->

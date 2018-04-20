@@ -31,6 +31,6 @@ anterior.on('click',function(){
 function autoplay(){
     interval = setInterval(function(){
         moverD();
-    }, 5000);
+    }, 3000);
 }
 autoplay();

@@ -210,10 +210,9 @@ a {
     left: 50%;
     transform: translate(-50%, 0%);
 
-    background-color: red;
 }
 #groupBanner_left {
-    height: 30%;
+    height: 40%;
 }
 #adBanner_left {
     height: 50%;
