@@ -19,7 +19,7 @@ require_once 'dmlFunctions.php';
                             "concert c inner join user u on c.id_local=u.id_user
                             inner join musician m on c.id_musician=m.id_musician
                             inner join local l on c.id_local=l.id_local",
-                            "where c.state = 1 order by c.concert_date desc");
+                            "where c.state = 1 order by c.concert_date, c.concert_time asc");
                         while($concierto = mysqli_fetch_assoc($conciertos)){
                             echo "
                                 <div class='concert_box'>

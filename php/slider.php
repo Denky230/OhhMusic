@@ -19,8 +19,6 @@ and open the template in the editor.
         <section><img src="../images/SEVRAGE-TOUR.jpg" alt=""/></section>
         <section><img src="../images/Vintage.jpg" alt=""/></section>
     </div>
-    <div id="btn-prev">&#60</div>
-    <div id="btn-next">&#62</div>
 </div>
 <script src="../js/slides.js"></script>
 </body>

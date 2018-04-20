@@ -28,16 +28,21 @@ if(isset($_POST["button"])){
         <body>
             <div id="display">
                 <form method="post">
+                    <div id="top-part">
+                        <?php
+                        $user = mysqli_fetch_assoc(select("u.image, u.username, u.name, u.pass, u.email, c.name AS city", "user u INNER JOIN city c ON u.id_city = c.id_city", "WHERE id_user = '".$_SESSION["id_user"]."'"));
+                        ?>
+                        <div id="image_box"><?php echo $user['image']; ?></div>
+                    </div>
                     <div id="container">
                         <div id="profile_general_info">
                             <?php
                             $user = mysqli_fetch_assoc(select("u.image, u.username, u.name, u.pass, u.email, c.name AS city", "user u INNER JOIN city c ON u.id_city = c.id_city", "WHERE id_user = '".$_SESSION["id_user"]."'"));
                             ?>
-                            <div id="image_box"><?php echo $user['image']; ?></div>
                             Username: <input type="text" name="username" value="<?php echo $user['username']; ?>" disabled><br>
                             Name: <br><input type="text" name="name" value="<?php echo $user['name']; ?>"><br>
                             E-mail: <br><input type="email" name="email" value="<?php echo $user['email']; ?>"><br>
-                            City: 
+                            City:
                             <br><select name="city">
                                 <option></option>
                             </select>

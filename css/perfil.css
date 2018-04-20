@@ -15,12 +15,20 @@ body {
 
 /* ------------------------------ Main ------------------------------ */
 
-
+/* #7F7F7F  */
 #display{
-    background-color: burlywood;
+    background-color: #E5E5E5;
     width:98%;
-    height:60em;
+    height:68em;
     padding: 1%;
+    display: flex;
+}
+
+#top-part{
+    display: flex;
+    width:23%;
+    justify-content: center;
+    align-items: center;
 }
 
 #container{
@@ -28,9 +36,10 @@ body {
 }
 
 #image_box{
+    display: flex;
     border: 5px solid black;
-    border-radius: 12%;
-    height:10em;
+    border-radius: 40%;
+    height:15em;
     margin-right:2em;
     flex-grow: 1;
 }
@@ -38,17 +47,22 @@ body {
 #profile_general_info{
     flex-grow: 1;
     justify-content: center;
-    align-items: stretch;
     margin-left: 2%;
     font-size: 2em;
 }
 
 #profile_specific_info{
-    flex-grow: 4;
+    flex-grow: 2;
     justify-content: center;
     align-items: stretch;
     margin-left: 2%;
     font-size:2em;
+}
+
+#submit_Button{
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 input{
