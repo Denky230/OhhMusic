@@ -19,6 +19,7 @@ function deleteConcert(id){
 	    if (this.readyState == 4 && this.status == 200) {
 	        alert(this.responseText);
 	    }
+    	drawConcerts(document.getElementById("proposed"));
 	};
 }
 
@@ -27,5 +28,6 @@ function assignMusician(id){
 	    if (this.readyState == 4 && this.status == 200) {
 	        alert(this.responseText);
 	    }
+    	drawConcerts(document.getElementById("proposed"));
 	};
 }
