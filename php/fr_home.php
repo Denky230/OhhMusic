@@ -15,24 +15,24 @@ require_once 'dmlFunctions.php';
             <div id="frameTitle"><h2>CONCIERTOS</h2></div>
             <div id="concerts">
                     <?php
-                        $concierto = select("c.*, u.*, m.*",
+                        $conciertos = select("c.*, u.*, m.*",
                             "concert c inner join user u on c.id_local=u.id_user
                             inner join musician m on c.id_musician=m.id_musician
                             inner join local l on c.id_local=l.id_local",
                             "where c.state = 1 order by c.concert_date desc");
-                        while($conci = mysqli_fetch_assoc($concierto)){
-                            echo("
-                                <div id='concert_box'>
-                                    <img id='concert_img' src='../media/random.jpg' alt=''>
+                        while($concierto = mysqli_fetch_assoc($conciertos)){
+                            echo "
+                                <div class='concert_box'>
+                                    <img id='concert_img' src='../media/random.jpg'>
                                     <div id='concert_info'>
-                                        <h2>" . $conci['username'] ."</h2>
-                                        <h2> " . $conci['phone'] . " </h2>
-                                        <h2> " . $conci['concert_date'] . " </h2>
-                                        <h2>". $conci['concert_time'] ."</h2>
-                                        <h2>". $conci['artist_name'] ."</h2>
+                                        <h2>" . $concierto['username'] ."</h2>
+                                        <h2> " . $concierto['phone'] . " </h2>
+                                        <h2> " . $concierto['concert_date'] . " </h2>
+                                        <h2>". $concierto['concert_time'] ."</h2>
+                                        <h2>". $concierto['artist_name'] ."</h2>
                                     </div>
                                 </div>
-                            ");
+                            ";
                         }
                     ?>
             </div>

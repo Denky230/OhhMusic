@@ -21,7 +21,7 @@ session_start();
             </div>
             <div id="concerts">
                 <!-- TEST -->
-                <!-- <div id='concert_box'>
+                <!-- <div class='concert_box'>
                     <img id='concert_img' src=''>
                     <div id='concert_info'>
                         <h2>Nombre Local</h2>
@@ -34,6 +34,6 @@ session_start();
             </div>
         </div>
         <script src="../js/functions.js"></script>
-        <script src="../js/concerts.js"></script>
+        <script src="../js/musico.js"></script>
     </body>
 </html>
