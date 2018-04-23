@@ -27,11 +27,14 @@ require_once 'dmlFunctions.php';
                                 <div class='concert_box'>
                                     <img id='concert_img' src='../media/random.jpg'>
                                     <div id='concert_info'>
-                                        <h2>" . $concierto['username'] ."</h2>
+                                    <div id='titulo'>
+                                        <div id='nombre'>
+                                        ". $concierto['artist_name'] ." / " . $concierto['username'] ."
+                                        </div>
+                                     </div>
+                                        <h1> " . $concierto['concert_date'] . " </h1>
+                                        <h1>". $concierto['concert_time'] ."</h1>
                                         <h2> " . $concierto['phone'] . " </h2>
-                                        <h2> " . $concierto['concert_date'] . " </h2>
-                                        <h2>". $concierto['concert_time'] ."</h2>
-                                        <h2>". $concierto['artist_name'] ."</h2>
                                     </div>
                                 </div>
                             ";
