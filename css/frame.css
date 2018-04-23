@@ -55,7 +55,7 @@ body {
     border: solid 1px #99bbff;
     position: relative;
 
-    height: 380px;
+    height: 500px;
     width: 33.3%;
     
     padding: 15px;
@@ -74,4 +74,12 @@ body {
     width: 100%;
 
     background-color:   #dd99ff;
+}
+
+#titulo {
+    background-color: #e066ff; 
+}
+
+#nombre {
+    font-size: 64px;
 }
