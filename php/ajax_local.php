@@ -22,8 +22,9 @@ if (isset($_GET["concertState"])){
         else $musicianAssigned = select_value("artist_name", "concert c INNER JOIN musician m ON c.id_musician = m.id_musician", "WHERE id_concert = ".$concert["id_concert"]);
         /* CONCERT BOX */
         echo "
-            <div class='concert_box'>
-                ".$concert['id_concert']."
+            <div class='concert_box'>";
+                /* TEST */
+                echo "ID: ".$concert['id_concert']."
                 <input type='hidden' name='idconcert' value='".$concert['id_concert']."'>";
                 if ($concertState === "proposed")                         
                     echo "<input type='button' name='delete' class='delete_btn' value='X' onclick='deleteConcert(".$concert['id_concert'].")'>";

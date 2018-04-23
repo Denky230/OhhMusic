@@ -206,13 +206,12 @@ a {
     
     width: 80%;
     
-    margin-top: 10%;
     left: 50%;
     transform: translate(-50%, 0%);
-
 }
 #groupBanner_left {
-    height: 40%;
+    height: 35%;
+    margin-top: 10%;
 }
 #adBanner_left {
     background-color: #e6e6e6;
