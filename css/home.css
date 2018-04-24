@@ -45,3 +45,17 @@
 #musiciansByGenre {
     margin-top: 10%;
 }
+
+/* ------------------ Responsive ------------------ */
+
+@media (max-width: 1500px) {
+    .concert_box {
+        width: 50%;
+    }
+}
+
+@media (max-width: 900px) {
+    .concert_box {
+        width: 100%;
+    }
+}

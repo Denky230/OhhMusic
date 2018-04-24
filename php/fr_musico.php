@@ -9,6 +9,8 @@ session_start();
         <link rel="stylesheet" href="../css/frame.css"/>
         <link rel="stylesheet" href="../css/musico.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../js/functions.js"></script>
+        <script src="../js/musico.js"></script>
     </head>
     <body>
         <div id="main">
@@ -33,7 +35,5 @@ session_start();
                 <!-- TEST -->
             </div>
         </div>
-        <script src="../js/functions.js"></script>
-        <script src="../js/musico.js"></script>
     </body>
 </html>

@@ -7,7 +7,7 @@ function drawConcerts(title){
     $("#frameTitle div").css("text-decoration", "none");
     title.style.textDecoration = "underline";
 
-    ajax("ajax_concerts.php?concertState=" + title.getAttribute("id")).onreadystatechange = function() {
+    ajax("ajax_musico.php?concertState=" + title.getAttribute("id")).onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("concerts").innerHTML = this.responseText;
         }
@@ -15,7 +15,7 @@ function drawConcerts(title){
 }
 
 function subConcert(id){
-    ajax("ajax_concerts.php?subConcert=" + id).onreadystatechange = function() {
+    ajax("ajax_musico.php?subConcert=" + id).onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             alert(this.responseText);
             drawConcerts(document.getElementById("proposed"));
@@ -24,7 +24,7 @@ function subConcert(id){
 }
 
 function unsubConcert(id) {
-    ajax("ajax_concerts.php?unsubConcert=" + id).onreadystatechange = function() {
+    ajax("ajax_musico.php?unsubConcert=" + id).onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             alert(this.responseText);
             drawConcerts(document.getElementById("pending"));
