@@ -40,10 +40,10 @@ if(isset($_POST["button"])){
                             $user = mysqli_fetch_assoc(select("u.image, u.username, u.name, u.pass, u.email, c.name AS city", "user u INNER JOIN city c ON u.id_city = c.id_city", "WHERE id_user = '".$_SESSION["id_user"]."'"));
                             ?>
                             Username: <input type="text" name="username" value="<?php echo $user['username']; ?>" disabled><br>
-                            Name: <br><input type="text" name="name" value="<?php echo $user['name']; ?>"><br>
-                            E-mail: <br><input type="email" name="email" value="<?php echo $user['email']; ?>"><br>
+                            Name: <input type="text" name="name" value="<?php echo $user['name']; ?>"><br>
+                            E-mail: <input type="email" name="email" value="<?php echo $user['email']; ?>"><br>
                             City:
-                            <br><select name="city">
+                            <select name="city">
                                 <option></option>
                             </select>
                             <input type="text" name="city" value="<?php echo $user['city']; ?>" disabled><br>
@@ -53,7 +53,7 @@ if(isset($_POST["button"])){
                             switch ($_SESSION["type"]) {
                                 case 1:
                                     $musician = mysqli_fetch_assoc(select("m.artist_name, g.name AS genre, m.surname, m.phone, m.web, m.group_size", "musician m INNER JOIN genre g ON m.id_genre = g.id_genre INNER JOIN user ON id_musician = id_user", "WHERE id_user = '".$_SESSION["id_user"]."'"));
-                                    echo("Artist Name: <input type='text' name='artist_name' value='" . $musician['artist_name'] . "'><br>
+                                    echo("Artist:<input type='text' name='artist_name' value='" . $musician['artist_name'] . "'><br>
                                     Genre: <select name = 'genre' >");
                                     $genres = selectFields("*", "genre");
                                     echo("<option disabled>" . $musician["genre"] . "</option>");
@@ -61,14 +61,14 @@ if(isset($_POST["button"])){
                                         echo("<option value = '". $genre['id_genre'] ."' > ". $genre['name'] ." </option >");
                                     }
                                     echo("</select ><br >
-                                    Surname: <input type='text' name='surname' value='" . $musician['surname'] . "'><br>
-                                    Phone:  <input type='number' name='phone' value='" . $musician['phone'] . "'><br>
-                                    Webpage: <input type='text' name='web' value='" . $musician['web'] . "'><br>
-                                    Group Size: <input type='number' name='group_size' value='" . $musician['group_size'] . "'>");
+                                    Surname:<input type='text' name='surname' value='" . $musician['surname'] . "'><br>
+                                    Phone:<input type='number' name='phone' value='" . $musician['phone'] . "'><br>
+                                    Webpage:<input type='text' name='web' value='" . $musician['web'] . "'><br>
+                                    Group Size:<input type='number' name='group_size' value='" . $musician['group_size'] . "'>");
                                     break;
                                 case 2:
                                     $local = mysqli_fetch_assoc(select("phone, capacity, web", "local INNER JOIN user", "WHERE id_user = '".$_SESSION["id_user"]."'"));
-                                    echo("Phone number: <input type='number' name='phone' value='" . $local['phone'] . "'><br>
+                                    echo("Phone number: <input type='number' name='phone' value='" . $local['phone'] . "'><br><br>
                                     Max Capacity: <input type='number' name='capacity' value='" . $local['capacity'] . "'><br>
                                     Webpage: <input type='text' name='web' value='" . $local['web'] . "'>");
                                     break;
@@ -81,9 +81,9 @@ if(isset($_POST["button"])){
                             }
                             ?>
                         </div>
-                        <div id="submit_Button">
-                                <input type='submit' name='button' value='Modificar datos'><br>
-                        </div>
+                    </div>
+                    <div id="submit_Button">
+                        <input type='submit' name='button' value='Modificar datos'><br>
                     </div>
                 </form>
             </div>
