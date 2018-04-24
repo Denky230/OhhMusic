@@ -45,11 +45,11 @@ if (isset($_POST["button"])){
                         ?>
                         </select>
                         <h4>Fecha del concierto:</h4>
-                        <input type="date" name="concert_date" required>
+                        <input type="date" id="concert_date" name="concert_date" required>
                         <h4>Hora:</h4>
                         <input type="time" name="concert_time" required>
                         <h4>Tarifa:</h4>
-                        <input type="number" name="price" required>
+                        <input type="number" name="price" min="0" required>
                         <input type="submit" name="button" value="Crear">
                     </form>
                 </div>

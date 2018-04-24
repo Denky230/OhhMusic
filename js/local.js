@@ -1,4 +1,11 @@
 $(document).ready(function(){
+    var today = new Date();
+    // Restrict minimum input date to tomorrow
+    var dateString = today.getFullYear() + "-"
+        + ('0' + (today.getMonth()+1)).slice(-2) + "-"
+        + ('0' + (today.getDate()+1)).slice(-2);
+    document.getElementById("concert_date").min = dateString;
+
     drawConcerts(document.getElementById("proposed"));
 });
 
