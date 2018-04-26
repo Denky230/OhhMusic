@@ -57,7 +57,9 @@ if (isset($_GET["concertState"])){
     echo "Has borrado exitosamente este concierto (ID: ".$_GET["deleteConcert"].")";    
 /* --------- ASSIGN MUSICIAN TO CONCERT --------- */
 } else if (isset($_GET["assignMusician"])){
+    // Update from concert id_musician to asigned musician's ID and state to 1
     updateMultiple("concert", array("id_musician", "state"), array($_GET["assignMusician"], 1), "WHERE id_concert = ".$_GET["concertID"]);
+    // Update applys state, asigned to 1 and rest to 2
     update("applyconcert", "state", 1, "WHERE id_concert = ".$_GET["concertID"]." AND id_musician = ".$_GET["assignMusician"]);
     update("applyconcert", "state", 2, "WHERE id_concert = ".$_GET["concertID"]." AND id_musician <> ".$_GET["assignMusician"]);
     echo "El músico ".select_value("artist_name", "musician", "WHERE id_musician = ".$_GET["assignMusician"])." ha sido asignado a este concierto exitosamente, todos los demás han sido rechazados. :(";

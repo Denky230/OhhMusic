@@ -24,7 +24,7 @@ body {
     height: 91.5%;
     width: 68%;
     
-    padding: 25px 30px 20px 30px;
+    padding: 25px 30px;
     box-sizing: border-box;
     
     background-color: red;
@@ -46,42 +46,31 @@ body {
 #concerts {
     display: inline-flex;
     flex-wrap: wrap;
-        
+
     width: 100%;
 
-    background-color: #99bbff;
+    background-color: green;
 }
 .concert_box {
-    border: solid 1px #99bbff;
     position: relative;
 
     height: 500px;
     width: 33.3%;
-    min-width: 350px;
     
-    padding: 15px;
+    padding: 0 0;
     box-sizing: border-box;
     
+    border: solid 1px black;
     background-color: yellow;
 }
 #concert_img {
-    height: 60%;
     width: 100%;
 }
 #concert_info {
-    display: block;
     text-align: center;
-    vertical-align: middle;
-
-    width: 100%;
-
-    background-color:   #dd99ff;
+    background-color: #dd99ff;
 }
-
-#titulo {
-    background-color: #e066ff; 
-}
-
-#nombre {
+#concert_info_title { 
     font-size: 64px;
+    background-color: #e066ff;
 }
