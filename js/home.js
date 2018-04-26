@@ -8,6 +8,7 @@ var highlighted = false;
 function highlight(){
 	if (!$(this).is(":animated")){
 		$(this).animate({
+			top: "-=" + hDiff/2 + "px",
 			left: "-=" + xDiff + "px",
 			height: "+=" + hDiff + "px"
 			}, "fast");
@@ -18,6 +19,7 @@ function highlight(){
 function lowlight(){
 	if (highlighted)
 		$(this).animate({
+		top: "+=" + hDiff/2 + "px",
 		left: "+=" + xDiff + "px",
 		height: "-=" + hDiff + "px"
 		}, "fast");
