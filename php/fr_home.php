@@ -23,20 +23,19 @@ require_once 'dmlFunctions.php';
                             inner join local l on c.id_local=l.id_local",
                             "where c.state = 1 order by c.concert_date, c.concert_time asc");
                         while ($concierto = mysqli_fetch_assoc($conciertos)){
+                            /* CONCERT BOX */
                             echo "
                                 <div class='concert_box'>
                                     <img id='concert_img' src='../media/random.jpg'>
                                     <div id='concert_info'>
-                                    <div id='titulo'>
-                                        <div id='nombre'>
-                                        ". $concierto['artist_name'] ." / " . $concierto['username'] ."
+                                        <div id='concert_info_title'>
+                                        ".$concierto['artist_name']." / ".$concierto['username']."
                                         </div>
-                                     </div>
-                                        <h1> " . $concierto['concert_date'] . " </h1>
-                                        <h1>". $concierto['concert_time'] ."</h1>
-                                        <h2> " . $concierto['phone'] . " </h2>
+                                        <h1>".$concierto['concert_date']."</h1>
+                                        <h1>".$concierto['concert_time']."</h1>
+                                        <h2>".$concierto['phone']."</h2>
                                     </div>
-                                </div>
+                                </div>                               
                             ";
                         }
                     ?>
