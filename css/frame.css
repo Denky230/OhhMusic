@@ -26,8 +26,6 @@ body {
     
     padding: 25px 30px 20px 30px;
     box-sizing: border-box;
-    
-    background-color: red;
 }
 
 #frameTitle {
@@ -52,14 +50,12 @@ body {
     background-color: green;
 }
 .concert_box {
-    display: flex;
     border: solid 1px #99bbff;
     position: relative;
 
     height: 500px;
     width: 33.3%;
     min-width: 350px;
-    flex-wrap: wrap;
     
     padding: 0 0;
     box-sizing: border-box;
@@ -67,13 +63,6 @@ body {
     border: solid 1px black;
     background-color: yellow;
 }
-.list_item #concert_img {
-    padding: 2%;
-    margin-right: 30%;
-    height: 60%;
-    width: 20%;
-}
-
 #concert_img {
     height: 60%;
     width: 100%;
@@ -81,6 +70,9 @@ body {
 #concert_info {
     display: block;
     text-align: center;
+
+    width: 100%;
+    
     background-color: #dd99ff;
 }
 #concert_info_title {
@@ -88,11 +80,16 @@ body {
     background-color: #e066ff;
 }
 
-.list_item{
+.list_item {
     display: flex;
 }
-
-#img_conci{
+.list_item #concert_img {
+    padding: 2%;
+    margin-right: 30%;
+    height: 60%;
+    width: 20%;
+}
+#img_conci {
     justify-content: flex-start;
     size: 30px;
 }

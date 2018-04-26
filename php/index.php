@@ -164,11 +164,11 @@ foreach ($_GET as $key => $value){
                             <input type="password" name="varPass" id="signup_verPass"placeholder="Verify password" maxlength="12" required>
                             <input type="text" name="name" placeholder="Name" maxlength="25" required>
                             <input type="email" name="email" placeholder="E-mail" maxlength="30" required>
-                            <select name="province" id="sel_province" onchange="updateCities()">
+                            <select name="community" id="sel_community" onchange="updateCities()">
                                 <?php
-                                $provinces = selectFields("province", "city", "GROUP BY province");
-                                while ($province = mysqli_fetch_assoc($provinces)){
-                                    echo "<option>".$province["province"]."</option>";
+                                $communitys = selectFields("community", "city", "GROUP BY community");
+                                while ($community = mysqli_fetch_assoc($communitys)){
+                                    echo "<option>".$community["community"]."</option>";
                                 }
                                 ?>
                             </select>

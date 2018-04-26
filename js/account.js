@@ -71,9 +71,9 @@ window.onclick = function(event) {
     }
 };
 
-// Change cities select based on province select selection
+// Change cities select based on community select selection
 function updateCities(){
-    var province_select = document.getElementById('sel_province');
+    var community_select = document.getElementById('sel_community');
     
     // XMLHTTP object for new and old browsers
     if (window.XMLHttpRequest) {
@@ -87,8 +87,8 @@ function updateCities(){
             document.getElementById("citySelect").innerHTML = this.responseText;
         }
     };    
-    // Pass the province selected to ajax_citySelect.php
-    xmlhttp.open("GET", "ajax_citySelect.php?p=" + province_select.value, true);
+    // Pass the community selected to ajax_citySelect.php
+    xmlhttp.open("GET", "ajax_citySelect.php?p=" + community_select.value, true);
     xmlhttp.send();
 }
 

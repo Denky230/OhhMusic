@@ -26,27 +26,28 @@ if(isset($_POST["button"])){
             <title></title>
         </head>
         <body>
-            <div id="display">
+            <div id="main">
                 <form method="post">
                     <div id="top-part">
                         <?php
                         $user = mysqli_fetch_assoc(select("u.image, u.username, u.name, u.pass, u.email, c.name AS city", "user u INNER JOIN city c ON u.id_city = c.id_city", "WHERE id_user = '".$_SESSION["id_user"]."'"));
                         ?>
                         <div id="image_box"><?php echo $user['image']; ?></div>
+                        <input type='submit' id='submit_button' name='button' value='Modificar datos'>                        
                     </div>
                     <div id="container">
                         <div id="profile_general_info">
                             <?php
                             $user = mysqli_fetch_assoc(select("u.image, u.username, u.name, u.pass, u.email, c.name AS city", "user u INNER JOIN city c ON u.id_city = c.id_city", "WHERE id_user = '".$_SESSION["id_user"]."'"));
                             ?>
-                            Username: <input type="text" name="username" value="<?php echo $user['username']; ?>" disabled><br>
-                            Name: <input type="text" name="name" value="<?php echo $user['name']; ?>"><br>
-                            E-mail: <input type="email" name="email" value="<?php echo $user['email']; ?>"><br>
+                            Username: <input type="text" name="username" value="<?php echo $user['username']; ?>" disabled>
+                            Name: <input type="text" name="name" value="<?php echo $user['name']; ?>">
+                            E-mail: <input type="email" name="email" value="<?php echo $user['email']; ?>">
                             City:
                             <select name="city">
                                 <option></option>
                             </select>
-                            <input type="text" name="city" value="<?php echo $user['city']; ?>" disabled><br>
+                            <input type="text" name="city" value="<?php echo $user['city']; ?>" disabled>
                         </div>
                         <div id="profile_specific_info">
                             <?php
@@ -81,9 +82,6 @@ if(isset($_POST["button"])){
                             }
                             ?>
                         </div>
-                    </div>
-                    <div id="submit_Button">
-                        <input type='submit' name='button' value='Modificar datos'><br>
                     </div>
                 </form>
             </div>

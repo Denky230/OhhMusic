@@ -3,8 +3,8 @@ use ohhmusic;
 
 create table city(
 id_city int not null primary key auto_increment,
-name varchar(20) not null,
-province varchar(20)
+name varchar(50) not null,
+community varchar(50)
 );
 
 create table user(
@@ -95,3 +95,65 @@ constraint pk_vote2 primary key(id_fan, id_musician),
 constraint fk_usern foreign key(id_fan) references fan(id_fan) on delete cascade on update cascade,
 constraint fk_userna foreign key(id_musician) references musician(id_musician) on delete cascade on update cascade
 );
+
+insert into genre (name) values
+	('K-Pop'),
+	('Rock'),
+	('Metal'),
+	('Hip-Hop'),
+	('Dance')
+;
+
+insert into city (community, name) values
+	('Andalucía', 'Almeria'),
+	('Andalucía', 'Cadiz'),
+	('Andalucía', 'Cordoba'),
+	('Andalucía', 'Granada'),
+	('Andalucía', 'Jaen'),
+	('Andalucía', 'Huelva'),
+	('Andalucía', 'Malaga'),
+	('Andalucía', 'Sevilla'),
+	('Aragon', 'Huesca'),
+	('Aragon', 'Teruel'),
+	('Aragon', 'Zaragoza'),
+	('Asturias', 'Oviedo'),
+	('Baleares', 'Palma de Mallorca'),
+	('Canarias', 'Santa Cruz de Tenerife'),
+	('Canarias', 'Las Palmas de Gran Canaria'),
+	('Cantabria', 'Santander'),
+	('Castilla-La Mancha', 'Albacete'),
+	('Castilla-La Mancha', 'Ciudad Real'),
+	('Castilla-La Mancha', 'Cuenca'),
+	('Castilla-La Mancha', 'Guadalajara'),
+	('Castilla-La Mancha', 'Toledo'),
+	('Castilla y León', 'Ávila'),
+	('Castilla y León', 'Burgos'),
+	('Castilla y León', 'León'),
+	('Castilla y León', 'Salamanca'),
+	('Castilla y León', 'Segovia'),
+	('Castilla y León', 'Soria'),
+	('Castilla y León', 'Valladolid'),
+	('Castilla y León', 'Zamora'),
+	('Cataluña', 'Barcelona'),
+	('Cataluña', 'Tarragona'),
+	('Cataluña', 'Lérida'),
+	('Cataluña', 'Girona'),
+	('Comunidad Valenciana', 'Alicante'),
+	('Comunidad Valenciana', 'Castellón de la Plana'),
+	('Comunidad Valenciana', 'Valencia'),
+	('Extremadura', 'Badajoz'),
+	('Extremadura', 'Cáceres'),
+	('Galicia', 'La Coruña'),
+	('Galicia', 'Lugo'),
+	('Galicia', 'Orense'),
+	('Galicia', 'Pontevedra'),
+	('Madrid', 'Madrid'),
+	('Murcia', 'Murcia'),
+	('Navarra', 'Pamplona'),
+	('Pais Vasco', 'Bilbao'),
+	('Pais Vasco', 'San Sevastián'),
+	('Pais Vasco', 'Vitoria'),
+	('La Rioja', 'Logroño'),
+	('Ceuta', 'Ceuta'),
+	('Melilla', 'Melilla')
+;
