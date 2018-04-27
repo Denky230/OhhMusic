@@ -8,11 +8,8 @@ a {
     text-decoration: none;
 }
 
-p {
-    line-height: 50px;
-}
-
 body {
+    overflow: hidden;    
     margin-left: 16%;
     padding-top: 80px;
 }

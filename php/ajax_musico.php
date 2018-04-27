@@ -59,14 +59,14 @@ if (isset($_GET["concertState"])){
 } else if (isset($_GET["subConcert"])){
     $insert = insert("applyconcert", $_SESSION["id_user"].", ".$_GET["subConcert"].", 0");
     if ($insert === "Ok"){
-        echo "Te has registrado exitosamente a este concierto (ID: ".$_GET["subConcert"].") :D";
+        echo "Te has registrado exitosamente a este concierto";
     } else {
         echo "Oops, algo ha salido mal: $insert";
     }
 /* ----------- UNSUB FROM CONCERT ----------- */
 } else if (isset($_GET["unsubConcert"])){
     delete("applyconcert", "WHERE id_musician = ".$_SESSION["id_user"]." AND id_concert = ".$_GET["unsubConcert"]);
-    echo "Te has dado de baja de este concierto exitosamente (ID: ".$_GET["unsubConcert"].")";
+    echo "Te has dado de baja de este concierto exitosamente";
 }
 
 ?>

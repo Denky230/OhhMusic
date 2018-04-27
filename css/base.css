@@ -22,7 +22,9 @@ a {
     
     background-color:  #c44dff;
 }
-#title, #langs, #account {
+#title,
+#langs,
+#account {
     position: absolute;
     
     top: 50%;
@@ -43,7 +45,8 @@ a {
     position: relative;
     margin: 0 10px;
 }
-#login_btn:hover, #signup_btn:hover {
+#login_btn:hover,
+#signup_btn:hover {
     cursor: pointer;
 }
 
@@ -199,7 +202,8 @@ a {
     background-color: #99bbff;
 }
 
-#groupBanner_left, #adBanner_left {
+#groupBanner_left,
+#adBanner_left {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -214,8 +218,16 @@ a {
     height: 50%;
 }
 
-/* ------------------ TEST ------------------ */
+/* -------------------- TEST -------------------- */
 
 #modal input#quickAdd {
     width: 48.5%;
+}
+
+/* ----------------- RESPONSIVE ----------------- */
+
+@media (max-width: 900px) {
+    #account {
+        margin-right: 20px;
+    }
 }

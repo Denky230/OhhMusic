@@ -18,13 +18,13 @@ if (isset($_POST["signup_submit"])){
     $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
     
     switch ($userType){
-        case '1': // MUSICIAN
+        case 1: // MUSICIAN
             insert("musician", "'$lastUserID', '$artistName', '$genre', '$surname', '$phone', '$web', '$groupSize'");
             break;
-        case '2': // LOCAL
+        case 2: // LOCAL
             insert("local", "'$lastUserID', '$phone', '$capacity', '$web'");
             break;
-        case '3': // FAN
+        case 3: // FAN
             insert("fan", "'$lastUserID', '$phone', '$address', '$surname'");
             break;
     }
@@ -90,6 +90,7 @@ foreach ($_GET as $key => $value){
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/base.css"/>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <title>Home</title>
     </head>
     <body>
@@ -101,7 +102,7 @@ foreach ($_GET as $key => $value){
             <div id="account">
                 <?php
                 if (isset($_SESSION["type"])){
-                    // $_GET["close"] = destroy session  -  $_GET["user"] = user page
+                    // $_GET["close"] --> destroy session  -  $_GET["user"] --> user page
                     echo "<a href='index.php?close'>CLOSE SESSION</a>&nbsp/
                           <a href='index.php?profile'>MY PROFILE</a>&nbsp/
                           <a href='index.php?user'>MY PAGE</a>";
@@ -125,13 +126,13 @@ foreach ($_GET as $key => $value){
         if (isset($_GET["user"])){
             if (isset($_SESSION["type"])){
                 switch ($_SESSION["type"]){
-                    case "1": // MUSICIAN
+                    case 1: // MUSICIAN
                         echo "<iframe id='main' src='fr_musico.php'></iframe>";
                         break;
-                    case "2": // LOCAL
+                    case 2: // LOCAL
                         echo "<iframe id='main' src='fr_local.php'></iframe>";
                         break;
-                    case "3": // FAN
+                    case 3: // FAN
                         echo "<iframe id='main' src='fr_fan.php'></iframe>";
                         break;
                 }
@@ -164,10 +165,10 @@ foreach ($_GET as $key => $value){
                             <input type="password" name="varPass" id="signup_verPass"placeholder="Verify password" maxlength="12" required>
                             <input type="text" name="name" placeholder="Name" maxlength="25" required>
                             <input type="email" name="email" placeholder="E-mail" maxlength="30" required>
-                            <select name="community" id="sel_community" onchange="updateCities()">
+                            <select name="community" id="community_select" onchange="updateCities()">
                                 <?php
-                                $communitys = selectFields("community", "city", "GROUP BY community");
-                                while ($community = mysqli_fetch_assoc($communitys)){
+                                $communities = selectFields("community", "city", "GROUP BY community");
+                                while ($community = mysqli_fetch_assoc($communities)){
                                     echo "<option>".$community["community"]."</option>";
                                 }
                                 ?>
@@ -199,6 +200,7 @@ foreach ($_GET as $key => $value){
                 <button type="button" id="signup_select_btn" onclick="showRegisterForm()">Registrar</button>
             </div>
         </div>
+        <script src="../js/functions.js"></script>
         <script src="../js/search.js"></script>
         <script src="../js/account.js"></script>
         <script src="../js/test.js"></script>

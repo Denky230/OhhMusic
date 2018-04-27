@@ -54,7 +54,7 @@ if (isset($_GET["concertState"])){
 /* --------------- DELETE CONCERT --------------- */
 } else if (isset($_GET["deleteConcert"])){
     delete("concert", "WHERE id_concert = ".$_GET["deleteConcert"]);
-    echo "Has borrado exitosamente este concierto (ID: ".$_GET["deleteConcert"].")";    
+    echo "Has borrado exitosamente este concierto";    
 /* --------- ASSIGN MUSICIAN TO CONCERT --------- */
 } else if (isset($_GET["assignMusician"])){
     // Update from concert id_musician to asigned musician's ID and state to 1

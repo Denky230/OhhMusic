@@ -30,32 +30,15 @@ function showRegisterForm(){
     document.getElementById('signup_username').focus();
     
     // Add the text from the user type select to the register title
-    var userType_select = document.getElementById("userType_select");
     document.getElementById("signup_title").innerHTML = "REGISTRO " + userType_select.options[userType_select.selectedIndex].text.toUpperCase();
     
-    // XMLHTTP object for new and old browsers
-    if (window.XMLHttpRequest) {
-        var xmlhttp = new XMLHttpRequest();
-    } else {
-        var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    // Ajax to print register form based on user type
-    xmlhttp.onreadystatechange = function() {
+    ajax("ajax_register.php?t=" + $("#userType_select").val()).onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("nonUserSpecFields").innerHTML = this.responseText;
+            document.getElementById("nonUserSpecFields").innerHTML = this.responseText;            
         }
     };
-    // Pass user user type to ajax_register.php
-    xmlhttp.open("GET", "ajax_register.php?t=" + userType_select.value, true);
-    xmlhttp.send();
     
     updateCities();
-    
-    // Add listeners to inputs
-    document.getElementById("signup_username").addEventListener('keypress', function(){
-        
-    }, 'false');
-    document.getElementById("signup_verPass").addEventListener('keypress', verifyPass, 'false');
 };
 
 // Hide modals by clicking outside
@@ -72,24 +55,12 @@ window.onclick = function(event) {
 };
 
 // Change cities select based on community select selection
-function updateCities(){
-    var community_select = document.getElementById('sel_community');
-    
-    // XMLHTTP object for new and old browsers
-    if (window.XMLHttpRequest) {
-        var xmlhttp = new XMLHttpRequest();
-    } else {
-        var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    
-    xmlhttp.onreadystatechange = function() {
+function updateCities() {
+    ajax("ajax_citySelect.php?p=" + $("#community_select").val()).onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("citySelect").innerHTML = this.responseText;
+            document.getElementById("citySelect").innerHTML = this.responseText;            
         }
-    };    
-    // Pass the community selected to ajax_citySelect.php
-    xmlhttp.open("GET", "ajax_citySelect.php?p=" + community_select.value, true);
-    xmlhttp.send();
+    };
 }
 
 function verifyPass(){
