@@ -59,7 +59,8 @@ a {
     
     background-color: rgba(0,0,0,0.4);
 }
-#login_form, #signup_form {
+#login_form,
+#signup_form {
     z-index: 2;
     display: none;
     
@@ -78,7 +79,8 @@ a {
     width: 500px;
     margin: 10% auto;
 }
-#modal input, #modal select {
+#modal input,
+#modal select {
     height: 48px;
     width: 100%;
     
@@ -91,7 +93,8 @@ a {
 #signup_fields {
     display: flex;
 }
-#userSpecFields, #nonUserSpecFields {
+#userSpecFields,
+#nonUserSpecFields {
     width: 50%;
 }
 #userSpecFields {
