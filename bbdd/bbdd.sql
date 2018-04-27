@@ -151,7 +151,7 @@ insert into city (community, name) values
 	('Murcia', 'Murcia'),
 	('Navarra', 'Pamplona'),
 	('Pais Vasco', 'Bilbao'),
-	('Pais Vasco', 'San Sevastián'),
+	('Pais Vasco', 'San Sebastián'),
 	('Pais Vasco', 'Vitoria'),
 	('La Rioja', 'Logroño'),
 	('Ceuta', 'Ceuta'),

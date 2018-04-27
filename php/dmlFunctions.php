@@ -179,7 +179,9 @@ function connect(){
     if (!$connection){
         die("No se ha podido establecer la conexión");
     }
-    
+
+    mysqli_set_charset($connection,"utf8");
+
     return $connection;
 }
 function disconnect($connection){
