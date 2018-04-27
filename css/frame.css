@@ -15,6 +15,7 @@ p {
 body {
     margin-left: 16%;
     padding-top: 80px;
+    overflow: hidden;
 }
 
 #main {
@@ -68,18 +69,25 @@ body {
     width: 100%;
 }
 #concert_info {
-    display: block;
+    display: flex;
     text-align: center;
+    flex-direction: column;
 
     width: 100%;
     
     background-color: #dd99ff;
 }
-#concert_info_title {
-    font-size: 64px;
-    background-color: #e066ff;
+.concert_info_title {
+    display: flex;
+    flex-grow: 1;
+    margin-top: 5%;
+    flex-wrap: nowrap;
+    flex-flow: row;
 }
 
+#space{
+    width: 40%;
+}
 .list_item {
     display: flex;
 }

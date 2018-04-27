@@ -17,10 +17,11 @@ require_once 'dmlFunctions.php';
             <div id="frameTitle"><h2>CONCIERTOS</h2></div>
             <div id="concerts">
                     <?php
-                        $conciertos = select("c.*, u.*, m.*",
+                        $conciertos = select("*, u.name as 'nombre', y.name as province",
                             "concert c inner join user u on c.id_local=u.id_user
                             inner join musician m on c.id_musician=m.id_musician
-                            inner join local l on c.id_local=l.id_local",
+                            inner join local l on c.id_local=l.id_local
+                            inner join city y on u.id_city = y.id_city",
                             "where c.state = 1 order by c.concert_date, c.concert_time asc");
                         while ($concierto = mysqli_fetch_assoc($conciertos)){
                             /* CONCERT BOX */
@@ -28,12 +29,27 @@ require_once 'dmlFunctions.php';
                                 <div class='concert_box'>
                                     <img id='concert_img' src='../media/random.jpg'>
                                     <div id='concert_info'>
-                                        <div id='concert_info_title'>
-                                        ".$concierto['artist_name']." / ".$concierto['username']."
+                                        <div class='concert_info_title'>
+                                            <img src='../media/icons8-micrófono-2-filled-50.png'>
+                                            <p>".$concierto['artist_name']."</p>
+                                            <div id='space'></div>
+                                            <img src='../media/icons8-arena-filled-50.png'>
+                                            <p>" . $concierto['nombre'] . "</p>
                                         </div>
-                                        <h1>".$concierto['concert_date']."</h1>
-                                        <h1>".$concierto['concert_time']."</h1>
-                                        <h2>".$concierto['phone']."</h2>
+                                        <div class='concert_info_title'>
+                                            <img src='../media/icons8-marker-filled-50.png'>
+                                            <p>" . $concierto['province'] ."</p>
+                                            <div id='space'></div>
+                                            <img src='../media/icons8-website-50.png'>
+                                            <p>".$concierto['web']."</p>
+                                        </div>
+                                        <div class='concert_info_title'>
+                                            <img src='../media/icons8-calendar-64.png'>
+                                            <p>".$concierto['concert_date']."</p>
+                                            <div id='space'></div>
+                                            <img src='../media/icons8-reloj-32.png'>
+                                            <p>". $concierto['concert_time'] ."</p>
+                                        </div>
                                     </div>
                                 </div>                               
                             ";
