@@ -18,7 +18,7 @@ if (isset($_GET["concertState"])){
 
     while ($concert = mysqli_fetch_assoc($concerts)){
         if ($concertState === "proposed")
-            $musiciansApplied = select("id_musician, u.name as name", "applyconcert a INNER JOIN user u ON a.id_musician = u.id_user", "WHERE id_concert = ".$concert["id_concert"]);
+            $musiciansApplied = select("id_musician, u.name as name", "applyConcert a INNER JOIN user u ON a.id_musician = u.id_user", "WHERE id_concert = ".$concert["id_concert"]);
         else $musicianAssigned = select_value("artist_name", "concert c INNER JOIN musician m ON c.id_musician = m.id_musician", "WHERE id_concert = ".$concert["id_concert"]);
         /* CONCERT BOX */
         echo "
@@ -60,8 +60,8 @@ if (isset($_GET["concertState"])){
     // Update from concert id_musician to asigned musician's ID and state to 1
     updateMultiple("concert", array("id_musician", "state"), array($_GET["assignMusician"], 1), "WHERE id_concert = ".$_GET["concertID"]);
     // Update applys state, asigned to 1 and rest to 2
-    update("applyconcert", "state", 1, "WHERE id_concert = ".$_GET["concertID"]." AND id_musician = ".$_GET["assignMusician"]);
-    update("applyconcert", "state", 2, "WHERE id_concert = ".$_GET["concertID"]." AND id_musician <> ".$_GET["assignMusician"]);
+    update("applyConcert", "state", 1, "WHERE id_concert = ".$_GET["concertID"]." AND id_musician = ".$_GET["assignMusician"]);
+    update("applyConcert", "state", 2, "WHERE id_concert = ".$_GET["concertID"]." AND id_musician <> ".$_GET["assignMusician"]);
     echo "El músico ".select_value("artist_name", "musician", "WHERE id_musician = ".$_GET["assignMusician"])." ha sido asignado a este concierto exitosamente, todos los demás han sido rechazados. :(";
 }
 
