@@ -31,24 +31,24 @@ require_once 'dmlFunctions.php';
                                     <div id='concert_info'>
                                         <div class='concert_info_title'>
                                             <img src='../media/icons8-micrófono-2-filled-50.png'>
-                                            <p>".$concierto['artist_name']."</p>
+                                            <span>".$concierto['artist_name']."</span>
                                             <div id='space'></div>
-                                            <img src='../media/icons8-arena-filled-50.png'>
-                                            <p>" . $concierto['nombre'] . "</p>
+                                            <img src='../media/icons8-cabaña-filled-50.png'>
+                                            <span>" . $concierto['nombre'] . "</span>
                                         </div>
                                         <div class='concert_info_title'>
                                             <img src='../media/icons8-marker-filled-50.png'>
-                                            <p>" . $concierto['province'] ."</p>
+                                            <span>" . $concierto['province'] ."</span>
                                             <div id='space'></div>
-                                            <img src='../media/icons8-website-50.png'>
-                                            <p>".$concierto['web']."</p>
+                                            <img src='../media/icons8-smartphone-con-pantalla-táctil-26.png'>
+                                            <span>".$concierto['phone']."</span>
                                         </div>
                                         <div class='concert_info_title'>
                                             <img src='../media/icons8-calendar-64.png'>
-                                            <p>".$concierto['concert_date']."</p>
+                                            <span>".$concierto['concert_date']."</span>
                                             <div id='space'></div>
-                                            <img src='../media/icons8-reloj-32.png'>
-                                            <p>". $concierto['concert_time'] ."</p>
+                                            <img src='../media/icons8-reloj-64.png'>
+                                            <span>". $concierto['concert_time'] ."</span>
                                         </div>
                                     </div>
                                 </div>                               
@@ -58,6 +58,14 @@ require_once 'dmlFunctions.php';
             </div>
         </div>
         <!-- RIGHT FRAME -->
+
+<!--  LISTADO DE MUSICOS MAS VOTADOS
+select artist_name
+from musician
+where id_musician =
+(select count(id_musician) from votemusician group by id_fan)
+-->
+
         <aside id="frame_right">
             <div id="musiciansByGenre">
                 <p>MUSICOS BY GENRE:</p>
