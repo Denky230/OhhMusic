@@ -1,7 +1,3 @@
-<?php
-require_once 'dmlFunctions.php';
-session_start();
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,19 +17,7 @@ session_start();
                     <div id="pending" onclick="drawConcerts(this)">CONCIERTOS PENDIENTES</div>
                 </h2>
             </div>
-            <div id="concerts">
-                <!-- TEST -->
-                <!-- <div class='concert_box'>
-                    <img id='concert_img' src=''>
-                    <div id='concert_info'>
-                        <h2>Nombre Local</h2>
-                        <h2>Lugar Local</h2>
-                        <h2>Telf Local</h2>
-                        <input type="button" id="concert_submit" value="Sign" onclick="signUpConcert()">
-                    </div>
-                </div> -->
-                <!-- TEST -->
-            </div>
+            <div id="concerts"></div>
         </div>
     </body>
 </html>
