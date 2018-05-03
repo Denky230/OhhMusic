@@ -45,8 +45,6 @@ body {
     flex-wrap: wrap;
         
     width: 100%;
-
-    background-color: green;
 }
 .concert_box {
     position: relative;
@@ -66,11 +64,11 @@ body {
 }
 #concert_info {
     display: flex;
-    text-align: center;
     flex-direction: column;
 
     width: 100%;
     
+    text-align: center;    
     background-color: #dd99ff;
 }
 .concert_info_title {

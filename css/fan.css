@@ -4,3 +4,12 @@
 #main {
     width: 84%;
 }
+
+/* ---------------- Musicians ---------------- */
+
+table {
+	width: 50%;
+}
+th {
+	left: 0;
+}
