@@ -14,6 +14,10 @@ function drawContent(title) {
     };
 }
 
-function vote() {
-	
+function voteMusician(musician, value) {
+    ajax("ajax_fan.php?voteMusician=" + musician +"&value="+ value).onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            drawContent(document.getElementById("musician"));
+        }
+    };
 }
