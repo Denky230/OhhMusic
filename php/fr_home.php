@@ -17,13 +17,13 @@ require_once 'dmlFunctions.php';
             <div id="frameTitle"><h2>CONCIERTOS</h2></div>
             <div id="concerts">
                     <?php
-                        $conciertos = select("*, u.name as 'nombre', y.name as province",
+                        $concerts = select("*, u.name as 'nombre', y.name as province",
                             "concert c inner join user u on c.id_local=u.id_user
                             inner join musician m on c.id_musician=m.id_musician
                             inner join local l on c.id_local=l.id_local
                             inner join city y on u.id_city = y.id_city",
                             "where c.state = 1 order by c.concert_date, c.concert_time asc");
-                        while ($concierto = mysqli_fetch_assoc($conciertos)){
+                        while ($concert = mysqli_fetch_assoc($concerts)){
                             /* CONCERT BOX */
                             echo "
                                 <div class='concert_box'>
@@ -31,24 +31,24 @@ require_once 'dmlFunctions.php';
                                     <div id='concert_info'>
                                         <div class='concert_info_title'>
                                             <img src='../media/icons8-micrófono-2-filled-50.png'>
-                                            <span>".$concierto['artist_name']."</span>
+                                            <span>".$concert['artist_name']."</span>
                                             <div id='space'></div>
                                             <img src='../media/icons8-cabaña-filled-50.png'>
-                                            <span>" . $concierto['nombre'] . "</span>
+                                            <span>".$concert['nombre']."</span>
                                         </div>
                                         <div class='concert_info_title'>
                                             <img src='../media/icons8-marker-filled-50.png'>
-                                            <span>" . $concierto['province'] ."</span>
+                                            <span>".$concert['province']."</span>
                                             <div id='space'></div>
                                             <img src='../media/icons8-smartphone-con-pantalla-táctil-26.png'>
-                                            <span>".$concierto['phone']."</span>
+                                            <span>".$concert['phone']."</span>
                                         </div>
                                         <div class='concert_info_title'>
                                             <img src='../media/icons8-calendar-64.png'>
-                                            <span>".$concierto['concert_date']."</span>
+                                            <span>".$concert['concert_date']."</span>
                                             <div id='space'></div>
                                             <img src='../media/icons8-reloj-64.png'>
-                                            <span>". $concierto['concert_time'] ."</span>
+                                            <span>".$concert['concert_time']."</span>
                                         </div>
                                     </div>
                                 </div>                               

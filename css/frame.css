@@ -71,18 +71,6 @@ body {
     text-align: center;    
     background-color: #dd99ff;
 }
-
-.concert_info_title span{
-    font-weight: bolder;
-    line-height: normal;
-    font-size: 200%;
-}
-
-.concert_info_title img{
-    width: 30%;
-    height: 20%;
-}
-
 .concert_info_title {
     display: flex;
     flex-grow: 1;
@@ -91,10 +79,15 @@ body {
     align-items: center;
     margin: 4%;
 }
-
-#space{
-    width: 100%;
+.concert_info_title span {
+    font-weight: bolder;
+    font-size: 25px;
 }
+.concert_info_title img {
+    width: 30%;
+    height: 20%;
+}
+
 .list_item {
     display: flex;
 }

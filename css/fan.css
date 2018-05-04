@@ -7,9 +7,13 @@
 
 /* ---------------- Musicians ---------------- */
 
-table {
-	width: 50%;
-}
 th {
-	left: 0;
+	height: 50px;
+	min-width: 200px;
+
+	font-size: 20px;
+	text-align: left;
+}
+td {
+	height: 30px;
 }
