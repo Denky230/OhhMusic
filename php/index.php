@@ -167,7 +167,7 @@ foreach ($_GET as $key => $value){
                             <input type="email" name="email" placeholder="E-mail" maxlength="30" required>
                             <select name="community" id="community_select" onchange="updateCities()">
                                 <?php
-                                $communities = selectFields("community", "city", "GROUP BY community");
+                                $communities = select("distinct community", "city");
                                 while ($community = mysqli_fetch_assoc($communities)){
                                     echo "<option>".$community["community"]."</option>";
                                 }
