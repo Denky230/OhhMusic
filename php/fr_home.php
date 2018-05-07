@@ -54,16 +54,27 @@ require_once 'dmlFunctions.php';
                     ?>
             </div>
         </div>
+
         <!-- RIGHT FRAME -->
 
-<!--  LISTADO DE MUSICOS MAS VOTADOS
-select artist_name
-from musician
-where id_musician =
-(select count(id_musician) from votemusician group by id_fan)
--->
-
         <aside id="frame_right">
+            <div id="mostVotedMusicians">
+                <span>TOP MUSICIANS</span>
+                <div id="mostVotedMusicians_btns">
+                    <form action="mostVotedMusicians" method="GET">
+                        <?php
+                        // FALTA TERMINAR
+                            $tops = selectFields("artist_name", "votemusician", "WHERE id_musician = 
+                            (select id_musician from votemusician group by id_fan)");
+                            while($top = mysqli_fetch_assoc($tops)){
+                                echo("<ol>");
+                                echo("<li><input type='submit' name='musician' value='".strtoupper($top["artist_name"])."'></li>");
+                                echo("</ol>");
+                            }
+                        ?>
+                    </form>
+                </div>
+            </div>
             <div id="musiciansByGenre">
                 <p>MUSICOS BY GENRE:</p>
                 <div id="musiciansByGenre_btns">

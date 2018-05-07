@@ -67,22 +67,20 @@ body {
     flex-direction: column;
 
     width: 100%;
-    
+    height: 50%;
+
     text-align: center;    
-    background-color: #dd99ff;
+    background-color: #E0E0E0;
 }
 .concert_info_title {
     display: flex;
     align-items: center;
     margin: 4%;
+    justify-content: space-around;
 }
 .concert_info_title span {
     font-weight: bolder;
     font-size: 25px;
-}
-.concert_info_title img {
-    width: 30%;
-    height: 20%;
 }
 
 .list_item {

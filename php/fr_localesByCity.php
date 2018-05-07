@@ -1,7 +1,7 @@
 <?php
 require_once 'dmlFunctions.php';
 
-$rowsPerPage = 5;
+$rowsPerPage = 3;
 $currPage = (isset($_GET["currPage"]) ? $_GET["currPage"] : 1);
 
 $city = $_GET["city"];
