@@ -25,17 +25,22 @@ $music = select("m.artist_name as 'Artista'", "musician m inner join votemusicia
         foreach (mysqli_fetch_assoc($music) as $key => $value){
             echo "<th>$key</th>";
         }
-        $music = select("m.artist_name", "musician m inner join votemusician v on m.id_musician = v.id_musician", "WHERE v.id_musician = (select id_musician from musician where artist_name = '$musician' LIMIT ".($currPage - 1) * $rowsPerPage.", $rowsPerPage");
+        $music = select("*, count(v.id_musician) as 'total'",
+            "musician m inner join votemusician v on m.id_musician = v.id_musician inner join genre g on m.id_genre = g.id_genre",
+            "WHERE v.id_musician = (select id_musician from musician where artist_name = '$musician' LIMIT ".($currPage - 1) * $rowsPerPage.", $rowsPerPage");
         while ($m = mysqli_fetch_assoc($music)){
             echo "<tr>
+                        <td>Artist Info</td>
                         <td>".$m["artist_name"]."</td>
+                        <td>".$m["name"]."</td>
+                        <td>".$m["total"]."</td>
                   </tr>";
         }
         ?>
     </table>
     <?php
     // PAGINEIXON
-    $numPages = ceil($musiciansTotalRows / $rowsPerPage);
+    $numPages = ceil($musicianTotalRows / $rowsPerPage);
 
     if ($currPage > 1){
         echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=1'><<</a> ";

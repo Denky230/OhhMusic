@@ -61,11 +61,10 @@ require_once 'dmlFunctions.php';
             <div id="mostVotedMusicians">
                 <span>TOP MUSICIANS</span>
                 <div id="mostVotedMusicians_btns">
-                    <form action="mostVotedMusicians" method="GET">
+                    <form action="fr_mostVotedMusicians.php" method="GET">
                         <?php
-                        // FALTA TERMINAR
-                            $tops = selectFields("artist_name", "votemusician", "WHERE id_musician = 
-                            (select id_musician from votemusician group by id_fan)");
+                            $tops = select("*, count(v.id_musician) as 'total'", "musician m inner join votemusician v on m.id_musician=v.id_musician",
+                                "group by v.id_musician order by total desc");
                             while($top = mysqli_fetch_assoc($tops)){
                                 echo("<ol>");
                                 echo("<li><input type='submit' name='musician' value='".strtoupper($top["artist_name"])."'></li>");
