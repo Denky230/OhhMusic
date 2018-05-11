@@ -80,7 +80,7 @@ require_once 'dmlFunctions.php';
                     <form action="fr_musiciansByGenre.php" method="GET">
                         <?php
                         // Select every genre played by min 1 musician
-                        $genres = selectFields("name", "genre", "WHERE id_genre IN (SELECT id_genre FROM musician)");
+                        $genres = select_fields("name", "genre", "WHERE id_genre IN (SELECT id_genre FROM musician)");
                         while ($genre = mysqli_fetch_assoc($genres)){
                             echo "<ol>";
                             echo "<li><input type='submit' name='genre' value='".strtoupper($genre["name"])."'></li>";
@@ -96,7 +96,7 @@ require_once 'dmlFunctions.php';
                     <form action="fr_localesByCity.php" method="GET">
                         <?php
                         // Select every city which contains min 1 local
-                        $cities = selectFields("name", "city", "WHERE id_city IN (SELECT id_city FROM user WHERE user.type = 2 GROUP BY id_city)");
+                        $cities = select_fields("name", "city", "WHERE id_city IN (SELECT id_city FROM user WHERE user.type = 2 GROUP BY id_city)");
                         while ($city = mysqli_fetch_assoc($cities)){
                             echo "<ol>";
                             echo "<li><input type='submit' name='city' value='".strtoupper($city["name"])."'></li>";

@@ -1,29 +1,44 @@
 <?php
-require "dmlFunctions.php";
+require_once 'dmlFunctions.php';
 session_start();
-?>
-<!DOCTYPE html>
-<?php
+
 if (isset($_POST["edit"])){
-    if ($_SESSION["type"] == 1){
-        updateUser("name", $_POST['name'], "email", $_POST['email'], $_SESSION["id_user"]);
-        updateMusician("artist_name", $_POST["artist_name"], "id_genre", $_POST["genre"], "surname", $_POST["surname"],
-            "phone", $_POST["phone"], "web", $_POST["web"], "group_size", $_POST["group_size"]);
-    } else if ($_SESSION["type"] == 2){
-        updateUser("name", $_POST['name'], "email", $_POST['email'], $_SESSION["id_user"]);
-        updateLocal("phone", $_POST["phone"], "capacity", $_POST["capacity"], "web", $_POST["web"]);
-    } else if ($_SESSION["type"] == 3){
-        updateUser("name", $_POST['name'], "email", $_POST['email'], $_SESSION["id_user"]);
-        updateFan("phone", $_POST["phone"], "address", $_POST["address"], "surname", $_POST["surname"]);
+    // Update user fields
+    updateMultiple("user", array("name", "email"), array($_POST['name'], $_POST['email']), "WHERE id_user = ".$_SESSION["id_user"]);
+
+    // Update non-user fields
+    switch ($_SESSION["type"]) {
+        case 1:
+            updateMultiple("musician",
+                array("artist_name", "id_genre", "surname"),
+                array($_POST["artist_name"], $_POST["genre"], $_POST["surname"]),
+                "WHERE id_musician = ".$_SESSION["id_user"]);
+            break;
+        case 2:
+            updateMultiple("local",
+                array("phone", "capacity", "web"),
+                array($_POST["phone"], $_POST["capacity"], $_POST["web"]),
+                "WHERE id_local = ".$_SESSION["id_user"]);
+            break;
+        case 3:
+            updateMultiple("fan",
+                array("phone", "address", "surname"),
+                array($_POST["phone"], $_POST["address"], $_POST["surname"]),
+                "WHERE id_fan = ".$_SESSION["id_user"]);
+            break;
+        default:
     }
 }
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/frame.css"/>
         <link rel="stylesheet" href="../css/perfil.css"/>
-        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../js/functions.js"></script>
+        <script src="../js/account.js"></script>
     </head>
     <body>
         <div id="main">
@@ -44,18 +59,17 @@ if (isset($_POST["edit"])){
                         <input type="text" name="name" value="<?php echo $user['name']; ?>">
                         <div id='fieldTitle'>E-mail:</div>
                         <input type="email" name="email" value="<?php echo $user['email']; ?>">
-                        <div id='fieldTitle'>Province:</div>
-                        <select name="province" id="province">
+                        <div id='fieldTitle'>CCAA:</div>
+                        <select name="community" id="community_select" onchange="updateCities()">
                             <?php
-                            $provinces = selectFields("id_city, name", "city");
-                            while ($province = mysqli_fetch_assoc($provinces)){
-                                if ($province["id_city"] === $user["id_city"])
-                                    echo "<option value='".$province["id_city"]."' selected>".$province["name"]."</option>";
-                                else echo "<option value='".$province["id_city"]."'>".$province["name"]."</option>";
+                            $communities = select("distinct community", "city");
+                            while ($community = mysqli_fetch_assoc($communities)){
+                                echo "<option>".$community["community"]."</option>";
                             }
                             ?>
                         </select>
-                        <div id="provinceSelect"></div>
+                        <div id="fieldTitle">Provincia:</div>
+                        <div id="citySelect"></div>
                     </div>
                     <div id="profile_specific_info">
                         <?php
@@ -97,6 +111,6 @@ if (isset($_POST["edit"])){
                     </div>
                 </div>
             </form>
-        </div>
+        </div>        
     </body>
 </html>

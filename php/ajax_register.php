@@ -10,7 +10,7 @@ switch ($t){
     case '1':
         echo "<input type='text' name='artistName' id='' placeholder='Nombre de artista' maxlength='35' required>
             <select name='genre' id=''>";
-            $genres = selectFields("*", "genre");
+            $genres = select_fields("*", "genre");
             while ($genre = mysqli_fetch_assoc($genres)){
                 echo "<option value=".$genre["id_genre"].">".$genre["name"]."</option>";
             }

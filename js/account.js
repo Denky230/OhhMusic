@@ -22,6 +22,10 @@ signup_btn.addEventListener('click', function(){
     signup_bg.style.display = "block";
 });
 
+$(document).ready(function() {
+
+});
+
 // REGISTER BUTTON
 function showRegisterForm(){
     signup_bg.style.display = "none";
@@ -31,10 +35,10 @@ function showRegisterForm(){
     
     // Add the text from the user type select to the register title
     document.getElementById("signup_title").innerHTML = "REGISTRO " + userType_select.options[userType_select.selectedIndex].text.toUpperCase();
-    
+
     ajax("ajax_register.php?t=" + $("#userType_select").val()).onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("nonUserSpecFields").innerHTML = this.responseText;            
+            document.getElementById("nonUserSpecFields").innerHTML = this.responseText;
         }
     };
     
@@ -47,7 +51,7 @@ window.onclick = function(event) {
         // Close modal + childs
         modal.style.display = "none";
         login_form.style.display = "none";
-        signup_form.style.display = "none";    
+        signup_form.style.display = "none";
     } else if (event.target == signup_bg){
         // Close Sign-up select
         signup_bg.style.display = "none";
@@ -58,13 +62,13 @@ window.onclick = function(event) {
 function updateCities() {
     ajax("ajax_citySelect.php?p=" + $("#community_select").val()).onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("citySelect").innerHTML = this.responseText;            
+            document.getElementById("citySelect").innerHTML = this.responseText;
         }
     };
 }
 
 function verifyPass(){
-       
+    
 }
 
 function verifySignup(){
