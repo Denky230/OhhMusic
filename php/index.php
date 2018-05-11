@@ -135,13 +135,14 @@ foreach ($_GET as $key => $value){
                     case 3: // FAN
                         echo "<iframe id='main' src='fr_fan.php'></iframe>";
                         break;
+                    default:
                 }
             }
         } else if (isset($_GET["profile"])){
             echo "<iframe id='main' src='fr_perfil.php'></iframe>";
         } else {
             echo "<iframe id='main' src='fr_home.php'></iframe>";
-        }        
+        }
         ?>
         <!-- MODAL -->
         <div id="modal">
@@ -197,7 +198,7 @@ foreach ($_GET as $key => $value){
                     <option value="2">Local</option>
                     <option value="3">Fan</option>
                 </select>
-                <button type="button" id="signup_select_btn" onclick="showRegisterForm()">Registrar</button>
+                <button type="button" id="register_btn" onclick="showRegisterForm()">Registrar</button>
             </div>
         </div>
         <script src="../js/functions.js"></script>

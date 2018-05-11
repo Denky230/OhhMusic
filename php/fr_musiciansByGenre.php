@@ -13,7 +13,6 @@ $musicians = select("artist_name AS 'Artista'", "musician m INNER JOIN genre g O
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/frame.css">
-        <title>Document</title>
     </head>
     <body>
         <div id="main">
