@@ -9,9 +9,10 @@ a {
 }
 
 body {
-    overflow: hidden;    
+    overflow: hidden;
     margin-left: 16%;
     padding-top: 80px;
+    background-image: url(../images/colorfulimage.png);
 }
 
 /* -------------------- Main -------------------- */
@@ -29,7 +30,7 @@ body {
 
 #frameTitle {
     margin-bottom: 10px;
-    font-size: 20px;    
+    font-size: 20px;
 }
 #frameTitle * {
     display: inline;
@@ -50,8 +51,9 @@ body {
     position: relative;
 
     height: 500px;
-    width: 33.3%;
+    width: 32%;
     min-width: 350px;
+    margin-right: 1%;
 
     box-sizing: border-box;
     
@@ -72,7 +74,7 @@ body {
     padding: 10px 0;
     box-sizing: border-box;
 
-    text-align: center;    
+    text-align: center;
     background-color: #E0E0E0;
 }
 .concert_info_title {
@@ -95,4 +97,10 @@ body {
 
     padding: 2%;
     margin-right: 30%;
+}
+
+table td{
+    width: 30%;
+    height: 30%;
+    font-size: 200%;
 }

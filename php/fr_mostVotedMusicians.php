@@ -22,18 +22,35 @@ $music = select("m.artist_name as 'Artista'", "musician m inner join votemusicia
     <table>
         <?php
         // Header
-        foreach (mysqli_fetch_assoc($music) as $key => $value){
-            echo "<th>$key</th>";
-        }
         $music = select("*, count(v.id_musician) as 'total'",
             "musician m inner join votemusician v on m.id_musician = v.id_musician inner join genre g on m.id_genre = g.id_genre",
-            "WHERE v.id_musician = (select id_musician from musician where artist_name = '$musician' LIMIT ".($currPage - 1) * $rowsPerPage.", $rowsPerPage");
+            "WHERE v.id_musician = (select id_musician from musician where artist_name = '$musician')");
         while ($m = mysqli_fetch_assoc($music)){
             echo "<tr>
-                        <td>Artist Info</td>
-                        <td>".$m["artist_name"]."</td>
+                        <td>Gendre: </td>
                         <td>".$m["name"]."</td>
+                  </tr>
+                  <tr>
+                        <td>Likes: </td>
                         <td>".$m["total"]."</td>
+                  </tr>";
+        }
+        ?>
+    </table><br>
+    <table>
+        <tr>
+            <td>Next Concerts:</td>
+            <td>At: </td>
+            <td>Local: </td>
+        </tr>
+        <?php
+        $next = select("*", "concert c inner join user u on c.id_local = u.id_user",
+            "WHERE current_date < c.concert_date and c.state = 1 and c.id_musician = (select id_musician from musician where artist_name = '$musician') LIMIT ".($currPage - 1) * $rowsPerPage.", $rowsPerPage");
+        while ($nextConcert = mysqli_fetch_assoc($next)){
+            echo "<tr>
+                        <td>". $nextConcert["concert_date"] ."</td>
+                        <td>".$nextConcert["concert_time"]."</td>
+                        <td>".$nextConcert["name"]."</td>
                   </tr>";
         }
         ?>
