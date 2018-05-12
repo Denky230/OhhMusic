@@ -8,9 +8,9 @@ var highlighted = false;
 function highlight(){
 	if (!$(this).is(":animated")){
 		$(this).animate({
-			top: "-=" + hDiff/2 + "px",
-			left: "-=" + xDiff + "px",
-			height: "+=" + hDiff + "px"
+			top: hDiff/2,
+			left: xDiff,
+			height: hDiff
 			}, "fast");
 		$(this).css("z-index", "1");
 		highlighted = true;
