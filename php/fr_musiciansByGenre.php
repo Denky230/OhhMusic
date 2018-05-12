@@ -1,7 +1,7 @@
 <?php
 require_once 'dmlFunctions.php';
 
-$rowsPerPage = 5;
+$rowsPerPage = 3;
 $currPage = (isset($_GET["currPage"]) ? $_GET["currPage"] : 1);
 
 $genre = $_GET["genre"];
@@ -13,7 +13,6 @@ $musicians = select("artist_name AS 'Artista'", "musician m INNER JOIN genre g O
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/frame.css">
-        <title>Document</title>
     </head>
     <body>
         <div id="main">
@@ -27,8 +26,8 @@ $musicians = select("artist_name AS 'Artista'", "musician m INNER JOIN genre g O
                 $musicians = select("artist_name", "musician m INNER JOIN genre g ON m.id_genre = g.id_genre", "WHERE g.name = '$genre' LIMIT ".($currPage - 1) * $rowsPerPage.", $rowsPerPage");
                 while ($musician = mysqli_fetch_assoc($musicians)){
                     echo "<tr>
-                         <td>".$musician["artist_name"]."</td>
-                         </tr>";
+                        <td>".$musician["artist_name"]."</td>
+                        </tr>";
                 }
                 ?>
             </table>

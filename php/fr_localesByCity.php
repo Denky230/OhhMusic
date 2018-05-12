@@ -1,7 +1,7 @@
 <?php
 require_once 'dmlFunctions.php';
 
-$rowsPerPage = 5;
+$rowsPerPage = 3;
 $currPage = (isset($_GET["currPage"]) ? $_GET["currPage"] : 1);
 
 $city = $_GET["city"];
@@ -13,7 +13,6 @@ $locales = select("u.name AS Local", "user u INNER JOIN city c ON u.id_city = c.
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/frame.css">
-        <title>Document</title>
     </head>
     <body>
         <div id="main">

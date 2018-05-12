@@ -2,41 +2,22 @@
 /* ------------------- Main ------------------- */
 
 #main {
-    display: inline-flex;
-    flex-wrap: wrap;
-    
-    width: 84%;   
+    width: 84%;
 }
 
-#list_concerts, 
-#list_musicians {
-    width: 49%;
+/* ---------------- Musicians ---------------- */
 
-    padding: 5px;
+th {
+	height: 50px;
+	min-width: 200px;
 
-    text-align: center;
-    background-color: lightgreen;
+	font-size: 20px;
+	text-align: left;
+}
+td {
+	height: 30px;
 }
 
-#concert_box {
-    height: 200px;
-    width: 100%;
-    
-    margin: 10px 0px;
-    padding: 10px;
-    
-    box-sizing: border-box;
-    background-color: lightcyan;
+input[type=button] {
+	padding: 5px 8px;
 }
-#concert_img {
-    height: 60%;    
-    width: 100%;
-}
-#concert_info {
-    display: inline-flex;
-    flex-wrap: wrap;
-    
-    width: 100%;
-}
-
-

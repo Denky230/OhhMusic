@@ -26,71 +26,15 @@ function delete($table, $conditions){
 
 /* --------------------------------------- UPDATE --------------------------------------- */
 
-function updateFan($phone, $newPhone, $address, $newAddress, $surname, $newSurname){
-    $connection = connect();
-
-    $update = "update fan set $phone = '$newPhone', $address = '$newAddress', $surname = '$newSurname' WHERE id_fan = ".$_SESSION["id_user"];
-    if (mysqli_query($connection, $update)){
-        $result = "Ok";
-    } else {
-        $result = mysqli_error($connection);
-    }
-
-    disconnect($connection);
-    return $result;
-}
-
-function updateLocal($phone, $newPhone, $capacity, $newCapacity, $web, $newWeb){
-    $connection = connect();
-
-    $update = "update local set $phone = '$newPhone', $capacity = '$newCapacity', $web = '$newWeb' WHERE id_local = ".$_SESSION["id_user"];
-    if (mysqli_query($connection, $update)){
-        $result = "Ok";
-    } else {
-        $result = mysqli_error($connection);
-    }
-
-    disconnect($connection);
-    return $result;
-}
-
-function updateMusician($artistName, $newName, $genre, $newgenre, $surname, $newSurname, $phone, $newPhone, $web, $newWeb, $size, $newSize){
-    $connection = connect();
-
-    $update = "update musician set $artistName = '$newName', $genre = '$newgenre', $surname = '$newSurname', $phone = '$newPhone', $web = '$newWeb', $size = '$newSize' where id_musician = ".$_SESSION["id_user"];
-    if (mysqli_query($connection, $update)){
-        $result = "Ok";
-    } else {
-        $result = mysqli_error($connection);
-    }
-
-    disconnect($connection);
-    return $result;
-}
-
-function updateUser($field, $newValue, $field2, $newValue2, $id){
-    $connection = connect();
-
-    $update = "update user set $field = '$newValue', $field2 = '$newValue2' where id_user = $id";
-    if (mysqli_query($connection, $update)){
-        $result = "Ok";
-    } else {
-        $result = mysqli_error($connection);
-    }
-
-    disconnect($connection);
-    return $result;
-}
-
 function updateMultiple($table, $fields, $newValues, $conditions = ""){
     $connection = connect();
     
     // Building of UPDATE sentence
     $update = "update $table set ";
     for ($i = 0; $i < count($fields); $i++) { 
-        $update .= $fields[$i] . "=" . $newValues[$i] . ",";
+        $update .= "$fields[$i] = '$newValues[$i]',";
     }
-    $update = substr($update, 0, strlen($update) - 1) . " " . $conditions;
+    $update = substr($update, 0, strlen($update) - 1)." ".$conditions;
     
     if (mysqli_query($connection, $update)){
         $result = "Ok";
@@ -155,7 +99,7 @@ function select_value($field, $table, $conditions = ""){
     return $valueAssoc["$field"];
 }
 //  $fields = exact field names ONLY
-function selectFields($fields, $table, $conditions = ""){
+function select_fields($fields, $table, $conditions = ""){
     // Remove " "s and add table name before each field, just in case
     $fields = "$table." . $fields;
     $fields = str_replace(",", ",$table.", str_replace(" ", "", $fields));

@@ -9,11 +9,13 @@ a {
 }
 
 body {
-    overflow: hidden;    
+    overflow: hidden;
     margin-left: 16%;
     padding-top: 80px;
-    overflow: hidden;
+    background-image: url(../images/colorfulimage.png);
 }
+
+/* -------------------- Main -------------------- */
 
 #main {
     position: absolute;
@@ -28,7 +30,7 @@ body {
 
 #frameTitle {
     margin-bottom: 10px;
-    font-size: 20px;    
+    font-size: 20px;
 }
 #frameTitle * {
     display: inline;
@@ -44,18 +46,16 @@ body {
     flex-wrap: wrap;
         
     width: 100%;
-
-    background-color: green;
 }
 .concert_box {
-    border: solid 1px #99bbff;
     position: relative;
 
     height: 500px;
-    width: 33.3%;
+    width: 32%;
     min-width: 350px;
-    
-    padding: 0 0;
+    margin-right: 1%;
+    margin-bottom: 2%;
+
     box-sizing: border-box;
     
     border: solid 1px black;
@@ -67,34 +67,41 @@ body {
 }
 #concert_info {
     display: flex;
-    text-align: center;
     flex-direction: column;
 
     width: 100%;
-    
-    background-color: #dd99ff;
+    height: 40%;
+
+    padding: 10px 0;
+    box-sizing: border-box;
+
+    text-align: center;
+    background-color: #E0E0E0;
 }
 .concert_info_title {
     display: flex;
-    flex-grow: 1;
-    margin-top: 5%;
-    flex-wrap: nowrap;
-    flex-flow: row;
+    align-items: center;
+    margin: 4%;
+    justify-content: space-around;
+}
+.concert_info_title span {
+    font-weight: bolder;
+    font-size: 25px;
 }
 
-#space{
-    width: 40%;
-}
 .list_item {
     display: flex;
 }
 .list_item #concert_img {
-    padding: 2%;
-    margin-right: 30%;
     height: 60%;
     width: 20%;
+
+    padding: 2%;
+    margin-right: 30%;
 }
-#img_conci {
-    justify-content: flex-start;
-    size: 30px;
+
+table td{
+    width: 30%;
+    height: 30%;
+    font-size: 200%;
 }
