@@ -17,7 +17,7 @@ $music = select("m.artist_name as 'Artista'", "musician m inner join votemusicia
 </head>
 <body>
 <div id="main">
-    <div id="frameTitle"><h2>ARTISTA <?php echo $musician ?></h2></div>
+    <div id="frameTitle"><h2><?php echo $musician ?></h2></div>
     <table>
         <?php
         // Header

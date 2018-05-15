@@ -54,9 +54,7 @@ require_once 'dmlFunctions.php';
                     ?>
             </div>
         </div>
-
         <!-- RIGHT FRAME -->
-
         <aside id="frame_right">
             <div id="mostVotedMusicians">
                 <span>TOP MUSICIANS</span>
@@ -64,7 +62,7 @@ require_once 'dmlFunctions.php';
                     <form action="fr_mostVotedMusicians.php" method="GET">
                         <?php
                             $tops = select("*, count(v.id_musician) as 'total'", "musician m inner join votemusician v on m.id_musician=v.id_musician",
-                                "group by v.id_musician order by total desc");
+                                "group by v.id_musician order by total desc, artist_name asc");
                             while($top = mysqli_fetch_assoc($tops)){
                                 echo("<ol>");
                                 echo("<li><input type='submit' name='musician' value='".strtoupper($top["artist_name"])."'></li>");
@@ -80,7 +78,8 @@ require_once 'dmlFunctions.php';
                     <form action="fr_musiciansByGenre.php" method="GET">
                         <?php
                         // Select every genre played by min 1 musician
-                        $genres = select_fields("name", "genre", "WHERE id_genre IN (SELECT id_genre FROM musician)");
+                        $genres = select_fields("name", "genre");
+                        //$genres = select_fields("name", "genre", "WHERE id_genre IN (SELECT id_genre FROM musician)");
                         while ($genre = mysqli_fetch_assoc($genres)){
                             echo "<ol>";
                             echo "<li><input type='submit' name='genre' value='".strtoupper($genre["name"])."'></li>";
@@ -98,9 +97,9 @@ require_once 'dmlFunctions.php';
                         // Select every city which contains min 1 local
                         $cities = select_fields("name", "city", "WHERE id_city IN (SELECT id_city FROM user WHERE user.type = 2 GROUP BY id_city)");
                         while ($city = mysqli_fetch_assoc($cities)){
-                            echo "<ol>";
-                            echo "<li><input type='submit' name='city' value='".strtoupper($city["name"])."'></li>";
-                            echo "</ol>";
+                            echo "<ol>
+                                <li><input type='submit' name='city' value='".strtoupper($city["name"])."'></li>
+                                </ol>";
                         }
                         ?>
                     </form>
