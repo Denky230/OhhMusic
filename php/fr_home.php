@@ -8,7 +8,7 @@ require_once 'dmlFunctions.php';
         <link rel="stylesheet" href="../css/frame.css"/>
         <link rel="stylesheet" href="../css/home.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="../js/home.js"></script>        
+        <script src="../js/home.js"></script>
     </head>
     <body>
         <!-- BODY -->
@@ -43,9 +43,9 @@ require_once 'dmlFunctions.php';
                                         </div>
                                         <div class='concert_info_title'>
                                             <img src='../media/icons8-calendar-64.png'>
-                                            <span>".$concert['concert_date']."</span>                                           
-                                            <img src='../media/icons8-reloj-64.png'>
+                                            <span>".$concert['concert_date']."</span>
                                             <span>".$concert['concert_time']."</span>
+                                            <img src='../media/icons8-corazones-40.png' id='changeimage' onclick='changeImage(this)'/>
                                         </div>
                                     </div>
                                 </div>                               
