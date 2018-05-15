@@ -7,7 +7,6 @@ and open the template in the editor.
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
     <link href="../css/slider.css" type="text/css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>

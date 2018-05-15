@@ -9,7 +9,6 @@ require_once 'dmlFunctions.php';
         <link rel="stylesheet" href="../css/home.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="../js/home.js"></script>
-        <title>Home</title>
     </head>
     <body>
         <!-- BODY -->
@@ -22,7 +21,8 @@ require_once 'dmlFunctions.php';
                             inner join musician m on c.id_musician=m.id_musician
                             inner join local l on c.id_local=l.id_local
                             inner join city y on u.id_city = y.id_city",
-                            "where c.state = 1 and current_date < c.concert_date order by c.concert_date, c.concert_time asc");
+                            "where c.state = 1 and c.concert_date > current_date
+                            order by c.concert_date, c.concert_time asc");
                         while ($concert = mysqli_fetch_assoc($concerts)){
                             /* CONCERT BOX */
                             echo "

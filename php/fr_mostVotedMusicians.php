@@ -14,7 +14,6 @@ $music = select("m.artist_name as 'Artista'", "musician m inner join votemusicia
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/frame.css">
-    <title>Document</title>
 </head>
 <body>
 <div id="main">

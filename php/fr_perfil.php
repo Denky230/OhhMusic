@@ -6,24 +6,25 @@ if (isset($_POST["edit"])){
     // Update user fields
     updateMultiple("user", array("name", "email"), array($_POST['name'], $_POST['email']), "WHERE id_user = ".$_SESSION["id_user"]);
 
+    extract($_POST);
     // Update non-user fields
     switch ($_SESSION["type"]) {
         case 1:
             updateMultiple("musician",
-                array("artist_name", "id_genre", "surname"),
-                array($_POST["artist_name"], $_POST["genre"], $_POST["surname"]),
+                array("artist_name", "id_genre", "surname", "phone", "web", "group_size"),
+                array($artist_name, $genre, $surname, $phone, $web, $group_size ),
                 "WHERE id_musician = ".$_SESSION["id_user"]);
             break;
         case 2:
             updateMultiple("local",
                 array("phone", "capacity", "web"),
-                array($_POST["phone"], $_POST["capacity"], $_POST["web"]),
+                array($phone, $capacity, $web),
                 "WHERE id_local = ".$_SESSION["id_user"]);
             break;
         case 3:
             updateMultiple("fan",
                 array("phone", "address", "surname"),
-                array($_POST["phone"], $_POST["address"], $_POST["surname"]),
+                array($phone, $address, $surname),
                 "WHERE id_fan = ".$_SESSION["id_user"]);
             break;
         default:
