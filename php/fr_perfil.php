@@ -2,7 +2,7 @@
 require_once 'dmlFunctions.php';
 session_start();
 
-if (isset($_POST["edit"])){
+if (isset($_POST["edit"])) {
     // Update user fields
     $user = mysqli_fetch_assoc(select("pass", "user", "WHERE id_user = '".$_SESSION["id_user"]."'"));
     if($_POST['old_pass'] == "") {
