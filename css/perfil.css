@@ -34,8 +34,11 @@
 }
 
 #profile_img {
-    height: 11em;
-    width: 70%;
+    height: 15em;
+    width: 25%;
+
+    margin-top: 15%;
+    float: right;
 
     border: solid black 3px;
     border-radius: 15%;
