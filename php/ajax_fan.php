@@ -9,7 +9,7 @@ switch (key($_GET)) {
             /* ------------------------------ DRAW CONCERTS ------------------------------ */
             case 'concert':
                 // Select all accepted concerts
-                $concerts = select("m.artist_name, u.name as localName, y.name as province, m.web, c.concert_date, c.concert_time",
+                $concerts = select("m.artist_name, u.name as localName, y.name as province, m.phone, c.concert_date, c.concert_time",
                         "concert c inner join user u on c.id_local = u.id_user
                         inner join musician m on c.id_musician = m.id_musician
                         inner join local l on c.id_local = l.id_local
@@ -33,13 +33,13 @@ switch (key($_GET)) {
                                     <img src='../media/icons8-marker-filled-50.png'>
                                     <span>".$concert['province']."</span>                                    
                                     <img src='../media/icons8-smartphone-con-pantalla-táctil-26.png'>
-                                    <span>".$concert['web']."</span>
+                                    <span>".$concert['phone']."</span>
                                 </div>
                                 <div class='concert_info_title'>
                                     <img src='../media/icons8-calendar-64.png'>
-                                    <span>".$concert['concert_date']."</span>                                    
-                                    <img src='../media/icons8-reloj-64.png'>
+                                    <span>".$concert['concert_date']."</span>
                                     <span>".$concert['concert_time']."</span>
+                                    <img src='../media/icons8-corazones-40.png'>
                                 </div>
                             </div>
                         </div>                               
