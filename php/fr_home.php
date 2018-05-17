@@ -23,7 +23,7 @@ require_once 'dmlFunctions.php';
                             inner join city y on u.id_city = y.id_city",
                             "where c.state = 1 and c.concert_date > current_date
                             order by c.concert_date, c.concert_time asc");
-                        while ($concert = mysqli_fetch_assoc($concerts)){
+                        while ($concert = mysqli_fetch_assoc($concerts)) {
                             /* CONCERT BOX */
                             echo "
                                 <div class='concert_box'>
@@ -56,39 +56,41 @@ require_once 'dmlFunctions.php';
         </div>
         <!-- RIGHT FRAME -->
         <aside id="frame_right">
-            <div id="mostVotedMusicians">
-                <span>TOP MUSICIANS</span>
-                <div id="mostVotedMusicians_btns">
-                    <form action="fr_mostVotedMusicians.php" method="GET">
-                        <?php
-                            $tops = select("*, count(v.id_musician) as 'total'", "musician m inner join votemusician v on m.id_musician=v.id_musician",
-                                "group by v.id_musician order by total desc, artist_name asc");
-                            while($top = mysqli_fetch_assoc($tops)){
-                                echo("<ol>");
-                                echo("<li><input type='submit' name='musician' value='".strtoupper($top["artist_name"])."'></li>");
-                                echo("</ol>");
-                            }
-                        ?>
-                    </form>
-                </div>
-            </div>
             <div id="musiciansByGenre">
-                <p>MUSICOS BY GENRE:</p>
+                <p>MÚSICOS POR GÉNERO:</p>
                 <div id="musiciansByGenre_btns">
                     <form action="fr_musiciansByGenre.php" method="GET">
                         <?php
-                        // Select every genre played by min 1 musician
                         $genres = select_fields("name", "genre");
+                        // Select every genre played by min 1 musician
                         //$genres = select_fields("name", "genre", "WHERE id_genre IN (SELECT id_genre FROM musician)");
-                        while ($genre = mysqli_fetch_assoc($genres)){
-                            echo "<ol>";
-                            echo "<li><input type='submit' name='genre' value='".strtoupper($genre["name"])."'></li>";
-                            echo "</ol>";
+                        while ($genre = mysqli_fetch_assoc($genres)) {
+                            echo "<ol>
+                                <li><input type='submit' name='genre' value='".strtoupper($genre["name"])."'></li>
+                                </ol>";
                         }
                         ?>
                     </form>
                 </div>
             </div>
+            <div id="mostVotedMusicians">
+                <span>TOP MÚSICOS</span>
+                <div id="mostVotedMusicians_btns">
+                    <form action="fr_mostVotedMusicians.php" method="GET">
+                        <?php
+                            $tops = select("artist_name, count(*) as 'total'",
+                                "musician m inner join votemusician v on m.id_musician = v.id_musician",
+                                "group by v.id_musician 
+                                order by total desc, artist_name asc");
+                            while ($top = mysqli_fetch_assoc($tops)) {
+                                echo "<ol>
+                                    <li><input type='submit' name='musician' value='".strtoupper($top["artist_name"])."'></li>
+                                    </ol>";
+                            }
+                        ?>
+                    </form>
+                </div>
+            </div>            
             <div id="propertiesByCity">
                 <p>LOCALES BY PROVINCE:</p>
                 <div id="propertiesByCity_btns">
@@ -96,7 +98,7 @@ require_once 'dmlFunctions.php';
                         <?php
                         // Select every city which contains min 1 local
                         $cities = select_fields("name", "city", "WHERE id_city IN (SELECT id_city FROM user WHERE user.type = 2 GROUP BY id_city)");
-                        while ($city = mysqli_fetch_assoc($cities)){
+                        while ($city = mysqli_fetch_assoc($cities)) {
                             echo "<ol>
                                 <li><input type='submit' name='city' value='".strtoupper($city["name"])."'></li>
                                 </ol>";
