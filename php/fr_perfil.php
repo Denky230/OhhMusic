@@ -2,7 +2,7 @@
 require_once 'dmlFunctions.php';
 session_start();
 
-if (isset($_POST["edit"])){
+if (isset($_POST["edit"])) {
     // Update user fields
     updateMultiple("user", array("name", "email"), array($_POST['name'], $_POST['email']), "WHERE id_user = ".$_SESSION["id_user"]);
 
