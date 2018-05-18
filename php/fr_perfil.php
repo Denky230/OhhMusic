@@ -4,15 +4,7 @@ session_start();
 
 if (isset($_POST["edit"])) {
     // Update user fields
-    $user = mysqli_fetch_assoc(select("pass", "user", "WHERE id_user = '".$_SESSION["id_user"]."'"));
-    if($_POST['old_pass'] == "") {
         updateMultiple("user", array("name", "email"), array($_POST['name'], $_POST['email']), "WHERE id_user = " . $_SESSION["id_user"]);
-    }else if(password_verify($_POST['old_pass'],$user['pass']) && $_POST['new_pass'] === $_POST['verify']){
-        updateMultiple("user", array("name", "email", "pass"), array($_POST['name'], $_POST['email'], password_hash($_POST['new_pass'], PASSWORD_DEFAULT)), "WHERE id_user = " . $_SESSION["id_user"]);
-    }else{
-        echo("There was an error with the passwords... please try again");
-    }
-
     extract($_POST);
     // Update non-user fields
     switch ($_SESSION["type"]) {
@@ -55,24 +47,19 @@ if (isset($_POST["edit"])) {
                 $user = mysqli_fetch_assoc(select("u.image, u.username, u.name, u.pass, u.email, c.name AS city", "user u INNER JOIN city c ON u.id_city = c.id_city", "WHERE id_user = '".$_SESSION["id_user"]."'"));
                 ?>
                 <input type='submit' id='edit_submit' name='edit' value='Modificar datos'>
-                <div id="profile_img"></div>
                 <div id="container">
                     <div id="profile_general_info">
                         <?php
                         $user = mysqli_fetch_assoc(select("u.image, u.username, u.name, u.pass, u.email, c.name AS city", "user u INNER JOIN city c ON u.id_city = c.id_city", "WHERE id_user = '".$_SESSION["id_user"]."'"));
                         ?>
+                        <div id="profile_img"></div>
                         <div id='fieldTitle'>Username:</div>
                         <input type="text" name="username" value="<?php echo $user['username']; ?>" disabled>
                         <div id='fieldTitle'>Name:</div>
                         <input type="text" name="name" value="<?php echo $user['name']; ?>">
                         <div id='fieldTitle'>E-mail:</div>
                         <input type="email" name="email" value="<?php echo $user['email']; ?>">
-                        <div id="fieldTitle">Old Password</div>
-                        <input type="password" name="old_pass">
-                        <div id="fieldTitle">New Password</div>
-                        <input type="password" name="new_pass">
-                        <div id="fieldTitle">Repeat Password</div>
-                        <input type="password" name="verify">
+
                         <div id='fieldTitle'>CCAA:</div>
                         <select name="community" id="community_select" onchange="updateCities()">
                             <?php

@@ -64,10 +64,6 @@ function updateCities() {
     };
 }
 
-function verifyPass(){
-    
-}
-
 function verifySignup(){
     
 }
