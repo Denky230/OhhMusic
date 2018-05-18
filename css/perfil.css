@@ -6,13 +6,18 @@
     padding: 50px;
 }
 
-#edit_submit {
+#submits {
     position: absolute;
     top: 5%;
     right: 5%;
+}
+#submits * {
+    display: block;
 
     height: 2.8em;
-    width: 10em;
+    width: 11em;
+
+    margin-top: 10px;
 }
 
 #container {

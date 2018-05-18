@@ -21,3 +21,11 @@ function voteMusician(musician, value) {
         }
     };
 }
+
+function voteConcert(concert, value) {
+    ajax("ajax_fan.php?voteConcert=" + concert +"&value="+ value).onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {            
+            drawContent(document.getElementById("concert"));
+        }
+    };
+}

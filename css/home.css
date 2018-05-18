@@ -2,12 +2,11 @@
 /* ---------------- Right Frame ---------------- */
 
 #frame_right {
-    position: fixed;
-    
-    height: 100%;
-    width: 16%;
-    
+    position: fixed;    
     right: 0;
+
+    height: 100%;
+    width: 16%;    
     
     padding: 0 15px;
     box-sizing: border-box;
@@ -17,33 +16,33 @@
 
 #musiciansByGenre,
 #propertiesByCity,
-#mostVotedMusicians{
+#mostVotedMusicians {
     position: relative;
-    
-    margin-top: 10%;
     left: 50%;
     transform: translateX(-50%);
+
+    margin-top: 10%;    
 }
 #musiciansByGenre li,
 #propertiesByCity li,
-#mostVotedMusicians li{
+#mostVotedMusicians li {
     margin-top: 25px;
-}
-#musiciansByGenre input[type=submit], 
-#propertiesByCity input[type=submit],
-#mostVotedMusicians input[type=submit]{
-    position: absolute;
-
-    height: 45px;
-    width: 100%;
-
-    font-size: 15px;
 }
 #musiciansByGenre_btns,
 #propertiesByCity_btns,
 #mostVotedMusicians_btns {
     height: 250px;
     overflow-y: auto;
+}
+#musiciansByGenre input[type=submit], 
+#propertiesByCity input[type=submit],
+#mostVotedMusicians input[type=submit] {
+    position: absolute;
+
+    height: 45px;
+    width: 100%;
+
+    font-size: 15px;
 }
 #musiciansByGenre {
     margin-top: 10%;
