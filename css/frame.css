@@ -50,7 +50,7 @@ body {
 .concert_box {
     position: relative;
 
-    height: 500px;
+    height: 700px;
     width: 32%;
     min-width: 350px;
     margin-right: 1%;
@@ -100,7 +100,7 @@ body {
     margin-right: 30%;
 }
 
-table td{
+table td {
     width: 30%;
     height: 30%;
     font-size: 200%;
