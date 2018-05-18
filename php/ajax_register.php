@@ -5,7 +5,7 @@ require_once 'dmlFunctions.php';
 $t = $_GET['t'];
 switch ($t){
 
-    /* ------------------------------------- MUSICIAN ------------------------------------- */
+    /* --------------------------------- MUSICIAN --------------------------------- */
 
     case '1':
         echo "<input type='text' name='artistName' id='' placeholder='Nombre de artista' maxlength='35' required>
@@ -21,7 +21,7 @@ switch ($t){
             <input type='number' name='groupSize' id='' placeholder='Tamaño del grupo' min='1' required>";
         break;
 
-    /* -------------------------------------- LOCAL -------------------------------------- */
+    /* ----------------------------------- LOCAL ----------------------------------- */
 
     case '2':
         echo "<input type='text' name='phone' id='' placeholder='Teléfono' maxlength='9' required>
@@ -29,7 +29,7 @@ switch ($t){
             <input type='text' name='web' id='' placeholder='Página web' maxlength='255'>";
         break;
 
-    /* --------------------------------------- FAN --------------------------------------- */
+    /* ------------------------------------ FAN ------------------------------------ */
 
     case '3':
         echo "<input type='text' name='phone' id='' placeholder='Teléfono' maxlength='9'>

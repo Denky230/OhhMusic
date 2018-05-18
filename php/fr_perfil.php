@@ -3,9 +3,9 @@ require_once 'dmlFunctions.php';
 session_start();
 
 if (isset($_POST["edit"])) {
-    // Update user fields
-        updateMultiple("user", array("name", "email"), array($_POST['name'], $_POST['email']), "WHERE id_user = " . $_SESSION["id_user"]);
     extract($_POST);
+    // Update user fields
+        updateMultiple("user", array("name", "email", "id_city"), array($name, $email, $city), "WHERE id_user = " . $_SESSION["id_user"]);
     // Update non-user fields
     switch ($_SESSION["type"]) {
         case 1:
@@ -43,14 +43,14 @@ if (isset($_POST["edit"])) {
     <body>
         <div id="main">
             <form method="POST">
-                <?php
-                $user = mysqli_fetch_assoc(select("u.image, u.username, u.name, u.pass, u.email, c.name AS city", "user u INNER JOIN city c ON u.id_city = c.id_city", "WHERE id_user = '".$_SESSION["id_user"]."'"));
-                ?>
-                <input type='submit' id='edit_submit' name='edit' value='Modificar datos'>
+                <div id="submits">
+                    <input type='submit' id='edit_submit' name='edit' value='Modificar datos'>
+                    <input type="button" id='edit_pass' value="Cambiar contraseña">
+                </div>
                 <div id="container">
                     <div id="profile_general_info">
                         <?php
-                        $user = mysqli_fetch_assoc(select("u.image, u.username, u.name, u.pass, u.email, c.name AS city", "user u INNER JOIN city c ON u.id_city = c.id_city", "WHERE id_user = '".$_SESSION["id_user"]."'"));
+                        $user = mysqli_fetch_assoc(select("u.image, u.username, u.name, u.pass, u.email, c.id_city AS city", "user u INNER JOIN city c ON u.id_city = c.id_city", "WHERE id_user = '".$_SESSION["id_user"]."'"));
                         ?>
                         <div id="profile_img"></div>
                         <div id='fieldTitle'>Username:</div>
@@ -63,9 +63,12 @@ if (isset($_POST["edit"])) {
                         <div id='fieldTitle'>CCAA:</div>
                         <select name="community" id="community_select" onchange="updateCities()">
                             <?php
+                            $myCommunity = select_value("community", "city", "WHERE id_city = '".$user["city"]."'");
                             $communities = select("distinct community", "city");
                             while ($community = mysqli_fetch_assoc($communities)){
-                                echo "<option>".$community["community"]."</option>";
+                                echo ($community["community"] == $myCommunity ? 
+                                    "<option selected>".$community["community"]."</option>" : 
+                                    "<option>".$community["community"]."</option>");
                             }
                             ?>
                         </select>
@@ -80,11 +83,12 @@ if (isset($_POST["edit"])) {
                                 echo "<div id='fieldTitle'>Artist:</div><input type='text' name='artist_name' value='".$musician['artist_name']."'>";
 
                                 $genres = select("*", "genre");
-                                echo "<div id='fieldTitle'>Genre:</div><select name='genre'>";
-                                while($genre = mysqli_fetch_assoc($genres)) {
+                                echo "<div id='fieldTitle'>Genre:</div>
+                                    <select name='genre'>";
+                                while ($genre = mysqli_fetch_assoc($genres)) {
                                     if ($genre["id_genre"] === $musician["id_genre"])
                                         echo "<option value='".$genre['id_genre']."' selected>".$genre['name']."</option>";
-                                    else echo "<option value='".$genre['id_genre']."'>".$genre['name']."</option>";                                    
+                                    else echo "<option value='".$genre['id_genre']."'>".$genre['name']."</option>";
                                 }
                                 echo "</select>";
 
