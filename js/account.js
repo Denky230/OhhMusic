@@ -1,32 +1,34 @@
-var modal = document.getElementById('modal');
+var modal = $("#modal");
 
-var signup_form = document.getElementById('signup_form');
-var signup_bg = document.getElementById('signup_bg'); // User type select
+var login_form = $("#login_form");
+
+var signup_form = $("signup_form");
+var signup_bg = $("signup_bg"); // User type select
 
 $(document).ready(function() {
-    /* SET TRIGGER LISTENERS */
+    /* SET LISTENERS */
     // Login button
-    $("#login_btn").click(function() {            
-        modal.style.display = "block";
-        login_form.style.display = "block";
+    $("#login_btn").click(function() {
+        modal.css("display", "block");
+        login_form.css("display", "block");
         $("#login_username").focus();
+
+        // Hide modals by clicking outside
+        $(window).click(hideModals);
     });
     // Sign Up button
     $("#signup_btn").click(function() {
-        signup_bg.style.display = "block";
+        signup_bg.css("display", "block");
     });
     // Register button (user type select)
     $("#register_btn").click(showRegisterForm);
-
-    // Hide modals by clicking outside
-    $(window).click(hideModals);
 });
 
 // REGISTER BUTTON
-function showRegisterForm(){
-    signup_bg.style.display = "none";
-    modal.style.display = "block";
-    signup_form.style.display = "block";
+function showRegisterForm() {
+    signup_bg.css("display", "none");
+    modal.css("display", "block");
+    signup_form.css("display", "block");
     $("#signup_username").focus();
     
     // Add the text from the user type select to the register title
@@ -44,14 +46,14 @@ function showRegisterForm(){
 
 // Hide modals by clicking outside
 function hideModals(event) {
-    if (event.target == modal){
+    if (event.target.id == modal.attr("id")) {
         // Close modal + childs
-        modal.style.display = "none";
-        login_form.style.display = "none";
-        signup_form.style.display = "none";
-    } else if (event.target == signup_bg){
+        modal.css("display", "none");
+        login_form.css("display", "none");
+        signup_form.css("display", "none");
+    } else if (event.target.id == signup_bg.attr("id")) {
         // Close Sign-up select
-        signup_bg.style.display = "none";
+        signup_bg.css("display", "none");
     }
 }
 
@@ -62,8 +64,4 @@ function updateCities() {
             document.getElementById("citySelect").innerHTML = this.responseText;
         }
     };
-}
-
-function verifySignup(){
-    
 }

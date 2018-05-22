@@ -39,6 +39,7 @@ if (isset($_POST["edit"])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="../js/functions.js"></script>
         <script src="../js/account.js"></script>
+        <script src="../js/perfil.js"></script>
     </head>
     <body>
         <div id="main">
