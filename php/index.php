@@ -190,7 +190,7 @@ foreach ($_GET as $key => $value){
             </div>
         </div>
         <!-- SIGN UP - USER TYPE SELECT -->
-        <div id="signup_bg">
+        <div id="signup_select_modal">
             <div id="signup_select">
                 <h3>Quieres ser...</h3>
                 <select name="userType_select" id="userType_select">

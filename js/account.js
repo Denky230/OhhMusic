@@ -1,32 +1,43 @@
 var modal = $("#modal");
 
 var login_form = $("#login_form");
-
-var signup_form = $("signup_form");
-var signup_bg = $("signup_bg"); // User type select
+var signup_form = $("#signup_form");
+var signup_select_modal = $("#signup_select_modal"); // User type select
 
 $(document).ready(function() {
-    /* SET LISTENERS */
     // Login button
     $("#login_btn").click(function() {
         modal.css("display", "block");
         login_form.css("display", "block");
         $("#login_username").focus();
 
-        // Hide modals by clicking outside
-        $(window).click(hideModals);
+        // Hide modal by clicking outside
+        $(window).click(function(event) {
+            if (event.target.id == modal.attr("id")) {
+                modal.css("display", "none");
+                login_form.css("display", "none");    
+            }            
+        });
     });
+
     // Sign Up button
     $("#signup_btn").click(function() {
-        signup_bg.css("display", "block");
+        signup_select_modal.css("display", "block");
+
+        // Hide modal by clicking outside
+        $(window).click(function(event) {
+            if (event.target.id == signup_select_modal.attr("id"))
+                signup_select_modal.css("display", "none");
+        });
     });
+
     // Register button (user type select)
     $("#register_btn").click(showRegisterForm);
 });
 
-// REGISTER BUTTON
+// Register button
 function showRegisterForm() {
-    signup_bg.css("display", "none");
+    signup_select_modal.css("display", "none");
     modal.css("display", "block");
     signup_form.css("display", "block");
     $("#signup_username").focus();
@@ -43,19 +54,6 @@ function showRegisterForm() {
     
     updateCities();
 };
-
-// Hide modals by clicking outside
-function hideModals(event) {
-    if (event.target.id == modal.attr("id")) {
-        // Close modal + childs
-        modal.css("display", "none");
-        login_form.css("display", "none");
-        signup_form.css("display", "none");
-    } else if (event.target.id == signup_bg.attr("id")) {
-        // Close Sign-up select
-        signup_bg.css("display", "none");
-    }
-}
 
 // Change cities select based on community select selection
 function updateCities() {

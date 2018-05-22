@@ -106,7 +106,7 @@ a {
 
 /* -------------- SignupSelect -------------- */
 
-#signup_bg {
+#signup_select_modal {
     z-index: 1;
     display: none;
     position: absolute;
