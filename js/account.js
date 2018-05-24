@@ -14,9 +14,8 @@ $(document).ready(function() {
         // Hide modal by clicking outside
         $(window).click(function(event) {
             if (event.target.id == modal.attr("id")) {
-                modal.css("display", "none");
-                login_form.css("display", "none");    
-            }            
+                modal.children().addBack().css("display", "none");
+            }
         });
     });
 
@@ -24,7 +23,7 @@ $(document).ready(function() {
     $("#signup_btn").click(function() {
         signup_select_modal.css("display", "block");
 
-        // Hide modal by clicking outside
+        // Hide select window by clicking outside
         $(window).click(function(event) {
             if (event.target.id == signup_select_modal.attr("id"))
                 signup_select_modal.css("display", "none");
@@ -38,9 +37,17 @@ $(document).ready(function() {
 // Register button
 function showRegisterForm() {
     signup_select_modal.css("display", "none");
+
     modal.css("display", "block");
     signup_form.css("display", "block");
     $("#signup_username").focus();
+
+    // Hide modal by clicking outside
+    $(window).click(function(event) {
+        if (event.target.id == modal.attr("id")) {
+            modal.children().addBack().css("display", "none");
+        }
+    });
     
     // Add the text from the user type select to the register title
     $("#signup_title").text("REGISTRO " + userType_select.options[userType_select.selectedIndex].text.toUpperCase());

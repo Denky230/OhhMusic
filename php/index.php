@@ -1,9 +1,7 @@
 <?php
 require_once 'dmlFunctions.php';
 session_start();
-?>
-<!DOCTYPE html>
-<?php
+
 /* ---- GITANADA (?) ---- */
 if (isset($_GET["close"])){
     session_destroy();
@@ -85,6 +83,7 @@ foreach ($_GET as $key => $value){
 }
  ------------- TEST ------------- */
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
