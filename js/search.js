@@ -9,3 +9,28 @@ search_icon.addEventListener('click', function(){
         search_bar.focus();
     }    
 });
+
+function fill(value) {
+    $('#search_bar').val(value);
+    $('#display').hide();
+}
+
+$(document).ready(function () {
+    $("#search_bar").keyup(function () {
+        var name = $('#search_bar').val();
+        if(name == ""){
+            $("#display").html("");
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "ajax_search.php",
+                data: {
+                    search: name
+                },
+                success: function (html) {
+                    $("#display").html(html).show();
+                }
+            });
+        }
+    });
+});

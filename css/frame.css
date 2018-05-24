@@ -100,6 +100,12 @@ body {
     margin-right: 30%;
 }
 
+.list_item #concert_info{
+    flex-direction: row;
+    height: 70%;
+    text-align: center;
+}
+
 table td {
     width: 30%;
     height: 30%;
