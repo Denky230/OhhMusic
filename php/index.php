@@ -115,7 +115,7 @@ foreach ($_GET as $key => $value){
                 ?>
             </div>
             <img id="search_icon" src="../media/search.png">
-            <form method="GET" action="fr_ajax_search.php" target="">
+            <form method="GET">
                 <input id="search_bar" type="text" name="search" placeholder="Busca grupos, conciertos, locales..." required>
                 <div id="display"></div>
             </form>
@@ -127,29 +127,35 @@ foreach ($_GET as $key => $value){
         </aside>
         <!-- SITE BODY (iFRAME) -->
         <?php
+        $iframe = "<iframe id='main' src='";
         // $_GET["user"] = user page
-        if (isset($_GET["user"])){
-            if (isset($_SESSION["type"])){
-                switch ($_SESSION["type"]){
+        if (isset($_GET["user"])) {
+            if (isset($_SESSION["type"])) {
+                switch ($_SESSION["type"]) {
                     case 1: // MUSICIAN
-                        echo "<iframe id='main' src='fr_musico.php'></iframe>";
+                        $iframe .= "fr_musico.php";
                         break;
                     case 2: // LOCAL
-                        echo "<iframe id='main' src='fr_local.php'></iframe>";
+                        $iframe .= "fr_local.php";
                         break;
                     case 3: // FAN
-                        echo "<iframe id='main' src='fr_fan.php'></iframe>";
+                        $iframe .= "fr_fan.php";
                         break;
                     default:
                 }
             }
         // $_GET["profile"] = user profile page
-        } else if (isset($_GET["profile"])){
-            echo "<iframe id='main' src='fr_perfil.php'></iframe>";
+        } else if (isset($_GET["profile"])) {
+            $iframe .= "fr_perfil.php";
+        // $_GET["search"] = search page
+        } else if (isset($_GET["search"])) {
+            $iframe .= "fr_ajax_search.php?search=".$_GET["search"];
         // No $_GET = home page
         } else {
-            echo "<iframe id='main' src='fr_home.php'></iframe>";
+            $iframe .= "fr_home.php";
         }
+
+        echo $iframe .= "'></iframe>";
         ?>
         <!-- MODAL -->
         <div id="modal">
@@ -157,7 +163,7 @@ foreach ($_GET as $key => $value){
             <div id="login_form">
                 <h2>LOGIN</h2>
                 <form method="POST" onsubmit="verifySignup()">
-                    <input type="text" name="username" id="login_username" placeholder="Username" required>                    
+                    <input type="text" name="username" id="login_username" placeholder="Username" required>
                     <input type="password" name="pass" placeholder="Password" required>
                     <input type="submit" name="login_submit" value="Log in">
                 </form>
