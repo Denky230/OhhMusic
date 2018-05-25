@@ -13,7 +13,8 @@ if (isset($_POST["signup_submit"])){
     extract($_POST);
     
     insert("user", "0, $userType, '$username', '".password_hash($pass, PASSWORD_DEFAULT)."', '$name', '$email', '$city', 0");
-    $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
+    // Get last registered user's ID
+    $lastUserID = select_value("max(id_user)", "user");
     
     switch ($userType){
         case 1: // MUSICIAN
@@ -46,7 +47,8 @@ if (isset($_POST["quickAdd"])){
 
                 insert("user", "0, ".$_POST["qa_usertype"].", 'M".str_pad($numM, 2, '0', STR_PAD_LEFT)."', '".password_hash(123, PASSWORD_DEFAULT)."', 'musi', 'mus@ician.com', 1, 0");
 
-                $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
+                // Get last registered user's ID
+                $lastUserID = select_value("max(id_user)", "user");
                 insert("musician", "'$lastUserID', 'M".str_pad($numM, 2, '0', STR_PAD_LEFT)."', 1, 'cian', 12345, 'web', 1");
                 break;
             case 2: // LOCAL
@@ -54,7 +56,8 @@ if (isset($_POST["quickAdd"])){
 
                 insert("user", "0, ".$_POST["qa_usertype"].", 'L".str_pad($numL, 2, '0', STR_PAD_LEFT)."', '".password_hash(123, PASSWORD_DEFAULT)."', 'L".str_pad($numL, 2, '0', STR_PAD_LEFT)."', 'lo@cal.com', 1, 0");
 
-                $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
+                // Get last registered user's ID
+                $lastUserID = select_value("max(id_user)", "user");
                 insert("local", "'$lastUserID', 12345, 5, 'web'");
                 break;
             case 3: // FAN
@@ -62,7 +65,8 @@ if (isset($_POST["quickAdd"])){
 
                 insert("user", "0, ".$_POST["qa_usertype"].", 'F".str_pad($numF, 2, '0', STR_PAD_LEFT)."', '".password_hash(123, PASSWORD_DEFAULT)."', 'fan', 'fan@felis.com', 1, 0");
 
-                $lastUserID = select_value("max(id_user)", "user"); // Get last registered user's ID
+                // Get last registered user's ID
+                $lastUserID = select_value("max(id_user)", "user");
                 insert("fan", "'$lastUserID', 12345, 'MaHause', 'felis'");
                 break;
         }
@@ -95,13 +99,13 @@ foreach ($_GET as $key => $value){
     <body>
         <!-- SITE HEADER -->
         <header id="header">
-            <div id="langs">ESPAÑOL</div>
-            <!-- No $_GET = home page -->
+            <div id="langs">ESPAÑOL</div>            
             <div id="title"><h1><a href="index.php">OHH MUSIC</a></h1></div>
             <div id="account">
                 <?php
+                // Check if there's a user logged in
                 if (isset($_SESSION["type"])){
-                    // $_GET["close"] --> destroy session  -  $_GET["user"] --> user page
+                    // $_GET["close"] --> destroy session // $_GET["user"] --> user page
                     echo "<a href='index.php?close'>CLOSE SESSION</a>&nbsp/
                           <a href='index.php?profile'>MY PROFILE</a>&nbsp/
                           <a href='index.php?user'>MY PAGE</a>";
@@ -122,7 +126,8 @@ foreach ($_GET as $key => $value){
             <div id="adBanner_left">ad here</div>
         </aside>
         <!-- SITE BODY (iFRAME) -->
-        <?php 
+        <?php
+        // $_GET["user"] = user page
         if (isset($_GET["user"])){
             if (isset($_SESSION["type"])){
                 switch ($_SESSION["type"]){
@@ -138,8 +143,10 @@ foreach ($_GET as $key => $value){
                     default:
                 }
             }
+        // $_GET["profile"] = user profile page
         } else if (isset($_GET["profile"])){
             echo "<iframe id='main' src='fr_perfil.php'></iframe>";
+        // No $_GET = home page
         } else {
             echo "<iframe id='main' src='fr_home.php'></iframe>";
         }
