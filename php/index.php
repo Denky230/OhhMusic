@@ -115,7 +115,7 @@ foreach ($_GET as $key => $value){
                 ?>
             </div>
             <img id="search_icon" src="../media/search.png">
-            <form method="POST">
+            <form method="GET" action="fr_ajax_search.php" target="">
                 <input id="search_bar" type="text" name="search" placeholder="Busca grupos, conciertos, locales..." required>
                 <div id="display"></div>
             </form>
