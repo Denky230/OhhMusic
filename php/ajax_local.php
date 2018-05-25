@@ -29,25 +29,26 @@ if (isset($_GET["concertState"])){
                 if ($concertState === "proposed")
                     echo "<input type='button' name='delete' class='delete_btn' value='X' onclick='deleteConcert(".$concert['id_concert'].")'>";
                 echo "<img id='concert_img' src='../media/random.jpg'>
-                <h2>Username</h2>
-                <h2>Phone</h2>
-                <h2>Date</h2>
-                <div id='assignMusician'>";
-                if ($concertState === "proposed"){
-                    if (mysqli_num_rows($musiciansApplied) > 0){
-                        echo "<input type='button' name='assign' class='assign_btn' value='Asignar' onclick='assignMusician(".$concert["id_concert"].")'>";
-                        echo "<select name='musiciansApplied' id='musiciansApplied'>";
-                        while ($musician = mysqli_fetch_assoc($musiciansApplied)){
-                            echo "<option value='".$musician["id_musician"]."'>"
-                                .$musician["name"].
-                                "</option>";
+                    <div id='concert_info'>
+                        <h2>Username</h2>
+                        <h2>Phone</h2>
+                        <h2>Date</h2>
+                        <div id='assignMusician'>";
+                        if ($concertState === "proposed"){
+                            if (mysqli_num_rows($musiciansApplied) > 0){
+                                echo "<input type='button' name='assign' class='assign_btn' value='Asignar' onclick='assignMusician(".$concert["id_concert"].")'>";
+                                echo "<select name='musiciansApplied' id='musiciansApplied'>";
+                                while ($musician = mysqli_fetch_assoc($musiciansApplied)){
+                                    echo "<option value='".$musician["id_musician"]."'>"
+                                        .$musician["name"].
+                                        "</option>";
+                                }
+                                echo "</select>";
+                            }
+                        } else {
+                            echo "<h2>Musicaso: $musicianAssigned</h2>";
                         }
-                        echo "</select>";
-                    }
-                } else {
-                    echo "<h2>Musicaso: $musicianAssigned</h2>";
-                }
-                echo "
+                echo "</div>
                 </div>                
             </div>";
     }
