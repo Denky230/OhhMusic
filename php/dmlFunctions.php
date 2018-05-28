@@ -1,17 +1,5 @@
 <?php
 
-/* --------------------------------------- SEARCH --------------------------------------- */
-
-function search($fields, $table, $conditions = ""){
-    $connection = connect();
-    $select = "select $fields from $table $conditions";
-    $result = mysqli_query($connection, $select);
-
-    disconnect($connection);
-    return $result;
-
-}
-
 /* --------------------------------------- DELETE --------------------------------------- */
 
 function delete_array($table, $field, $valuesArray){
@@ -123,7 +111,7 @@ function select($fields, $table, $conditions = ""){
     
     $select = "select $fields from $table $conditions";
     $result = mysqli_query($connection, $select);
-        
+
     disconnect($connection);
     return $result;
 }
