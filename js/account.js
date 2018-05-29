@@ -5,21 +5,10 @@ var signup_form = $("#signup_form");
 var signup_select_modal = $("#signup_select_modal"); // User type select
 
 $(document).ready(function() {
-    // Login button
-    $("#login_btn").click(function() {
-        modal.css("display", "block");
-        login_form.css("display", "block");
-        $("#login_username").focus();
+    $("#login_btn").add("#register_btn").click(showModal);
+    $("#register_btn").click(showRegisterForm);
 
-        // Hide modal by clicking outside
-        $(window).click(function(event) {
-            if (event.target.id == modal.attr("id")) {
-                modal.children().addBack().css("display", "none");
-            }
-        });
-    });
-
-    // Sign Up button
+    // Sign Up button (user type select)
     $("#signup_btn").click(function() {
         signup_select_modal.css("display", "block");
 
@@ -29,26 +18,30 @@ $(document).ready(function() {
                 signup_select_modal.css("display", "none");
         });
     });
-
-    // Register button (user type select)
-    $("#register_btn").click(showRegisterForm);
 });
+
+function showModal() {
+    modal.css("display", "block");
+
+    ajax("ajax_modal.php?" + $(this).attr("id")).onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("modal").innerHTML = this.responseText;
+            $("#modal input").first().focus();
+        }
+    };
+
+    // Hide modal by clicking outside
+    $(window).click(function(event) {
+        if (event.target.id == modal.attr("id")) {
+            modal.css("display", "none");
+        }
+    });
+}
 
 // Register button
 function showRegisterForm() {
     signup_select_modal.css("display", "none");
 
-    modal.css("display", "block");
-    signup_form.css("display", "block");
-    $("#signup_username").focus();
-
-    // Hide modal by clicking outside
-    $(window).click(function(event) {
-        if (event.target.id == modal.attr("id")) {
-            modal.children().addBack().css("display", "none");
-        }
-    });
-    
     // Add the text from the user type select to the register title
     $("#signup_title").text("REGISTRO " + userType_select.options[userType_select.selectedIndex].text.toUpperCase());
 

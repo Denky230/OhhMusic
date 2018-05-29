@@ -160,16 +160,16 @@ foreach ($_GET as $key => $value){
         <!-- MODAL -->
         <div id="modal">
             <!-- LOGIN FORM -->
-            <div id="login_form">
+            <!-- <div id="login_form">
                 <h2>LOGIN</h2>
                 <form method="POST" onsubmit="verifySignup()">
                     <input type="text" name="username" id="login_username" placeholder="Username" required>
                     <input type="password" name="pass" placeholder="Password" required>
                     <input type="submit" name="login_submit" value="Log in">
                 </form>
-            </div>
+            </div> -->
             <!-- REGISTER FORM -->
-            <div id="signup_form">
+            <!-- <div id="signup_form">
                 <h2><div id="signup_title"></div></h2>
                 <form method="POST" onsubmit="verifySignup()">
                     <div id="signup_fields">
@@ -180,7 +180,7 @@ foreach ($_GET as $key => $value){
                             <input type="text" name="name" placeholder="Name" maxlength="25" required>
                             <input type="email" name="email" placeholder="E-mail" maxlength="30" required>
                             <select name="community" id="community_select" onchange="updateCities()">
-                                <?php
+                                ?php
                                 $communities = select("distinct community", "city");
                                 while ($community = mysqli_fetch_assoc($communities)){
                                     echo "<option>".$community["community"]."</option>";
@@ -192,13 +192,13 @@ foreach ($_GET as $key => $value){
                         <div id="nonUserSpecFields"></div>
                     </div>
                     <input type="submit" name="signup_submit" id="signup_submit" value="Sign up">
-                </form>
+                </form> -->
                 <!-- TEST -->
-                <form method="POST">
+               <!--  <form method="POST">
                     <input type="number" name="quickAdd" id="quickAdd" placeholder="Quick Add (TESTING)">
                     <input type="hidden" name="qa_usertype" id="qa_usertype">
                     <input type="submit" value="ADD" id="quickAdd" onclick="getUserType()">
-                </form>
+                </form> -->
                 <!-- TEST -->
             </div>
         </div>
@@ -211,7 +211,7 @@ foreach ($_GET as $key => $value){
                     <option value="2">Local</option>
                     <option value="3">Fan</option>
                 </select>
-                <button type="button" id="register_btn" onclick="showRegisterForm()">Registrar</button>
+                <button type="button" id="register_btn">Registrar</button>
             </div>
         </div>
         <script src="../js/functions.js"></script>
