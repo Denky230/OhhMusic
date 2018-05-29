@@ -75,7 +75,8 @@ a {
 }
 
 #login_form,
-#signup_form {
+#signup_form,
+#edit_pass {
     z-index: 2;
     
     width: 300px;

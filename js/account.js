@@ -6,7 +6,6 @@ var signup_select_modal = $("#signup_select_modal"); // User type select
 
 $(document).ready(function() {
     $("#login_btn").add("#register_btn").click(showModal);
-    $("#register_btn").click(showRegisterForm);
 
     // Sign Up button (user type select)
     $("#signup_btn").click(function() {
@@ -21,11 +20,13 @@ $(document).ready(function() {
 });
 
 function showModal() {
+    // Display background w/ alpha
     modal.css("display", "block");
 
     ajax("ajax_modal.php?" + $(this).attr("id")).onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("modal").innerHTML = this.responseText;
+            showRegisterForm();
             $("#modal input").first().focus();
         }
     };

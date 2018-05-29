@@ -8,7 +8,7 @@ if (isset($_GET["close"])){
     header("Location: index.php"); // Refresh site + remove $_GET["close"]
 }
 /* ---------------------- */
-if (isset($_POST["signup_submit"])){
+if (isset($_POST["signup_submit"])) {
     // INSERT USER
     extract($_POST);
     
@@ -37,11 +37,13 @@ if (isset($_POST["signup_submit"])){
     } else {
         echo "incorresto";
     }
+} else if (isset($_POST["edit_pass_submit"])) {
+    echo "Pass changed";
 }
 /* ------------- TEST ------------- */
-if (isset($_POST["quickAdd"])){
-    for ($i = 0; $i < $_POST["quickAdd"]; $i++){
-        switch ($_POST["qa_usertype"]){
+if (isset($_POST["quickAdd"])) {
+    for ($i = 0; $i < $_POST["quickAdd"]; $i++) {
+        switch ($_POST["qa_usertype"]) {
             case 1: // MUSICIAN
                 $numM = mysqli_num_rows(select("*", "musician")) + 1;
 
@@ -158,50 +160,7 @@ foreach ($_GET as $key => $value){
         echo $iframe .= "'></iframe>";
         ?>
         <!-- MODAL -->
-        <div id="modal">
-            <!-- LOGIN FORM -->
-            <!-- <div id="login_form">
-                <h2>LOGIN</h2>
-                <form method="POST" onsubmit="verifySignup()">
-                    <input type="text" name="username" id="login_username" placeholder="Username" required>
-                    <input type="password" name="pass" placeholder="Password" required>
-                    <input type="submit" name="login_submit" value="Log in">
-                </form>
-            </div> -->
-            <!-- REGISTER FORM -->
-            <!-- <div id="signup_form">
-                <h2><div id="signup_title"></div></h2>
-                <form method="POST" onsubmit="verifySignup()">
-                    <div id="signup_fields">
-                        <div id="userSpecFields">
-                            <input type="text" name="username" id="signup_username" placeholder="Username" maxlength="25" required>
-                            <input type="password" name="pass" id="signup_pass"placeholder="Password" maxlength="12" required>
-                            <input type="password" name="varPass" id="signup_verPass"placeholder="Verify password" maxlength="12" required>
-                            <input type="text" name="name" placeholder="Name" maxlength="25" required>
-                            <input type="email" name="email" placeholder="E-mail" maxlength="30" required>
-                            <select name="community" id="community_select" onchange="updateCities()">
-                                ?php
-                                $communities = select("distinct community", "city");
-                                while ($community = mysqli_fetch_assoc($communities)){
-                                    echo "<option>".$community["community"]."</option>";
-                                }
-                                ?>
-                            </select>
-                            <div id="citySelect"></div>
-                        </div>
-                        <div id="nonUserSpecFields"></div>
-                    </div>
-                    <input type="submit" name="signup_submit" id="signup_submit" value="Sign up">
-                </form> -->
-                <!-- TEST -->
-               <!--  <form method="POST">
-                    <input type="number" name="quickAdd" id="quickAdd" placeholder="Quick Add (TESTING)">
-                    <input type="hidden" name="qa_usertype" id="qa_usertype">
-                    <input type="submit" value="ADD" id="quickAdd" onclick="getUserType()">
-                </form> -->
-                <!-- TEST -->
-            </div>
-        </div>
+        <div id="modal"></div>
         <!-- SIGN UP - USER TYPE SELECT -->
         <div id="signup_select_modal">
             <div id="signup_select">
