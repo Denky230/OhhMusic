@@ -12,7 +12,7 @@ if (isset($_POST["signup_submit"])) {
     // INSERT USER
     extract($_POST);
     
-    insert("user", "0, $userType, '$username', '".password_hash($pass, PASSWORD_DEFAULT)."', '$name', '$email', '$city', 0");
+    insert("user", "0, $userType, '$username', '".password_hash($pass, PASSWORD_DEFAULT)."', '$search', '$email', '$city', 0");
     // Get last registered user's ID
     $lastUserID = select_value("max(id_user)", "user");
     

@@ -20,9 +20,6 @@ $locales = select("u.name AS Local", "user u INNER JOIN city c ON u.id_city = c.
             <table>
                 <?php
                 // Header
-                foreach (mysqli_fetch_assoc($locales) as $key => $value){
-                    echo "<th>$key</th>";
-                }
                 if($locales = select("u.name AS Local", "user u INNER JOIN city c ON u.id_city = c.id_city", "WHERE u.type = 2 AND c.name = '$city' LIMIT ".($currPage - 1) * $rowsPerPage.", $rowsPerPage")){
                 while ($local = mysqli_fetch_assoc($locales)){
                     echo "<tr>

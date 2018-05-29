@@ -26,21 +26,21 @@ $music = select("m.artist_name as 'Artista'", "musician m inner join votemusicia
             "WHERE v.id_musician = (select id_musician from musician where artist_name = '$musician')");
         while ($m = mysqli_fetch_assoc($music)){
             echo "<tr>
-                        <td>Gendre: </td>
+                        <td><b>Gendre: </b></td>
                         <td>".$m["name"]."</td>
                   </tr>
                   <tr>
-                        <td>Likes: </td>
+                        <td><b>Likes: </b></td>
                         <td>".$m["total"]."</td>
                   </tr>";
         }
         ?>
     </table><br>
-    <table>
+    <table width="20%">
         <tr>
-            <td>Next Concerts:</td>
-            <td>At: </td>
-            <td>Local: </td>
+            <td><b>Next Concerts: </b></td>
+            <td><b>At: </b></td>
+            <td><b>Local: </b></td>
         </tr>
         <?php
         $next = select("*", "concert c inner join user u on c.id_local = u.id_user",

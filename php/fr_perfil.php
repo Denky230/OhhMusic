@@ -5,7 +5,7 @@ session_start();
 if (isset($_POST["edit"])) {
     extract($_POST);
     // Update user fields
-        updateMultiple("user", array("name", "email", "id_city"), array($name, $email, $city), "WHERE id_user = " . $_SESSION["id_user"]);
+        updateMultiple("user", array("name", "email", "id_city"), array($search, $email, $city), "WHERE id_user = " . $_SESSION["id_user"]);
     // Update non-user fields
     switch ($_SESSION["type"]) {
         case 1:

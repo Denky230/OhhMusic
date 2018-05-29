@@ -120,3 +120,7 @@ body {
     flex-wrap: nowrap;
     justify-content: center;
 }
+
+#tabla{
+    width: 100%;
+}
