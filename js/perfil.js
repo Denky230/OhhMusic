@@ -14,6 +14,12 @@ function editPass() {
 	// Display background w/ alpha
 	modal.style.display = "block";
 
+    // Hide window by clicking outside
+	modal.addEventListener("click", function(event) {
+		if (event.target.id == "modal")
+			modal.style.display = "none";
+	});
+
 	// Display edit password window
 	ajax("ajax_modal.php?edit_pass").onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
