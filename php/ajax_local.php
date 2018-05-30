@@ -8,10 +8,10 @@ if (isset($_GET["concertState"])){
     $concertState = $_GET["concertState"];
     switch ($concertState) {
         case 'proposed':
-            $concerts = select("*", "concert", "WHERE state = 0 AND id_local = ".$_SESSION["id_user"]);
+            $concerts = select("*", "concert c INNER JOIN genre g ON c.id_genre = g.id_genre", "WHERE state = 0 AND id_local = ".$_SESSION["id_user"]);
             break;
         case 'accepted':
-            $concerts = select("*", "concert", "WHERE state = 1 AND id_local = ".$_SESSION["id_user"]);
+            $concerts = select("*", "concert c INNER JOIN genre g ON c.id_genre = g.id_genre", "WHERE state = 1 AND id_local = ".$_SESSION["id_user"]);
             break;
         default:        
     }
@@ -30,9 +30,10 @@ if (isset($_GET["concertState"])){
                     echo "<input type='button' name='delete' class='delete_btn' value='X' onclick='deleteConcert(".$concert['id_concert'].")'>";
                 echo "<img id='concert_img' src='../media/random.jpg'>
                     <div id='concert_info'>
-                        <h2>Username</h2>
-                        <h2>Phone</h2>
-                        <h2>Date</h2>
+                        <h2>".$concert["concert_date"]."</h2>
+                        <h2>".$concert["concert_time"]."</h2>
+                        <h2>".$concert["payment"]."€</h2>
+                        <h2>".$concert["name"]."</h2>
                         <div id='assignMusician'>";
                         if ($concertState === "proposed"){
                             if (mysqli_num_rows($musiciansApplied) > 0){
