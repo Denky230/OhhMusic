@@ -30,10 +30,18 @@ if (isset($_GET["concertState"])){
                     echo "<input type='button' name='delete' class='delete_btn' value='X' onclick='deleteConcert(".$concert['id_concert'].")'>";
                 echo "<img id='concert_img' src='../media/random.jpg'>
                     <div id='concert_info'>
-                        <h2>".$concert["concert_date"]."</h2>
-                        <h2>".$concert["concert_time"]."</h2>
-                        <h2>".$concert["payment"]."€</h2>
-                        <h2>".$concert["name"]."</h2>
+                        <div class='concert_info_title'>
+                            <img src='../media/icons8-calendar-64.png'>
+                            <span>".$concert["concert_date"]."</span>
+                            <img src='../media/icons8-reloj-64.png'>
+                            <span>".$concert["concert_time"]."</span>
+                        </div>
+                        <div class='concert_info_title'>
+                            <img src='../media/icons8-parte-trasera-de-tarjeta-bancaria-50.png'>
+                            <span>".$concert["payment"]."€</span>
+                            <img src='../media/icons8-notas-musicales-64.png'>
+                            <span>".$concert["name"]."</span>
+                        </div>
                         <div id='assignMusician'>";
                         if ($concertState === "proposed"){
                             if (mysqli_num_rows($musiciansApplied) > 0){
