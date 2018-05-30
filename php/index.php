@@ -38,7 +38,8 @@ if (isset($_POST["signup_submit"])) {
         echo "incorresto";
     }
 } else if (isset($_POST["edit_pass_submit"])) {
-    echo "Pass changed";
+    // UPDATE USER PASSWORD
+    update("user", "pass", "'".password_hash($_POST["newPass"], PASSWORD_DEFAULT)."'", "WHERE id_user = ".$_SESSION["id_user"]);
 }
 /* ------------- TEST ------------- */
 if (isset($_POST["quickAdd"])) {

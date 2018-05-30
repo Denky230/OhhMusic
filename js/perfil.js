@@ -1,3 +1,9 @@
+var modal = parent.document.getElementById("modal");
+
+var passwordOk = false;
+var newPasswordOk = false;
+var verifyPasswordOk = false;
+
 $(document).ready(function() {
 	updateCities();
 
@@ -6,63 +12,76 @@ $(document).ready(function() {
 
 function editPass() {
 	// Display background w/ alpha
-	parent.document.getElementById("modal").style.display = "block";
+	modal.style.display = "block";
 
 	// Display edit password window
 	ajax("ajax_modal.php?edit_pass").onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	        parent.document.getElementById("modal").innerHTML = this.responseText;
+	        modal.innerHTML = this.responseText;
 
 	        pass = parent.document.getElementById("pass");
 	        newPass = parent.document.getElementById("newPass");
 	        verPass = parent.document.getElementById("verPass");
 
+	        // Pass inputs listeners
 	        pass.addEventListener("keyup", checkPassword);
+	        pass.addEventListener("keyup", checkNewPassword);
 	        newPass.addEventListener("keyup", checkNewPassword);	        
 	        newPass.addEventListener("keyup", checkVerifyPassword);
 	        verPass.addEventListener("keyup", checkVerifyPassword);
-	        parent.document.getElementById("edit_pass_submit").addEventListener("click", function(event) {
-	        	// TO DO: If at least 1 check fails, prevent submit
+
+	        // Submit listener
+	        parent.document.getElementById("edit_pass_submit").addEventListener("click", function(event) {	        	
+	        	if (pass.value != "" && newPass.value != "" && verPass.value != "") {
+	        		// If at least 1 check fails, prevent submit
+	        		if (passwordOk) {
+	        			if (newPasswordOk) {
+        					if (verifyPasswordOk) {
+        						alert("Tu contraseña ha sido modificada.");
+        						return;
+        					} else alert("Las nuevas contraseñas no coinciden.");
+	        			} else alert("La nueva contraseña no puede ser igual a la anterior.");
+	        		} else alert("La contraseña introducida es incorrecta.");
+
+	        		event.preventDefault();
+	        	}
 	        });
 	    }
 	};
 }
 
 function checkPassword() {
-	var input = $(this);
-	ajax("ajax_modal.php?check_pass=" + input.val()).onreadystatechange = function() {
+	ajax("ajax_modal.php?check_pass=" + pass.value).onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
 	        if (this.responseText) {
-	        	input.css("border", "2px solid green");
-	        	return true;
+	        	pass.style.border = "2px solid green";
+	        	passwordOk = true;
 	        } else {
-	        	input.css("border", "2px solid red");
-	        	return false;
+	        	pass.style.border = "2px solid red";
+	        	passwordOk = false;
 	        }
 	    }
 	};
 }
 function checkNewPassword() {
-	if (newPass.value != pass.value) {
-		$(this).css("border", "2px solid green");
-		return true;
-	} else {
-		$(this).css("border", "2px solid red");
-		return false;
-	}
+	if (newPass.value != ""){
+		if (newPass.value != pass.value) {
+			newPass.style.border = "2px solid green";
+			newPasswordOk = true;
+		} else {
+			newPass.style.border = "2px solid red";
+			newPasswordOk = false;
+		}	
+	}	
 }
 function checkVerifyPassword() {
-	if (verPass.value == newPass.value) {
-		verPass.style.border = "2px solid green";
-		return true;
-	} else {
-		verPass.style.border = "2px solid red";
-		return false;
-	}
-}
-
-function verifyPassword() {
-	// If at least 1 check fails, prevent submit
-	if (!checkPassword || !checkNewPassword || !checkVerifyPassword)
-		event.preventDefault();
+	if (verPass.value != "") {
+		if (verPass.value == newPass.value) {
+			verPass.style.border = "2px solid green";
+			verifyPasswordOk = true;
+		} else {
+			verPass.style.border = "2px solid red";
+			verifyPasswordOk = false;
+		}	
+	}	
 }
