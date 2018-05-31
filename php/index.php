@@ -28,15 +28,8 @@ if (isset($_POST["signup_submit"])) {
             break;
     }
 } else if (isset($_POST["login_submit"])){
-    // VALIDATE USER
-    $userData = mysqli_fetch_assoc(select("pass, type", "user", "WHERE username = '".$_POST["username"]."'"));
-    if (password_verify($_POST["pass"], $userData["pass"])){
-        $_SESSION["type"] = $userData["type"];
-        $_SESSION["id_user"] = select_value("id_user", "user", "WHERE username = '".$_POST["username"]."'");
-        header("Location: index.php?user");
-    } else {
-        echo "incorresto";
-    }
+    // LOG IN USER    
+    header("Location: index.php?user");    
 } else if (isset($_POST["edit_pass_submit"])) {
     // UPDATE USER PASSWORD
     update("user", "pass", "'".password_hash($_POST["newPass"], PASSWORD_DEFAULT)."'", "WHERE id_user = ".$_SESSION["id_user"]);

@@ -32,17 +32,18 @@ $musicians = select("artist_name AS 'Artista'", "musician m INNER JOIN genre g O
             // PAGINEIXON
             $numPages = ceil($musiciansTotalRows / $rowsPerPage);
             
-            if ($currPage > 1){
+            if ($currPage > 1) {
                 echo "<a href='fr_musiciansByGenre.php?genre=$genre&currPage=1'><<</a> ";
                 echo "<a href='fr_musiciansByGenre.php?genre=$genre&currPage=".($currPage - 1)."'><</a> ";
-            }
-            for ($i = 1; $i <= $numPages; $i++){
-                echo "<a href='fr_musiciansByGenre.php?genre=$genre&currPage=$i'>$i</a> ";
-            }
-            if ($currPage < $numPages){
-                echo "<a href='fr_musiciansByGenre.php?genre=$genre&currPage=".($currPage + 1)."'>></a> ";
-                echo "<a href='fr_musiciansByGenre.php?genre=$genre&currPage=$numPages'>>></a> ";
-            }
+
+                for ($i = 1; $i <= $numPages; $i++) {
+                    echo "<a href='fr_musiciansByGenre.php?genre=$genre&currPage=$i'>$i</a> ";
+                }
+                if ($currPage < $numPages) {
+                    echo "<a href='fr_musiciansByGenre.php?genre=$genre&currPage=".($currPage + 1)."'>></a> ";
+                    echo "<a href='fr_musiciansByGenre.php?genre=$genre&currPage=$numPages'>>></a> ";
+                }
+            }            
             ?>
         </div>
     </body>

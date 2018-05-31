@@ -10,8 +10,8 @@ switch (key($_GET)) {
                 <h2>LOGIN</h2>
                 <form method='POST'>
                     <input type='text' name='username' id='login_username' placeholder='Username' required>
-                    <input type='password' name='pass' placeholder='Password' required>
-                    <input type='submit' name='login_submit' value='Log in'>
+                    <input type='password' name='pass' id='login_pass' placeholder='Password' required>
+                    <input type='submit' name='login_submit' id='login_submit' value='Log in'>
                 </form>
             </div>";
 		break;
@@ -59,6 +59,15 @@ switch (key($_GET)) {
                     <input type='submit' name='edit_pass_submit' id='edit_pass_submit' value='Modificar'>
                 </form>
             </div>";
+        break;
+    case 'check_login':
+        $userData = mysqli_fetch_assoc(select("id_user, pass, type", "user", "WHERE username = '".$_GET["check_login"]."'"));
+        if (password_verify($_GET["pass"], $userData["pass"])) {
+            $_SESSION["type"] = $userData["type"];
+            $_SESSION["id_user"] = $userData["id_user"];
+
+            echo "true";
+        } else echo "false";
         break;
     case 'check_pass':        
         echo password_verify($_GET["check_pass"], select_value("pass", "user", "WHERE id_user = ".$_SESSION["id_user"]));

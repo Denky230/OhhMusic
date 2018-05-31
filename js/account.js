@@ -5,6 +5,7 @@ var signup_form = $("#signup_form");
 var signup_select_modal = $("#signup_select_modal"); // User type select
 
 $(document).ready(function() {
+    // Login button
     $("#login_btn").add("#register_btn").click(showModal);
 
     // Sign Up button (user type select)
@@ -26,7 +27,29 @@ function showModal() {
     ajax("ajax_modal.php?" + $(this).attr("id")).onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("modal").innerHTML = this.responseText;
+
+            // Display sign up form
             showRegisterForm();
+
+            // Validate login form
+            $("#login_submit").click(function(event) {
+                var submit = false;
+                $("#modal input").each(function() {
+                    if ($(this).val() == "") submit = true;
+                });
+
+                ajax("ajax_modal.php?check_login=" + $("#login_username").val() + "&pass=" + $("#login_pass").val()).onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        submit = this.responseText;
+                    }
+                };
+
+                if (submit == "false") {
+                    event.preventDefault();
+                    alert("Usuario o contraseña introducidos incorrecto.");
+                }
+            });
+
             $("#modal input").first().focus();
         }
     };
@@ -34,7 +57,7 @@ function showModal() {
     // Hide modal by clicking outside
     $(window).click(function(event) {
         if (event.target.id == modal.attr("id")) {
-            modal.css("display", "none");
+            modal.children().addBack().css("display", "none");
         }
     });
 }

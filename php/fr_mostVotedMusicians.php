@@ -58,16 +58,17 @@ $music = select("m.artist_name as 'Artista'", "musician m inner join votemusicia
     // PAGINEIXON
     $numPages = ceil($musicianTotalRows / $rowsPerPage);
 
-    if ($currPage > 1){
+    if ($currPage > 1) {
         echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=1'><<</a> ";
         echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=".($currPage - 1)."'><</a> ";
-    }
-    for ($i = 1; $i <= $numPages; $i++){
-        echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=$i'>$i</a> ";
-    }
-    if ($currPage < $numPages){
-        echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=".($currPage + 1)."'>></a> ";
-        echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=$numPages'>>></a> ";
+        
+        for ($i = 1; $i <= $numPages; $i++) {
+            echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=$i'>$i</a> ";
+        }
+        if ($currPage < $numPages) {
+            echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=".($currPage + 1)."'>></a> ";
+            echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=$numPages'>>></a> ";
+        }
     }
     ?>
 </div>
