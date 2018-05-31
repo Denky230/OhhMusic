@@ -66,8 +66,8 @@ switch (key($_GET)) {
             $_SESSION["type"] = $userData["type"];
             $_SESSION["id_user"] = $userData["id_user"];
 
-            echo "true";
-        } else echo "false";
+            echo "Ok";
+        } else echo "NotOk";
         break;
     case 'check_pass':        
         echo password_verify($_GET["check_pass"], select_value("pass", "user", "WHERE id_user = ".$_SESSION["id_user"]));

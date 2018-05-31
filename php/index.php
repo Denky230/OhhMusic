@@ -29,7 +29,7 @@ if (isset($_POST["signup_submit"])) {
     }
 } else if (isset($_POST["login_submit"])){
     // LOG IN USER    
-    header("Location: index.php?user");    
+    header("Location: index.php?user");
 } else if (isset($_POST["edit_pass_submit"])) {
     // UPDATE USER PASSWORD
     update("user", "pass", "'".password_hash($_POST["newPass"], PASSWORD_DEFAULT)."'", "WHERE id_user = ".$_SESSION["id_user"]);

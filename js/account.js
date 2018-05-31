@@ -31,26 +31,29 @@ function showModal() {
             // Display sign up form
             showRegisterForm();
 
+            $("#modal input").first().focus();
+
             // Validate login form
             $("#login_submit").click(function(event) {
+                // Check if there's any empty field
                 var submit = false;
                 $("#modal input").each(function() {
                     if ($(this).val() == "") submit = true;
                 });
 
-                ajax("ajax_modal.php?check_login=" + $("#login_username").val() + "&pass=" + $("#login_pass").val()).onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        submit = this.responseText;
-                    }
-                };
-
-                if (submit == "false") {
+                if (!submit) {
                     event.preventDefault();
-                    alert("Usuario o contraseña introducidos incorrecto.");
+
+                    $.ajax({
+                        url: "ajax_modal.php?check_login=" + $("#login_username").val() + "&pass=" + $("#login_pass").val(),
+                        success: function(data) {
+                            if (data == "Ok") {
+                                $("#login_submit").trigger("event");
+                            }
+                        }
+                    });
                 }
             });
-
-            $("#modal input").first().focus();
         }
     };
 

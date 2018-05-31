@@ -6,8 +6,8 @@ $currPage = (isset($_GET["currPage"]) ? $_GET["currPage"] : 1);
 
 $musician = $_GET["musician"];
 
-$musicianTotalRows = mysqli_num_rows(select("*", "musician m inner join votemusician v on m.id_musician = v.id_musician", "where v.id_musician = (select id_musician from musician where artist_name = '$musician')"));
-$music = select("m.artist_name as 'Artista'", "musician m inner join votemusician v on m.id_musician = v.id_musician", "where v.id_musician = (select id_musician from musician where artist_name = '$musician')");
+$musicianTotalRows = mysqli_num_rows(select("*", "musician m inner join voteMusician v on m.id_musician = v.id_musician", "where v.id_musician = (select id_musician from musician where artist_name = '$musician')"));
+$music = select("m.artist_name as 'Artista'", "musician m inner join voteMusician v on m.id_musician = v.id_musician", "where v.id_musician = (select id_musician from musician where artist_name = '$musician')");
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,11 +22,11 @@ $music = select("m.artist_name as 'Artista'", "musician m inner join votemusicia
         <?php
         // Header
         $music = select("*, count(v.id_musician) as 'total'",
-            "musician m inner join votemusician v on m.id_musician = v.id_musician inner join genre g on m.id_genre = g.id_genre",
+            "musician m inner join voteMusician v on m.id_musician = v.id_musician inner join genre g on m.id_genre = g.id_genre",
             "WHERE v.id_musician = (select id_musician from musician where artist_name = '$musician')");
         while ($m = mysqli_fetch_assoc($music)){
             echo "<tr>
-                        <td><b>Gendre: </b></td>
+                        <td><b>Gender: </b></td>
                         <td>".$m["name"]."</td>
                   </tr>
                   <tr>
