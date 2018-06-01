@@ -32,7 +32,7 @@ function editPass() {
 	        // Pass inputs listeners
 	        pass.addEventListener("keyup", checkPassword);
 	        pass.addEventListener("keyup", checkNewPassword);
-	        newPass.addEventListener("keyup", checkNewPassword);	        
+	        newPass.addEventListener("keyup", checkNewPassword);
 	        newPass.addEventListener("keyup", checkVerifyPassword);
 	        verPass.addEventListener("keyup", checkVerifyPassword);
 

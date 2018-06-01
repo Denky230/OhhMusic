@@ -74,14 +74,15 @@ require_once 'dmlFunctions.php';
                 </div>
             </div>
             <div id="mostVotedMusicians">
-                <span>TOP MÚSICOS</span>
+                <p>TOP MÚSICOS</p>
                 <div id="mostVotedMusicians_btns">
                     <form action="fr_mostVotedMusicians.php" method="GET">
                         <?php
                             $tops = select("artist_name, count(*) as 'total'",
-                                "musician m inner join votemusician v on m.id_musician = v.id_musician",
-                                "group by v.id_musician 
-                                order by total desc, artist_name asc");
+                                "musician m INNER JOIN voteMusician v ON m.id_musician = v.id_musician",
+                                "GROUP BY v.id_musician 
+                                ORDER BY total DESC, artist_name ASC
+                                LIMIT 5");
                             while ($top = mysqli_fetch_assoc($tops)) {
                                 echo "<ol>
                                     <li><input type='submit' name='musician' value='".strtoupper($top["artist_name"])."'></li>

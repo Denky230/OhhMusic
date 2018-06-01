@@ -44,14 +44,13 @@ function showModal() {
                 if (!submit) {
                     event.preventDefault();
 
-                    $.ajax({
-                        url: "ajax_modal.php?check_login=" + $("#login_username").val() + "&pass=" + $("#login_pass").val(),
-                        success: function(data) {
-                            if (data == "Ok") {
-                                $("#login_submit").trigger("event");
-                            }
+                    ajax("ajax_modal.php?check_login=" + $("#login_username").val() + "&pass=" + $("#login_pass").val()).onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            if (this.responseText == "Ok")
+                                window.location.replace("index.php?user");
+                            else alert("Usuario o contraseña introducidos incorrecto.");
                         }
-                    });
+                    };
                 }
             });
         }
