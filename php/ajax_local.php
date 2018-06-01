@@ -8,10 +8,10 @@ if (isset($_GET["concertState"])){
     $concertState = $_GET["concertState"];
     switch ($concertState) {
         case 'proposed':
-            $concerts = select("*", "concert", "WHERE state = 0 AND id_local = ".$_SESSION["id_user"]);
+            $concerts = select("*", "concert c INNER JOIN genre g ON c.id_genre = g.id_genre", "WHERE state = 0 AND id_local = ".$_SESSION["id_user"]);
             break;
         case 'accepted':
-            $concerts = select("*", "concert", "WHERE state = 1 AND id_local = ".$_SESSION["id_user"]);
+            $concerts = select("*", "concert c INNER JOIN genre g ON c.id_genre = g.id_genre", "WHERE state = 1 AND id_local = ".$_SESSION["id_user"]);
             break;
         default:        
     }
@@ -29,25 +29,35 @@ if (isset($_GET["concertState"])){
                 if ($concertState === "proposed")
                     echo "<input type='button' name='delete' class='delete_btn' value='X' onclick='deleteConcert(".$concert['id_concert'].")'>";
                 echo "<img id='concert_img' src='../media/random.jpg'>
-                <h2>Username</h2>
-                <h2>Phone</h2>
-                <h2>Date</h2>
-                <div id='assignMusician'>";
-                if ($concertState === "proposed"){
-                    if (mysqli_num_rows($musiciansApplied) > 0){
-                        echo "<input type='button' name='assign' class='assign_btn' value='Asignar' onclick='assignMusician(".$concert["id_concert"].")'>";
-                        echo "<select name='musiciansApplied' id='musiciansApplied'>";
-                        while ($musician = mysqli_fetch_assoc($musiciansApplied)){
-                            echo "<option value='".$musician["id_musician"]."'>"
-                                .$musician["name"].
-                                "</option>";
+                    <div id='concert_info'>
+                        <div class='concert_info_title'>
+                            <img src='../media/icons8-calendar-64.png'>
+                            <span>".$concert["concert_date"]."</span>
+                            <img src='../media/icons8-reloj-64.png'>
+                            <span>".$concert["concert_time"]."</span>
+                        </div>
+                        <div class='concert_info_title'>
+                            <img src='../media/icons8-parte-trasera-de-tarjeta-bancaria-50.png'>
+                            <span>".$concert["payment"]."€</span>
+                            <img src='../media/icons8-notas-musicales-64.png'>
+                            <span>".$concert["name"]."</span>
+                        </div>
+                        <div id='assignMusician'>";
+                        if ($concertState === "proposed"){
+                            if (mysqli_num_rows($musiciansApplied) > 0){
+                                echo "<input type='button' name='assign' class='assign_btn' value='Asignar' onclick='assignMusician(".$concert["id_concert"].")'>";
+                                echo "<select name='musiciansApplied' id='musiciansApplied'>";
+                                while ($musician = mysqli_fetch_assoc($musiciansApplied)){
+                                    echo "<option value='".$musician["id_musician"]."'>"
+                                        .$musician["name"].
+                                        "</option>";
+                                }
+                                echo "</select>";
+                            }
+                        } else {
+                            echo "<h2>Musicaso: $musicianAssigned</h2>";
                         }
-                        echo "</select>";
-                    }
-                } else {
-                    echo "<h2>Musicaso: $musicianAssigned</h2>";
-                }
-                echo "
+                echo "</div>
                 </div>                
             </div>";
     }

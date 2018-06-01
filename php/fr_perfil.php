@@ -5,7 +5,7 @@ session_start();
 if (isset($_POST["edit"])) {
     extract($_POST);
     // Update user fields
-        updateMultiple("user", array("name", "email", "id_city"), array($name, $email, $city), "WHERE id_user = " . $_SESSION["id_user"]);
+        updateMultiple("user", array("name", "email", "id_city"), array($search, $email, $city), "WHERE id_user = " . $_SESSION["id_user"]);
     // Update non-user fields
     switch ($_SESSION["type"]) {
         case 1:
@@ -39,6 +39,7 @@ if (isset($_POST["edit"])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="../js/functions.js"></script>
         <script src="../js/account.js"></script>
+        <script src="../js/perfil.js"></script>
     </head>
     <body>
         <div id="main">

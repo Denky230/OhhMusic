@@ -8,7 +8,7 @@ if (isset($_GET["concertState"])){
     $concertState = $_GET["concertState"];
     switch ($concertState) {
         case 'proposed':
-            $concerts = select("concert.id_concert concertID, user.name localName, city.name cityName, local.phone localPhone", 
+            $concerts = select("concert.id_concert concertID, concert.concert_date fecha, user.name localName, city.name cityName, local.phone localPhone",
                         "concert
                         INNER JOIN user ON concert.id_local = user.id_user
                         INNER JOIN city ON user.id_city = city.id_city
@@ -18,7 +18,7 @@ if (isset($_GET["concertState"])){
                         AND state = 0");
             break;
         case 'accepted':
-            $concerts = select("concert.id_concert concertID, user.name localName, city.name cityName, local.phone localPhone", 
+            $concerts = select("concert.id_concert concertID, concert.concert_date fecha, user.name localName, city.name cityName, local.phone localPhone",
                         "concert
                         INNER JOIN user ON concert.id_local = user.id_user
                         INNER JOIN city ON user.id_city = city.id_city
@@ -27,7 +27,7 @@ if (isset($_GET["concertState"])){
                         AND concert.state = 1");
             break;
         case 'pending':
-            $concerts = select("concert.id_concert concertID, user.name localName, city.name cityName, local.phone localPhone", 
+            $concerts = select("concert.id_concert concertID, concert.concert_date fecha, user.name localName, city.name cityName, local.phone localPhone",
                         "applyConcert
                         INNER JOIN concert ON applyConcert.id_concert = concert.id_concert
                         INNER JOIN user ON concert.id_local = user.id_user
@@ -42,11 +42,12 @@ if (isset($_GET["concertState"])){
     while ($concert = mysqli_fetch_assoc($concerts)){
         /* CONCERT BOX */
         echo "<div class='concert_box'>
-                  <img id='concert_img' src=''>
+                  <img id='concert_img' src='../media/random.jpg'>
                   <div id='concert_info'>
                       <h2>".$concert["localName"]."</h2>
                       <h2>".$concert["cityName"]."</h2>
-                      <h2>".$concert["localPhone"]."</h2>";
+                      <h2>".$concert["localPhone"]."</h2>
+                      <h2>".$concert["fecha"]."</h2>";
                     // Only show buttons for proposed or pending concerts
                     if ($concertState === 'proposed')
                         echo "<input type='button' id='concert_sub' value='Inscribirse' onclick='subConcert(".$concert["concertID"].")'>";

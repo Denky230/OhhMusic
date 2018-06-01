@@ -14,6 +14,13 @@ th {
 	font-size: 20px;
 	text-align: left;
 }
+th .header img {
+	height: 12px;
+	width: 12px;
+}
+th .header:hover {
+	cursor: pointer;
+}
 td {
 	height: 30px;
 }

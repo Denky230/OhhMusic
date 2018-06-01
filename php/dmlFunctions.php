@@ -111,7 +111,7 @@ function select($fields, $table, $conditions = ""){
     
     $select = "select $fields from $table $conditions";
     $result = mysqli_query($connection, $select);
-        
+
     disconnect($connection);
     return $result;
 }

@@ -50,24 +50,33 @@ switch (key($_GET)) {
             /* -------------------------- LIST MUSICIANS -------------------------- */
             case 'musician':
                 // Select fan's genre musicians
-                $musicians = mysqli_fetch_assoc(select("m.artist_name as 'Nombre de artista', g.name as Genero", "musician m INNER JOIN genre g ON m.id_genre = g.id_genre"));
+                $musicians = mysqli_fetch_assoc(select("m.artist_name as 'Nombre de artista', g.name as 'Genero'", "musician m INNER JOIN genre g ON m.id_genre = g.id_genre"));
                 $musicians += [ "Voto" => 0 ];
                 echo "<table>";
                 // Header
                 foreach ($musicians as $key => $value) {
-                    echo "<th>$key</th>";
+                    echo "<th>
+                            <div class='header' id='".array_search($key, array_keys($musicians))."'>
+                                $key
+                                <img src='../media/orderBy".$_GET["order"].".png' id='".$_GET["order"]."'>
+                            </div>
+                        </th>";
                 }
-                $musicians = select("m.id_musician, m.artist_name as 'Nombre de artista', g.name as Genero", "musician m INNER JOIN genre g ON m.id_genre = g.id_genre");
+                $musicians = select("m.artist_name as 'Nombre de artista', g.name as Genero, IFNULL(id_fan, 0) as 'Voto', m.id_musician",
+                    "musician m INNER JOIN genre g ON m.id_genre = g.id_genre
+                    LEFT JOIN voteMusician vm ON m.id_musician = vm.id_musician",
+                    "ORDER BY ".$_GET["orderByField"]." ".$_GET["order"]);
                 while ($musician = mysqli_fetch_assoc($musicians)) {
                     echo "<tr>
                         <td>".$musician["Nombre de artista"]."</td>
                         <td>".$musician["Genero"]."</td>";
                     // Draw LIKE button if the fan didn't vote for this musician yet, UNLIKE button otherwise
-                    echo "<td>".(mysqli_num_rows(select("id_fan", "voteMusician", "WHERE id_fan = '".$_SESSION["id_user"]."' AND id_musician = '".$musician["id_musician"]."'")) == 0 ?
-                                    "<input type='button' value='MI GUSTA' id='like' onclick='voteMusician(".$musician["id_musician"].", 1)'>" :
-                                    "<input type='button' value='YA NO MI GUSTA' id='unlike' onclick='voteMusician(".$musician["id_musician"].", 0)'>").
-                        "</td>
-                        </tr>";
+                    echo "<td>".$musician["Voto"] ."</td></tr>";
+                        // > 0 ? 
+                        // "<input type='button' value='MI GUSTA' id='like' onclick='voteMusician(".$musician["id_musician"].", 1)'>" : 
+                        // "<input type='button' value='YA NO MI GUSTA' id='unlike' onclick='voteMusician(".$musician["id_musician"].", 0)'>").
+                        // "</td>
+                        // </tr>";
                 }
                 echo "</table>";
             default:

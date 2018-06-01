@@ -62,10 +62,22 @@ a {
     
     background-color: rgba(0,0,0,0.4);
 }
+#modal input,
+#modal select {
+    height: 48px;
+    width: 100%;
+    
+    margin: 8px 0 0 0;
+    padding: 12px 12px;
+    
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
 #login_form,
-#signup_form {
+#signup_form,
+#edit_pass {
     z-index: 2;
-    display: none;
     
     width: 300px;
 
@@ -82,17 +94,6 @@ a {
     width: 500px;
     margin: 10% auto;
 }
-#modal input,
-#modal select {
-    height: 48px;
-    width: 100%;
-    
-    margin: 8px 0 0 0;
-    padding: 12px 12px;
-    
-    font-size: 16px;
-    box-sizing: border-box;
-}
 #signup_fields {
     display: flex;
 }
@@ -106,7 +107,7 @@ a {
 
 /* -------------- SignupSelect -------------- */
 
-#signup_bg {
+#signup_select_modal {
     z-index: 1;
     display: none;
     position: absolute;

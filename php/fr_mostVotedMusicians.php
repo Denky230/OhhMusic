@@ -6,8 +6,8 @@ $currPage = (isset($_GET["currPage"]) ? $_GET["currPage"] : 1);
 
 $musician = $_GET["musician"];
 
-$musicianTotalRows = mysqli_num_rows(select("*", "musician m inner join votemusician v on m.id_musician = v.id_musician", "where v.id_musician = (select id_musician from musician where artist_name = '$musician')"));
-$music = select("m.artist_name as 'Artista'", "musician m inner join votemusician v on m.id_musician = v.id_musician", "where v.id_musician = (select id_musician from musician where artist_name = '$musician')");
+$musicianTotalRows = mysqli_num_rows(select("*", "musician m inner join voteMusician v on m.id_musician = v.id_musician", "where v.id_musician = (select id_musician from musician where artist_name = '$musician')"));
+$music = select("m.artist_name as 'Artista'", "musician m inner join voteMusician v on m.id_musician = v.id_musician", "where v.id_musician = (select id_musician from musician where artist_name = '$musician')");
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,25 +22,25 @@ $music = select("m.artist_name as 'Artista'", "musician m inner join votemusicia
         <?php
         // Header
         $music = select("*, count(v.id_musician) as 'total'",
-            "musician m inner join votemusician v on m.id_musician = v.id_musician inner join genre g on m.id_genre = g.id_genre",
+            "musician m inner join voteMusician v on m.id_musician = v.id_musician inner join genre g on m.id_genre = g.id_genre",
             "WHERE v.id_musician = (select id_musician from musician where artist_name = '$musician')");
         while ($m = mysqli_fetch_assoc($music)){
             echo "<tr>
-                        <td>Gendre: </td>
+                        <td><b>Gender: </b></td>
                         <td>".$m["name"]."</td>
                   </tr>
                   <tr>
-                        <td>Likes: </td>
+                        <td><b>Likes: </b></td>
                         <td>".$m["total"]."</td>
                   </tr>";
         }
         ?>
     </table><br>
-    <table>
+    <table width="20%">
         <tr>
-            <td>Next Concerts:</td>
-            <td>At: </td>
-            <td>Local: </td>
+            <td><b>Next Concerts: </b></td>
+            <td><b>At: </b></td>
+            <td><b>Local: </b></td>
         </tr>
         <?php
         $next = select("*", "concert c inner join user u on c.id_local = u.id_user",
@@ -58,16 +58,17 @@ $music = select("m.artist_name as 'Artista'", "musician m inner join votemusicia
     // PAGINEIXON
     $numPages = ceil($musicianTotalRows / $rowsPerPage);
 
-    if ($currPage > 1){
+    if ($currPage > 1) {
         echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=1'><<</a> ";
         echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=".($currPage - 1)."'><</a> ";
-    }
-    for ($i = 1; $i <= $numPages; $i++){
-        echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=$i'>$i</a> ";
-    }
-    if ($currPage < $numPages){
-        echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=".($currPage + 1)."'>></a> ";
-        echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=$numPages'>>></a> ";
+        
+        for ($i = 1; $i <= $numPages; $i++) {
+            echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=$i'>$i</a> ";
+        }
+        if ($currPage < $numPages) {
+            echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=".($currPage + 1)."'>></a> ";
+            echo "<a href='fr_mostVotedMusicians.php?musician=$musician&currPage=$numPages'>>></a> ";
+        }
     }
     ?>
 </div>

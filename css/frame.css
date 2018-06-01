@@ -97,11 +97,37 @@ body {
     width: 20%;
 
     padding: 2%;
-    margin-right: 30%;
 }
 
-table td {
-    width: 30%;
-    height: 30%;
-    font-size: 200%;
+.list_item #concert_info{
+    flex-direction: row;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+#search{
+    display: flex;
+    width: 100%;
+    height: 40%;
+}
+#musicos, #locales{
+    border: 2px solid black;
+
+    padding: 1%;
+
+    flex-grow: 1;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+#tabla{
+    width: 100%;
+}
+
+#assign_Musician{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
 }
