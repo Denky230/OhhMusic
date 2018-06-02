@@ -6,7 +6,7 @@ session_start();
 switch (key($_GET)) {
     case 'draw':
         switch (array_values($_GET)[0]) {
-            /* --------------------------- DRAW CONCERTS --------------------------- */
+            /* ------------------------- DRAW CONCERTS ------------------------- */
             case 'concert':
                 // Select all accepted concerts
                 $concerts = select("c.id_concert, m.artist_name, u.name as localName, y.name as province, m.phone, c.concert_date, c.concert_time",
@@ -47,7 +47,7 @@ switch (key($_GET)) {
                         </div>";
                 }
                 break;
-            /* -------------------------- LIST MUSICIANS -------------------------- */
+            /* ------------------------ LIST MUSICIANS ------------------------ */
             case 'musician':
                 // Select fan's genre musicians
                 $musicians = mysqli_fetch_assoc(select("m.artist_name as 'Nombre de artista', g.name as 'Genero'", "musician m INNER JOIN genre g ON m.id_genre = g.id_genre"));
@@ -71,12 +71,11 @@ switch (key($_GET)) {
                         <td>".$musician["Nombre de artista"]."</td>
                         <td>".$musician["Genero"]."</td>";
                     // Draw LIKE button if the fan didn't vote for this musician yet, UNLIKE button otherwise
-                    echo "<td>".$musician["Voto"] ."</td></tr>";
-                        // > 0 ? 
-                        // "<input type='button' value='MI GUSTA' id='like' onclick='voteMusician(".$musician["id_musician"].", 1)'>" : 
-                        // "<input type='button' value='YA NO MI GUSTA' id='unlike' onclick='voteMusician(".$musician["id_musician"].", 0)'>").
-                        // "</td>
-                        // </tr>";
+                    echo "<td>".($musician["Voto"] != $_SESSION["id_user"] ? 
+                        "<input type='button' value='MI GUSTA' id='like' onclick='voteMusician(".$musician["id_musician"].", 1)'>" : 
+                        "<input type='button' value='YA NO MI GUSTA' id='unlike' onclick='voteMusician(".$musician["id_musician"].", 0)'>").
+                        "</td>
+                        </tr>";
                 }
                 echo "</table>";
             default:

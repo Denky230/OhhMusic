@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 	drawContent(document.getElementById("concert"));
 });
@@ -20,7 +21,7 @@ function drawContent(title, orderByField, order) {
 }
 
 function voteMusician(musician, value) {
-    console.log("musician");
+    console.log(musician + " " + value);
     ajax("ajax_fan.php?voteMusician=" + musician +"&value="+ value).onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             drawContent(document.getElementById("musician"));
@@ -38,6 +39,7 @@ function voteConcert(concert, value) {
 }
 
 function orderContent() {
+    var field = $(this).attr("id");
     var order = $(this).children("img").attr("id");
     if (order == "DESC")
         drawContent(document.getElementById("musician"), $(this).attr("id"), "ASC");

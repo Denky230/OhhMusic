@@ -1,6 +1,6 @@
 <?php
 
-/* --------------------------------------- DELETE --------------------------------------- */
+/* ---------------------------------- DELETE ---------------------------------- */
 
 function delete_array($table, $field, $valuesArray){
     $deleteValues = "";
@@ -24,7 +24,7 @@ function delete($table, $conditions){
     return $result;
 }
 
-/* --------------------------------------- UPDATE --------------------------------------- */
+/* ---------------------------------- UPDATE ---------------------------------- */
 
 function updateMultiple($table, $fields, $newValues, $conditions = ""){
     $connection = connect();
@@ -60,7 +60,7 @@ function update($table, $field, $newValue, $conditions = ""){
     return $result;
 }
 
-/* --------------------------------------- INSERT --------------------------------------- */
+/* ---------------------------------- INSERT ---------------------------------- */
 
 function insert_array($table, $valuesArray){
     $insertValues = "";
@@ -88,7 +88,7 @@ function insert($table, $values){
     return $result;
 }
 
-/* --------------------------------------- SELECT --------------------------------------- */
+/* ---------------------------------- SELECT ---------------------------------- */
 
 function count_field($field, $table, $name){    
     return mysqli_num_rows(select($field, $table, "WHERE $field = '$name'"));
@@ -116,7 +116,7 @@ function select($fields, $table, $conditions = ""){
     return $result;
 }
 
-/* ------------------------------------- CONNECTION ------------------------------------- */
+/* -------------------------------- CONNECTION -------------------------------- */
 
 function connect(){
     $connection = mysqli_connect("localhost", "root", "", "ohhmusic");    
