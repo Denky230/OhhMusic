@@ -91,22 +91,6 @@ require_once 'dmlFunctions.php';
                         ?>
                     </form>
                 </div>
-            </div>            
-            <div id="propertiesByCity">
-                <p>LOCALES BY PROVINCE:</p>
-                <div id="propertiesByCity_btns">
-                    <form action="fr_localesByCity.php" method="GET">
-                        <?php
-                        // Select every city which contains min 1 local
-                        $cities = select_fields("name", "city", "WHERE id_city IN (SELECT id_city FROM user WHERE user.type = 2 GROUP BY id_city)");
-                        while ($city = mysqli_fetch_assoc($cities)) {
-                            echo "<ol>
-                                <li><input type='submit' name='city' value='".strtoupper($city["name"])."'></li>
-                                </ol>";
-                        }
-                        ?>
-                    </form>
-                </div>
             </div>
         </aside>
     </body>

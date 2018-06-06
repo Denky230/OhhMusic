@@ -20,6 +20,7 @@ if (isset($_GET["concertState"])){
         if ($concertState === "proposed")
             $musiciansApplied = select("id_musician, u.name as name", "applyConcert a INNER JOIN user u ON a.id_musician = u.id_user", "WHERE id_concert = ".$concert["id_concert"]);
         else $musicianAssigned = select_value("artist_name", "concert c INNER JOIN musician m ON c.id_musician = m.id_musician", "WHERE id_concert = ".$concert["id_concert"]);
+        echo($concert["id_concert"]);
         /* CONCERT BOX */
         echo "
             <div class='concert_box'>";

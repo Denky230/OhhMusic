@@ -15,7 +15,6 @@
 }
 
 #musiciansByGenre,
-#propertiesByCity,
 #mostVotedMusicians {
     position: relative;
     left: 50%;
@@ -24,18 +23,15 @@
     margin-top: 10%;    
 }
 #musiciansByGenre li,
-#propertiesByCity li,
 #mostVotedMusicians li {
     margin-top: 25px;
 }
 #musiciansByGenre_btns,
-#propertiesByCity_btns,
 #mostVotedMusicians_btns {
     height: 250px;
     overflow-y: auto;
 }
-#musiciansByGenre input[type=submit], 
-#propertiesByCity input[type=submit],
+#musiciansByGenre input[type=submit],
 #mostVotedMusicians input[type=submit] {
     position: absolute;
 
