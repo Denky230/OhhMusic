@@ -82,15 +82,14 @@ body {
     display: flex;
 }
 .list_item #concert_img {
-    height: 60%;
+    height: 100%;
     width: 20%;
-
-    padding: 2%;
 }
 
 .list_item #concert_info{
     flex-direction: row;
     height: 100%;
+    width: 100%;
     justify-content: flex-start;
     align-items: center;
 }
