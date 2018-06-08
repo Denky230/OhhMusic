@@ -34,7 +34,7 @@ if (isset($_POST["signup_submit"])) {
     // UPDATE USER PASSWORD
     update("user", "pass", "'".password_hash($_POST["newPass"], PASSWORD_DEFAULT)."'", "WHERE id_user = ".$_SESSION["id_user"]);
 }
-/* ------------- TEST ------------- */
+/* ------------- TEST ------------- 
 if (isset($_POST["quickAdd"])) {
     for ($i = 0; $i < $_POST["quickAdd"]; $i++) {
         switch ($_POST["qa_usertype"]) {
@@ -102,11 +102,11 @@ foreach ($_GET as $key => $value){
                 // Check if there's a user logged in
                 if (isset($_SESSION["type"])){
                     // $_GET["close"] --> destroy session // $_GET["user"] --> user page
-                    echo "<a href='index.php?close'>CLOSE SESSION</a>&nbsp/
-                          <a href='index.php?profile'>MY PROFILE</a>&nbsp/
-                          <a href='index.php?user'>MY PAGE</a>";
+                    echo "<a href='index.php?close'>CERRAR SESIÓN</a>&nbsp/
+                          <a href='index.php?profile'>PERFIL</a>&nbsp/
+                          <a href='index.php?user'>MI PÁGINA</a>";
                 } else {
-                    echo "<div id='login_btn'>LOG IN</div> / <div id='signup_btn'>SIGN UP</div>";
+                    echo "<div id='login_btn'>LOG IN</div> / <div id='signup_btn'>REGISTRO</div>";
                 }
                 ?>
             </div>
@@ -119,7 +119,7 @@ foreach ($_GET as $key => $value){
         <!-- LEFT FRAME -->
         <aside id="frame_left">
             <div id="groupBanner_left"><iframe id="main" src="slider.php"></iframe></div>
-            <div id="adBanner_left">ad here</div>
+            <div id="adBanner_left"></div>
         </aside>
         <!-- SITE BODY (iFRAME) -->
         <?php

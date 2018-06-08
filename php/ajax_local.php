@@ -51,7 +51,7 @@ if (isset($_GET["concertState"])){
                                 echo "</select>";
                             }
                         } else {
-                            echo "<h2>Musicaso: $musicianAssigned</h2>";
+                            echo "<h2>Musico/a: $musicianAssigned</h2>";
                         }
                 echo "</div>
                 </div>                

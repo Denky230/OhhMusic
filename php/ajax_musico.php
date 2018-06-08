@@ -45,13 +45,13 @@ if (isset($_GET["concertState"])){
                   <img id='concert_img' src='../media/random.jpg'>
                   <div id='concert_info'>
                     <div class='concert_info_title'>
-                      <img src='../media/icons8-cabaña-filled-50.png'>
+                      <img src='../media/cabana.png'>
                       <span>".$concert["localName"]."</span>
                       <img src='../media/icons8-marker-filled-50.png'>
                       <span>".$concert["cityName"]."</span>
                     </div>
                     <div class='concert_info_title'>
-                    <img src='../media/icons8-smartphone-con-pantalla-táctil-26.png'>
+                    <img src='../media/phone.png'>
                       <span>".$concert["localPhone"]."</span>
                     <img src='../media/icons8-calendar-64.png'>
                       <span>".$concert["fecha"]."</span></div>";

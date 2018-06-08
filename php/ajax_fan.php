@@ -23,15 +23,15 @@ switch (key($_GET)) {
                             <img id='concert_img' src='../media/random.jpg'>
                             <div id='concert_info'>
                                 <div class='concert_info_title'>
-                                    <img src='../media/icons8-micrófono-2-filled-50.png'>
+                                    <img src='../media/microfono.png'>
                                     <span>".$concert['artist_name']."</span>
-                                    <img src='../media/icons8-cabaña-filled-50.png'>
+                                    <img src='../media/cabana.png'>
                                     <span>".$concert['localName']."</span>
                                 </div>
                                 <div class='concert_info_title'>
                                     <img src='../media/icons8-marker-filled-50.png'>
                                     <span>".$concert['province']."</span>
-                                    <img src='../media/icons8-smartphone-con-pantalla-táctil-26.png'>
+                                    <img src='../media/phone.png'>
                                     <span>".$concert['phone']."</span>
                                 </div>
                                 <div class='concert_info_title'>

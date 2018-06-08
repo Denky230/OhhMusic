@@ -38,15 +38,16 @@ switch (key($_GET)) {
                         <div id='nonUserSpecFields'></div>
                     </div>
                     <input type='submit' name='signup_submit' id='signup_submit' value='Sign up'>
-                </form>";
-	        // TEST
-	        echo "
-                <form method='POST'>
-                    <input type='number' name='quickAdd' id='quickAdd' placeholder='Quick Add (TESTING)'>
-                    <input type='hidden' name='qa_usertype' id='qa_usertype'>
-                    <input type='submit' value='ADD' id='quickAdd' onclick='getUserType()'>
                 </form>
             </div>";
+	        // TEST
+	        // echo "
+         //        <form method='POST'>
+         //            <input type='number' name='quickAdd' id='quickAdd' placeholder='Quick Add (TESTING)'>
+         //            <input type='hidden' name='qa_usertype' id='qa_usertype'>
+         //            <input type='submit' value='ADD' id='quickAdd' onclick='getUserType()'>
+         //        </form>
+            // </div>";
 		break;
     case 'edit_pass':
         echo "
