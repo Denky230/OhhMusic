@@ -31,6 +31,9 @@
     height: 250px;
     overflow-y: auto;
 }
+#mostVotedMusicians_btns {
+    height: 800px;
+}
 #musiciansByGenre input[type=submit],
 #mostVotedMusicians input[type=submit] {
     position: absolute;

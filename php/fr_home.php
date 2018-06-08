@@ -82,7 +82,7 @@ require_once 'dmlFunctions.php';
                                 "musician m INNER JOIN voteMusician v ON m.id_musician = v.id_musician",
                                 "GROUP BY v.id_musician 
                                 ORDER BY total DESC, artist_name ASC
-                                LIMIT 5");
+                                LIMIT 10");
                             while ($top = mysqli_fetch_assoc($tops)) {
                                 echo "<ol>
                                     <li><input type='submit' name='musician' value='".strtoupper($top["artist_name"])."'></li>

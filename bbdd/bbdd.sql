@@ -2,8 +2,7 @@ create database ohhmusic;
 use ohhmusic;
 
 create table city(
-id_city int not null primary key auto_increment,
-id bigint(11),
+id_city int not null primary key,
 name varchar(255) not null,
 community varchar(255)
 );
@@ -105,7 +104,7 @@ insert into genre (name) values
 	('Dance')
 ;
 
-INSERT INTO `city` (`id`, `community`, `name`) VALUES
+insert into `city` (`id_city`, `community`, `name`) values
 (1, 'Álava', 'Alegría-Dulantzi'),
 (2, 'Álava', 'Amurrio'),
 (3, 'Álava', 'Añana'),
