@@ -13,14 +13,12 @@ if (isset($_GET["concertState"])){
         case 'accepted':
             $concerts = select("*", "concert c INNER JOIN genre g ON c.id_genre = g.id_genre", "WHERE state = 1 AND id_local = ".$_SESSION["id_user"]);
             break;
-        default:        
+        default:
     }
-
     while ($concert = mysqli_fetch_assoc($concerts)){
         if ($concertState === "proposed")
             $musiciansApplied = select("id_musician, u.name as name", "applyConcert a INNER JOIN user u ON a.id_musician = u.id_user", "WHERE id_concert = ".$concert["id_concert"]);
         else $musicianAssigned = select_value("artist_name", "concert c INNER JOIN musician m ON c.id_musician = m.id_musician", "WHERE id_concert = ".$concert["id_concert"]);
-        echo($concert["id_concert"]);
         /* CONCERT BOX */
         echo "
             <div class='concert_box'>";

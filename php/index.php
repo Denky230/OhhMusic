@@ -112,7 +112,7 @@ foreach ($_GET as $key => $value){
             </div>
             <img id="search_icon" src="../media/search.png">
             <form method="GET">
-                <input id="search_bar" type="text" name="search" placeholder="Busca grupos, conciertos, locales..." required>
+                <input id="search_bar" type="text" name="search" placeholder="Busca grupos, ciudades, locales..." required>
                 <div id="display"></div>
             </form>
         </header>

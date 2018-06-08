@@ -1,7 +1,7 @@
 <?php
 require_once 'dmlFunctions.php';
 
-$rowsPerPage = 3;
+$rowsPerPage = 5;
 $currPage = (isset($_GET["currPage"]) ? $_GET["currPage"] : 1);
 
 $genre = $_GET["genre"];
