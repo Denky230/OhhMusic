@@ -232,3 +232,21 @@ a {
         margin-right: 20px;
     }
 }
+
+@media (max-width: 720px) { 
+    #langs {
+        display: none;
+    }
+    #title {
+        left: 25px;
+        transform: translate(0, -50%);
+    }
+
+    #frame_left {
+        display: none;
+    }
+    #main {
+        width: 116%;
+        margin-left: -16%;        
+    }
+}

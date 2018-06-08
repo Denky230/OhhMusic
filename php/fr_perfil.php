@@ -61,7 +61,7 @@ if (isset($_POST["edit"])) {
                         <div id='fieldTitle'>E-mail:</div>
                         <input type="email" name="email" value="<?php echo $user['email']; ?>">
 
-                        <div id='fieldTitle'>CCAA:</div>
+                        <div id='fieldTitle'>Provincia:</div>
                         <select name="community" id="community_select" onchange="updateCities()">
                             <?php
                             $myCommunity = select_value("community", "city", "WHERE id_city = '".$user["city"]."'");
@@ -73,7 +73,7 @@ if (isset($_POST["edit"])) {
                             }
                             ?>
                         </select>
-                        <div id="fieldTitle">Provincia:</div>
+                        <div id="fieldTitle">Ciudad:</div>
                         <div id="citySelect"></div>
                     </div>
                     <div id="profile_specific_info">

@@ -14,19 +14,24 @@ $music = select("m.artist_name as 'Artista'", "musician m inner join voteMusicia
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/frame.css">
+    <style>
+        html {
+            font-size: 30px;
+        }
+    </style>
 </head>
 <body>
 <div id="main">
     <div id="frameTitle"><h2><?php echo $musician ?></h2></div>
-    <table>
+    <table cellspacing="20px">
         <?php
         // Header
         $music = select("*, count(v.id_musician) as 'total'",
             "musician m inner join voteMusician v on m.id_musician = v.id_musician inner join genre g on m.id_genre = g.id_genre",
             "WHERE v.id_musician = (select id_musician from musician where artist_name = '$musician')");
-        while ($m = mysqli_fetch_assoc($music)){
+        while ($m = mysqli_fetch_assoc($music)) {
             echo "<tr>
-                        <td><b>Gender: </b></td>
+                        <td><b>Genre: </b></td>
                         <td>".$m["name"]."</td>
                   </tr>
                   <tr>
@@ -36,7 +41,7 @@ $music = select("m.artist_name as 'Artista'", "musician m inner join voteMusicia
         }
         ?>
     </table><br>
-    <table width="20%">
+    <table width="50%">
         <tr>
             <td><b>Next Concerts: </b></td>
             <td><b>At: </b></td>
