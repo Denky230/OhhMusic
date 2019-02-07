@@ -10,23 +10,4 @@ var search_bar = document.getElementById('search_bar');
             search_bar.focus();
         }    
     });
-
-//     $("#search_bar").keyup(function () {
-//         var name = $('#search_bar').val();
-//         if(name == ""){
-//             $("#display").html("");
-//         }else{
-//             $.ajax({
-//                 type: "POST",
-//                 url: "ajax_search.php",
-//                 data: {
-//                     search: name
-//                 },
-//                 success: function (html) {
-//                     $("#display").html(html).show();
-//                 }
-//             });
-//         }
-//     });
-
 });
